@@ -1,0 +1,129 @@
+﻿@model EXP.Services.Models.EditLotModel
+
+@{
+    ViewBag.Title = "EditLot";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>EditLot</h2>
+
+@using (Html.BeginForm("EditLot", "Admin", FormMethod.Post, new { @id = "editLotForm" }))
+{
+    <fieldset>
+        <legend></legend>
+        @Html.HiddenFor(model => model.Lot.LotID)
+        @Html.HiddenFor(model => model.BuildingIDString)
+        @Html.HiddenFor(model => model.Lot.AddressID)
+        @Html.HiddenFor(model => model.Lot.MailingAddressID)
+        @Html.HiddenFor(model => model.LotAddress.AddressID)
+        @Html.HiddenFor(model => model.MailingAddress.AddressID)
+        @Html.HiddenFor(model => model.Lot.IsBuilding)
+        <ul class="left">
+            <li id="buildingArea" class="odd" style="height:auto;">
+                <label>Building Name:</label>
+                <label class="error" for="buildingId0" generated="true"></label>
+                @Html.DropDownList("buildingId0", Model.Buildings, "Select Building Name", new { @class="buildings" })   
+                <a id="add_building" class="btn btn-primary" href="#">Add</a>
+            </li>
+            <li class="even">
+                <label>Parking Operator:</label>
+                <label class="error" for="Lot_ParkingOperatorID" generated="true"></label>
+                @Html.DropDownListFor(model => model.Lot.ParkingOperatorID, Model.Operators, "Select Parking Operator")
+                <a class="btn btn-primary" href="#">Add</a>
+            </li>
+            <li class="odd">
+                <label>Parking Manager:</label>
+                <label class="error" for="Lot_ParkingManagerID" generated="true"></label>
+                @Html.DropDownListFor(model => model.Lot.ParkingManagerID, Model.Managers, "Select Parking Manager")
+            </li>
+            <li class="even">
+                <label>Status:</label>
+                @Html.DropDownListFor(model => model.Lot.IsActive, new List<SelectListItem>() { new SelectListItem() { Text = "Active", Value = "True" }, new SelectListItem() { Text = "Not active", Value = "False" } })
+            </li>
+            <li class="odd">
+                <label>Lot Name:</label>
+                @Html.EditorFor(model => model.Lot.LotName)
+            </li>
+            <li class="use_li">
+                 @Html.CheckBoxFor(model => model.iSBuilding)<label class="use_lbl">Use Building's Address as Lot Address</label>
+            </li>
+        </ul>
+        <ul id="addressList" class="left">
+            <li class="odd tborder">
+                <label>Lot Address:</label>
+                @Html.EditorFor(model => model.LotAddress.Address1)
+            </li>
+            <li class="even">
+                <label>Address cont.:</label>
+                @Html.EditorFor(model => model.LotAddress.Address2)
+            </li>
+            <li class="odd">
+                <label>City:</label>
+                @Html.EditorFor(model => model.LotAddress.City)
+            </li>
+            <li class="even">
+                <label>State:</label>
+                <label class="error" for="LotAddress_StateID" generated="true"></label>
+               @Html.DropDownListFor(model => model.LotAddress.StateID, Model.States, "Select State")
+            </li>
+            <li class="odd">
+                <label>Zip Code:</label>
+                @Html.EditorFor(model => model.LotAddress.ZipCode)
+            </li>
+            <li class="even">
+                <label>Main Phone:</label>
+                @Html.EditorFor(model => model.Lot.PhoneNumber)
+            </li>
+            <li class="odd">
+                <label>Main Fax:</label>
+                @Html.EditorFor(model => model.Lot.FaxNumber)
+            </li>
+            <li class="use_li">
+                 @Html.CheckBoxFor(model => model.iSLot)<label class="use_lbl">Use Lot Address as Mailing Address</label>
+            </li>
+        </ul>
+        <ul id="mailingList" class="left">
+            <li class="even tborder">
+                <label>Mailing Address:</label>
+                @Html.EditorFor(model => model.MailingAddress.Address1)
+            </li>
+            <li class="odd">
+                <label>Address cont.:</label>
+                @Html.EditorFor(model => model.MailingAddress.Address2)
+            </li>
+            <li class="even">
+                <label>City:</label>
+                @Html.EditorFor(model => model.MailingAddress.City)
+            </li>
+            <li class="odd">
+                <label>State:</label>
+                <label class="error" for="MailingAddress_StateID" generated="true"></label>
+                @Html.DropDownListFor(model => model.MailingAddress.StateID, Model.States, "Select State")
+            </li>
+            <li class="even">
+                <label>Zip Code:</label>
+                @Html.EditorFor(model => model.MailingAddress.ZipCode)
+            </li>
+            <li class="odd">
+                <label>Main Phone:</label>
+                @Html.EditorFor(model => model.Lot.MailingPhoneNumber)
+            </li>
+            <li class="even">
+                <label>Main Fax:</label>
+                @Html.EditorFor(model => model.Lot.MailingFaxNumber)
+            </li>
+            <li class="odd comments">
+                <label>Comments:</label>
+                @Html.TextAreaFor(model => model.Lot.Comments, new { @class = "comments" })
+            </li>
+        </ul>
+        <div class="save">
+            <input type="submit" value="Save" name="save" class="btn btn-primary" />
+        </div>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    window.onload = OnEditLot;
+</script>
+

@@ -1,0 +1,43 @@
+<!-- vehicle info  -->
+<div id="vehicle-info" class="pop-up">
+    <div class="title-bar">
+        <a class="close" title="close" href="/"></a>
+        <h3>Vehicle Information</h3>
+    </div>
+    <div class="content">
+        <form id="vehicleInfoForm" method="post" action="#">
+        <ul style="width: 256px; float: left;">
+            <li>
+                <label for="make">Vehicle Make</label>
+                <select name="vehicle_make">
+                </select>
+            </li>
+            <li>
+                <label for="color">Vehicle Color</label>
+                <input type="text" name="color" />
+            </li>
+            <li>
+                <label for="lnum">License Number</label>
+                <input type="text" name="lnum" />
+            </li>
+        </ul>
+        <ul style="width: 256px; float: right;">
+            <li>
+                <label for="vehicle_model">Vehicle Model</label>
+                <select name="vehicle_model">
+                </select>
+            </li>
+            <li>
+                <label for="vehicle_year">Vehicle Year</label>
+                <select name="vehicle_year">
+                 </select>
+            </li>
+            <li>
+                <label for="pnum">Permit Number</label>
+                <input type="text" name="pnum" />
+            </li>
+        </ul>
+        <input style="clear: both;" class="button" type="submit" name="submit" value="View Your Dashboard" />
+        </form>
+    </div>
+</div>

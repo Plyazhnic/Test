@@ -1,0 +1,71 @@
+﻿@model EXP.Services.Models.BuildingModel
+@{
+    ViewBag.Title = "Validation Books";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<script type="text/javascript">
+    var LotId = @ViewData["LotId"]
+    function GetLotId() {
+        return LotId;
+    }
+    window.onload = OnListKeyCards;
+</script>
+<h2>Key Cards Settings</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Create Key Card", "EditKeyCard", new {id = (int)ViewData["LotId"]}, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<fieldset>
+    <legend></legend>
+    <ul class="left" style="float: left">
+        <li class="odd comments" style="max-height: 25px">
+            <label>Building Name:</label>
+            @Html.Label(Model.BuildingName)
+        </li>
+        <li class="even tborder company_fields" style="height: 120px">
+            <table>
+                <tr>
+                    <td style="vertical-align:top">
+                        <label>Building Address:</label>
+                    </td>
+                    <td>
+                        @Html.Label(Model.BuildingAddress.Address1, new { style = "line-height:20px" })
+                        <br />
+                        @Html.Label(Model.BuildingAddress.Address2, new { style = "line-height:20px" })
+                        <br />
+                        @Html.Label(Model.BuildingAddress.City, new { style = "line-height:20px" })
+                        <br />
+                        @Html.Label(Model.BuildingAddress.ZipCode, new { style = "line-height:20px" })
+                        <br />
+                        @Html.Label(Model.BuildingAddress.State.StateName, new { style = "line-height:20px" })
+                    </td>
+                </tr>
+            </table>
+        </li>
+    </ul>
+</fieldset>
+<br />
+<br />
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="KeyCardsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Key Card Name</th>
+                    <th>Rate</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+    </div>
+</div>

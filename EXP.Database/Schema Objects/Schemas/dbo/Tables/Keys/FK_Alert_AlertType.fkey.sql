@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Alert]
+    ADD CONSTRAINT [FK_ALert_AlertType] FOREIGN KEY ([AlertTypeID]) REFERENCES [dbo].[AlertType] ([AlertTypeID]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

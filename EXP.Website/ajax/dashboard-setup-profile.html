@@ -1,0 +1,87 @@
+
+<script>   
+//Custom Check boxes and radio buttons
+function setupLabel() {
+    if ($('.label_check input').length) {
+        $('.label_check').each(function(){ 
+            $(this).removeClass('c_on');
+        });
+        $('.label_check input:checked').each(function(){ 
+            $(this).parent('label').addClass('c_on');
+        });                
+    };
+    if ($('.label_radio input').length) {
+        $('.label_radio').each(function(){ 
+            $(this).removeClass('r_on');
+        });
+        $('.label_radio input:checked').each(function(){ 
+            $(this).parent('label').addClass('r_on');
+        });
+    };
+};
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+		  	event.preventDefault(); 
+		});
+		$("select").selectbox();				
+	});		    
+	</script> 
+	
+		<!-- dashboard setup  -->
+		<div id="dashboard-setup-profile" class="dashboard-setup pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-profile-tenant.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Profile Information
+				</h2>
+				<form id="profile" method="post" action="#">
+					<ul>
+						<li>
+						<label for="type">Profile Type</label>
+						<select name="profile_type">
+							<option value="">Select My Profile Type</option>
+						</select>
+						</li>
+						<li id="select_parking">
+						<label for="parking_type">Parking Lot/Building</label>
+						<select name="parking_type">
+							<option value="">Select My Parking Lot/Building</option>
+						</select>
+						</li>
+						<li id="select_tenant">
+						<label for="type">Tenant Employer</label>
+						<select name="tenant_empl">
+							<option value="">Select My Tenant Employer</option>
+						</select>
+						</li>
+					</ul>
+					<div style="clear:both;">
+						<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div>
+						<div class="buttons"><input class="button" type="submit" name="cancel" value="Cancel" /></div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+		
+	

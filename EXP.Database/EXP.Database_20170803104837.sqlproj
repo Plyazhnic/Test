@@ -1,0 +1,822 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <PostConversionRemoveFromScc>
+    </PostConversionRemoveFromScc>
+    <PostConversionAddToScc>
+    </PostConversionAddToScc>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <PermissionSet>SAFE</PermissionSet>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Name>EXP.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.0</ProjectVersion>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql100DatabaseSchemaProvider</DSP>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <ShowWizard>True</ShowWizard>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <IncludeSchemaNameInFileName>False</IncludeSchemaNameInFileName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <LoadSqlClrTypes>True</LoadSqlClrTypes>
+    <RootNamespace>EXP.Database</RootNamespace>
+    <DefaultSchema>dbo</DefaultSchema>
+    <PreviousProjectVersion>4.0</PreviousProjectVersion>
+    <ValidateCasingOnIdentifiers>False</ValidateCasingOnIdentifiers>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{46829d39-c21f-4c1a-9ef2-5d67b8f5fc79}</ProjectGuid>
+    <GenerateDatabaseFile>False</GenerateDatabaseFile>
+    <GenerateCreateScript>False</GenerateCreateScript>
+    <SqlServerVerification>False</SqlServerVerification>
+    <TargetLanguage>CS</TargetLanguage>
+    <AllowSnapshotIsolation>False</AllowSnapshotIsolation>
+    <AnsiNullDefault>True</AnsiNullDefault>
+    <AnsiNulls>True</AnsiNulls>
+    <AnsiPadding>True</AnsiPadding>
+    <AnsiWarnings>True</AnsiWarnings>
+    <ArithAbort>True</ArithAbort>
+    <AutoClose>False</AutoClose>
+    <AutoCreateStatistics>True</AutoCreateStatistics>
+    <AutoShrink>False</AutoShrink>
+    <AutoUpdateStatistics>True</AutoUpdateStatistics>
+    <AutoUpdateStatisticsAsynchronously>False</AutoUpdateStatisticsAsynchronously>
+    <ChangeTrackingRetentionPeriod>2</ChangeTrackingRetentionPeriod>
+    <ChangeTrackingRetentionUnit>Days</ChangeTrackingRetentionUnit>
+    <CloseCursorOnCommitEnabled>False</CloseCursorOnCommitEnabled>
+    <ConcatNullYieldsNull>True</ConcatNullYieldsNull>
+    <DatabaseAccess>MULTI_USER</DatabaseAccess>
+    <DatabaseChaining>False</DatabaseChaining>
+    <DatabaseState>ONLINE</DatabaseState>
+    <DateCorrelationOptimizationOn>False</DateCorrelationOptimizationOn>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultCursor>LOCAL</DefaultCursor>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+    <EnableFullTextSearch>True</EnableFullTextSearch>
+    <IsBrokerPriorityHonored>False</IsBrokerPriorityHonored>
+    <IsChangeTrackingAutoCleanupOn>True</IsChangeTrackingAutoCleanupOn>
+    <IsChangeTrackingOn>False</IsChangeTrackingOn>
+    <IsEncryptionOn>False</IsEncryptionOn>
+    <NumericRoundAbort>False</NumericRoundAbort>
+    <PageVerify>NONE</PageVerify>
+    <Parameterization>SIMPLE</Parameterization>
+    <QuotedIdentifier>True</QuotedIdentifier>
+    <ReadCommittedSnapshot>False</ReadCommittedSnapshot>
+    <Recovery>FULL</Recovery>
+    <RecursiveTriggersEnabled>False</RecursiveTriggersEnabled>
+    <ServiceBrokerOption>DisableBroker</ServiceBrokerOption>
+    <SupplementalLoggingOn>False</SupplementalLoggingOn>
+    <TornPageDetection>False</TornPageDetection>
+    <Trustworthy>False</Trustworthy>
+    <UpdateOptions>READ_WRITE</UpdateOptions>
+    <VardecimalStorageFormatOn>True</VardecimalStorageFormatOn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>.\sql\release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>
+    </TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>.\sql\debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TargetDatabase>rgmsjill_expresspark</TargetDatabase>
+    <TreatTSqlWarningsAsErrors>False</TreatTSqlWarningsAsErrors>
+    <SuppressTSqlWarnings />
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <!--Import the settings-->
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Scripts" />
+    <Folder Include="Scripts\Pre-Deployment" />
+    <Folder Include="Scripts\Post-Deployment" />
+    <Folder Include="Schema Comparisons" />
+    <Folder Include="Properties\" />
+    <Folder Include="Schema Objects\" />
+    <Folder Include="Schema Objects\Schemas\" />
+    <Folder Include="Schema Objects\Schemas\dbo\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Service Broker\Queues\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\dbo\Views\Statistics\" />
+    <Folder Include="Schema Objects\Database Level Objects\" />
+    <Folder Include="Schema Objects\Database Level Objects\Assemblies\" />
+    <Folder Include="Schema Objects\Database Level Objects\Database Triggers\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Schemas\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Users\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Certificates\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Asymmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Master Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Signatures\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Symmetric Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Encryption Keys\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Database Audit Specification\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Application Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Security\Roles\Database Roles\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Broker Priorities\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Contracts\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Event Notifications\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Message Types\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Remote Service Binding\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Routes\" />
+    <Folder Include="Schema Objects\Database Level Objects\Service Broker\Services\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Stoplists\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Filegroups\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Files\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Full Text Catalogs\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Functions\" />
+    <Folder Include="Schema Objects\Database Level Objects\Storage\Partition Schemes\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Tables\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Views\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\SecurityGroup\Views\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Defaults\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Functions\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Rules\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Types\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Types\User Defined Data Types\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Types\User Defined Types CLR\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Types\User Defined Table Types\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Programmability\Types\XML Schema Collections\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Synonyms\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Tables\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Tables\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Tables\Keys\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Tables\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Tables\Statistics\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Views\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Views\Indexes\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Views\Triggers\" />
+    <Folder Include="Schema Objects\Schemas\UserProfile\Views\Statistics\" />
+    <Folder Include="Schema Objects\Data Generation Plans" />
+  </ItemGroup>
+  <ItemGroup>
+    <BuildContributorArgument Include="OutDir=$(OutDir)" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="Permissions.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_Building_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_Lot_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_ParkingStallType_CreateDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_ParkingStall_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Constraints\DF_SecurityRole_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_Company_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_UserProfileType_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_UserProfileStatus_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_UserProfile_CreateDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Constraints\DF_SecurityRolePermission_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_VehicleMake_CretaedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_Vehicle_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_ProfilePreferences_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_ParkingInventory_EffectiveFrom.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Constraints\DF_SecurityGroupMember_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_zState_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_VehicleModel_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_UserProfile_UserProfileStatus.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_UserProfile_UserProfileType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\FK_SecurityRolePermission_SecurityRole.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_Vehicle_UserProfile.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_Vehicle_VehicleMake.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_Vehicle_VehicleModel.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_ProfilePreferences_UserProfile.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ParkingInventory_Building.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ParkingInventory_Lot.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ParkingInventory_ParkingStall.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ParkingStall_ParkingStallType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ParkingInventory_Tenant.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ParkingInventory_UserProfile.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_BuildingToLots_Building.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_BuildingToLots_Lot.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_BuildingToCompanies_Company.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\FK_SecurityGroupMember_SecurityGroup.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\FK_SecurityGroupMember_SecurityRole.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Building.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Lot.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ParkingStallType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ParkingStall.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\PK_SecurityGroup.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\PK_SecurityRole.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Company.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_UserProfileType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_UserProfileStatus.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_UserProfile.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\PK_SecurityRolePermission.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_VehicleMake.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_Vehicle.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_ProfilePreferences.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ParkingInventory.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_BuildingToLots.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\Keys\PK_SecurityGroupMember.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_zState.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_VehicleModel.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Lot.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ParkingStallType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ParkingStall.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\SecurityGroup.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\SecurityRole.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Company.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\UserProfileType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\UserProfileStatus.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\UserProfile.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\SecurityRolePermission.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\VehicleMake.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Vehicle.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\UserProfilePreferences.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ParkingInventory.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BuildingToLots.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\SecurityGroup\Tables\SecurityGroupMember.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\zState.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\VehicleModel.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Building.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Service Broker\Routes\AutoCreatedLocal.route.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\SecurityGroup.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Database Level Objects\Security\Schemas\UserProfile.schema.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_CreateUser.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\UserProfileEncryptionType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_UserProfile_UserProfileEncryptionType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetUserNameByEmail.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetUser.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_UserProfileEncryptionType_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Functions\udf_TrimValue.function.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ActivateUser.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_UpdatePassword.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ListMakes.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_CreateVehicle.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetModel.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ListVehicles.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_RemoveVehicle.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_UpdateVehicle.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetVehicle.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_UpdateProfile.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ListModels.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetMake.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Alert.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\AlertType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_AlertType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Alert_AlertType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Alert_UserProfile.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Alert.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_UpdatePersonalAddress.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateAlert.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetActiveAlertsForUser.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeactivateAlert.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\EntityType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_EntityType_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_EntityType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Alert_EntityType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ActivateAlert.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetAlertForUserByEntity.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_VehicleModel_VehicleMake.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_SetStatus.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListTenants.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListLots.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ListUserProfileType.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Payment.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\CreditCard.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\OnlineCheck.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\OnlineCheckingType.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_OnlineCheckingType_CreateDate.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_OnlineCheck_CreateDate.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_CreditCard_CreateDate.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_Payment.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_OnlineCheck.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_OnlineCheckingType.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_CreditCard.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_OnlineCheck_OnlineCheckingType.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_Payment_OnlineCheck.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_Payment_CreditCard.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_CreatePaymentCreditCard.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_CreatePaymentOnlineCheck.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_Address_CreateDate.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Address.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_Address.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_Address_zState.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_UserProfile_Address.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_CreditCard_Address.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListStates.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_CreateAddress.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_UpdateAddress.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetAddress.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ListUsers.proc.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetUsersCount.proc.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetPaymentForUser.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_UpdateCreditCard.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_UpdateOnlineCheck.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_DeleteAddress.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListParkingStall.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetParkingInfoForLot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ParkingStall_Lot.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateParkingInventoryForCompany.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetLot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListBuildingsForPage.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuildingsCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListLotsForPage.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetLotsCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeleteBuilding.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeleteLot.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ListVehicleMakesForPage.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetVehicleMakesCount.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_DeleteVehicleMake.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetUserById.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Phone.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\PhoneType.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_PhoneType_CreateDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Phone.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_PhoneType.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Phone_PhoneType.fkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdatePhone.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_RemovePhoneForUser.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListPhoneTypes.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListPhonesForUser.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetPhonesForUser.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetPhone.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreatePhoneForUser.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_PhonesToProfiles.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_Phone_CreatedDate.defconst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_BuildingAddress_Address.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_BuildingMailingAddress_Address.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_BuildingOwner_UserProfile.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_BuildingManager_UserProfile.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetUsersByType.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuilding.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateBuilding.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateBuilding.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListBuildings.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateLot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateLot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_AddBuildingToCompany.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetPhoneForUserByType.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Company_Address.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\PhonesToProfiles.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_PhonesToProfiles_CreatedDate.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_PhonesToProfiles_Phone.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_PhonesToProfiles_UserProfile.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateCompany.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateCompany.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Company_Manager.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetCompany.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateCompanyManager.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateCompanyEmployee.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Company_Employee.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateCompanyEmails.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuildingLotsCount.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListBuildingLotsForPage.proc.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Constraints\DF_UserProfileToCompany_CreatedDate.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\PK_UserProfileToCompany.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_UserProfileToCompany_UserProfile.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\Keys\FK_UserProfileToCompany_Company.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Tables\UserProfileToCompany.table.sql" />
+    <Build Include="Scripts\Post-Deployment\InstallSqlStateModified.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListParkingStallTypes.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetParkingStall.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateParkingStall.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateParkingStall.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListParkingStallByType.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListAllocatedParkingStallForPage.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListMontlyParkingStallForPage.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\CompanyToProfiles.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_CompanyToProfiles.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_CompanyToProfiles_Company.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_CompanyToProfiles_UserProfile.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetMontlyParkingStallsCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListVisitorParkingStallForPage.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetVisitorParkingStallsCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetAllocatedParkingStallsCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetAllocatedStall.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeleteParkingStall.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetBuildingAddressByLot.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetVehicles.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_SearchSessionId.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetVehicleModelsCount.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_CreateVehicleMake.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Lease.table.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_Lease_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_Lease.pkey.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Lease_Company.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Lease_Building.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Company_WorkPhone.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_Company_Fax.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreatePhone.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_AddUserToCompany.proc.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetVehicleModelById.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ChangeVehicleModel.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_CreateVehicleModel.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\Usp_ChangeVehicleMake.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetVehicleMakeById.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_ListVehicleModelsForPage.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetCompanyForUser.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\ValidationBooks.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListValidationBooks.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetValidationBooksCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_ValidationBook.pkey.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_ValidationBook_Lot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_ValidationBook_CreatedDate.defconst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuildingAddressByLotID.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\KeyCards.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_KeyCards.pkey.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\FK_KeyCard_Lot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_KeyCard_CreatedDate.defconst.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListKeyCards.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetKeyCardsCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetValidationBookById.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateValidationBook.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateValidationBook.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateLease.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeleteValidationBook.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateKeyCard.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateKeyCard.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetKeyCardById.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeleteKeyCard.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetEmployeesForPage.sql" />
+    <Build Include="Schema Objects\Schemas\UserProfile\Programmability\Stored Procedures\usp_GetEmployeesCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetTenantLease.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListBuildingCompanies.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateLease.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_SearchLot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetLease.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetParkingInventoryForCompany.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetParkingInventoryByID.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListBuildingsForDashboard.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateParkingInventory.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateParkingInventory.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeleteParkingInventory.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateBuildingForAddress.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_UpdateBuildingForAddress.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListLotsForBuilding.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuildingForCompany.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuildingWithAddress.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_StateNameById.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_BuildingToLots_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\BuildingToCompanies.table.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Constraints\DF_BuildingToCompanies_CreatedDate.defconst.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Keys\PK_BuildingToCompanies.pkey.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_AddBuildingToLot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetTenantsCount.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListTenantsForPage.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_DeleteBuildingToLotEntry.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetAllPhonesForUser.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_ListBuildingToLot.proc.sql">
+      <SubType>Code</SubType>
+    </Build>
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuildingToLot.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetBuildingForLot.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Scripts\Post-Deployment\data_preload_10082012.sql">
+      <SubType>NotInBuild</SubType>
+    </None>
+    <Build Include="Schema Objects\Schemas\dbo\Tables\Email.table.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_CreateEmail.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_GetNextEmail.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_SetEmailSent.proc.sql" />
+    <Build Include="Schema Objects\Schemas\dbo\Programmability\Stored Procedures\usp_SearchBuildings.proc.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Debug.publish.xml" />
+    <None Include="Release.publish.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PreDeploy Include="Scripts\Pre-Deployment\Script.PreDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <PostDeploy Include="Scripts\Post-Deployment\Script.PostDeployment.sql" />
+  </ItemGroup>
+  <ItemGroup>
+    <RefactorLog Include="EXP.Database.refactorlog" />
+  </ItemGroup>
+</Project>

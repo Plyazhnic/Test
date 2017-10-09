@@ -1,0 +1,139 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+
+        //$('.close').click(function(event){
+        //   	$('#overlay').hide();
+        //   	$(this).parents('.pop-up').hide();
+        //	$('#login').show();
+        //  	event.preventDefault(); 
+        //});
+        $("select").selectbox();
+    });
+</script>
+
+<!-- begin dashboard setup parking3 -->
+<div id="dashboard-setup-parking3-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-parking-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2 style="padding-bottom:10px;">
+		Parking Lot Information
+		</h2>
+		<p style="padding:0 0 10px 0; margin-top:0; color:#222; font-size:15px;">UNRESERVED Monthly Parking Stalls</p>
+		<form id="dashboard-setup-parking3-owner-form" method="post" action="#">
+		<ul class="left">	
+			<li>
+				<label for="number_unreserved_stalls">Number of Unreserved Parking Stalls</label>
+				<input type="text" name="number_unreserved_stalls"/>							
+			</li>	
+			<li>
+				<label for="unreserved_stall_location">Unreserved Stall Location</label>
+				<input type="text" class="required" name="unreserved_stall_location"/>	
+				<a class="add" href="#">Add Unreserved Stall Location</a>						
+			</li>	
+			<li>
+				<label style="width:473px;">Would you like to oversell the amount of spaces?</label><br/>
+				<label id="yes_label" class="label_radio" for="oversell_yes"><input id="oversell_yes" type="radio" name="oversell" value="yes" />Yes</label> 	
+				<label style="float:left;" id="no_label" class="label_radio" for="oversell_no"><input id="oversell_no" type="radio" name="oversell" value="no" />No</label>
+			</li>							
+		</ul>
+		<ul class="right">	
+			<li>
+				<label for="unreserved_parking_rate">Unreserved Parking Rate</label>
+				<input type="text" class="required" name="unreserved_parking_rate"/>							
+			</li>
+			<li name="oversellPanel" style="display: none;">
+                <label  for="unreserved_parking_oversell">How much would you like to oversell?</label>
+                <input type="text" name="unreserved_parking_oversell" value=""/>
+			</li>
+		</ul>
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- end -->
+		
+<!-- begin dashboard setup parking4 -->
+<div id="dashboard-setup-parking4-owner" class="dashboard-setup-owner pop-up" style="display: none">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-parking-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2 style="padding-bottom:10px;">Parking Lot Information</h2>
+		<p style="padding:0 0 10px 0; margin-top:0; color:#222; font-size:15px;">UNRESERVED Monthly Parking Stalls</p>
+		<form method="post" action="#">
+		<ul class="left">	
+			<li>
+				<label for="number_unreserved_stalls">Number of Unreserved Parking Stalls</label>
+				<input type="text" class="required" name="number_unreserved_stalls"/>							
+			</li>	
+			<li>
+				<label for="unreserved_stall_location">Unreserved Stall Location</label>
+				<input type="text" class="required" name="unreserved_stall_location"/>	
+				<a class="add" href="#">Add Unreserved Stall Location</a>						
+			</li>	
+			<li>
+				<label style="width:473px;">Would you like to oversell the amount of spaces?</label><br/>
+				<label id="Label1" class="label_radio" for="oversell_yes"><input id="Radio1" type="radio" name="oversell" value="yes" />Yes</label> 	
+				<label style="float:left;" id="Label2" class="label_radio" for="oversell_no"><input id="Radio2" type="radio" name="oversell" value="no" />No</label>
+			</li>	
+			<li>
+				<label style="padding-top:20px;" for="oversell_amount">Number of Unreserved Parking Stalls</label>
+				<input type="text" class="required" name="oversell_amount"/>							
+			</li>							
+		</ul>
+		<ul class="right">	
+			<li>
+				<label  for="unreserved_parking_rate">How much would you like to oversell?</label>
+				<input type="text" class="" name="unreserved_parking_rate" value=""/>							
+			</li>	
+		</ul>
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- end -->

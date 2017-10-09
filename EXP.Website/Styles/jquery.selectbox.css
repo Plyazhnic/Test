@@ -1,0 +1,147 @@
+@CHARSET "UTF-8";
+
+.jquery-selectbox {
+	width:243px;
+	height:32px;
+	line-height:32px;
+	font-size:14px;
+	padding: 0 0 0 5px;
+	position: relative;	
+	border: 1px solid #848484;
+	color: #2e2e2e;
+	z-index: 0;
+	float: left;
+	display: inline;
+	margin-bottom:18px;
+}
+
+.jquery-selectbox.selecthover {
+	z-index: 700;
+}
+
+.jquery-selectbox .jquery-selectbox-currentItem {
+    font-size:14px !important;
+	padding: 0 0px 0px 0;
+	white-space: nowrap;
+	display: block;
+	overflow: hidden;
+}
+
+#purchase_body  .jquery-selectbox .jquery-selectbox-list {
+	display: none;
+	position: absolute;
+	top: 20px;
+	padding: 2px 0 0 0;
+	left: -1px;
+	color: #2e2e2e;
+	width: 256px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 7000;
+	border: 1px solid #848484;
+	background-color:#fff;
+}
+
+#purchase_body .jquery-selectbox-item{
+	border-bottom:1px solid #ccc;
+}
+
+.jquery-selectbox .jquery-selectbox-list {
+	display: none;
+	position: absolute;
+	top: 32px;
+	padding: 2px 0 0 0;
+	left: -1px;
+	color: #2e2e2e;
+	width: 256px;
+	height: 120px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 1000;
+	border: 1px solid #848484;
+	background-color:#fff;
+}
+#purchase_body .jquery-selectbox {
+	width:37px !important;
+	height:20px;
+	line-height:21px;
+	font-size:13px;
+	padding: 0 0 0 8px;
+	position: relative;
+	border: 1px solid #848484;
+	color: #2e2e2e;
+	z-index: 990;
+	float: left;
+	display: inline;
+	margin-bottom:0px;
+}
+
+#purchase_body .jquery-selectbox .jquery-selectbox-moreButton {
+	float: right;
+	background: url("../images/dash-lay-selectMoreButton.gif");
+	width: 20px;
+	height: 20px;
+	cursor: pointer;
+	background-position: 0 -0 ;
+}
+
+#phone .jquery-selectbox .jquery-selectbox-list {
+	display: none;
+	position: absolute;
+	top: 32px;
+	padding: 2px 0 0 0;
+	left: -1px;
+	color: #2e2e2e;
+	width: 64px;
+	height: 120px;
+	overflow-x: hidden;
+	overflow-y: auto;
+	z-index: 1000;
+	border: 1px solid #848484;
+}
+
+#phone .jquery-selectbox .jquery-selectbox-moreButton {
+	float: right;
+	background: url("../images/lay-selectMoreButton.gif");
+	width: 19px;
+	height: 32px;
+	cursor: pointer;
+	background-position: -9px 0;
+}
+
+#address .jquery-selectbox{	
+	margin-bottom:0px;		
+}
+
+#credit_card_billing .jquery-selectbox {	
+	margin-right:7px;		
+}
+
+.jquery-selectbox .jquery-selectbox-moreButton {
+	float: right;
+	background: url("../images/lay-selectMoreButton.gif");
+	background-position: -0 0;
+	width: 32px;
+	height: 32px;
+	cursor: pointer;
+}
+
+.jquery-selectbox .jquery-selectbox-item.listelementhover {
+	background: #eee;	
+}
+
+.jquery-selectbox .jquery-selectbox-item {
+    font-size:14px !important;
+	display: block;
+	cursor: default;
+	background: #fff;
+	padding: 0 0 0 5px;
+	color: #2e2e2e;
+}
+
+/** ERROR classes **/
+form .error .jquery-selectbox {
+	color: #d00;
+	border-color: #d00;
+	background-image: url("../img/bg-TextFieldError.gif");
+}

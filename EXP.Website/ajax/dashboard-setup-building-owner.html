@@ -1,0 +1,86 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+
+        //$('.close').click(function(event){
+        //   	$('#overlay').hide();
+        //   	$(this).parents('.pop-up').hide();
+        //	$('#login').show();
+        //  	event.preventDefault(); 
+        //});
+        $("select").selectbox();
+    });
+</script> 
+
+<!-- begin dashboard setup building -->
+<div id="dashboard-setup-building-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-building-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2>Building Information</h2>
+		<form id="dashboard-setup-building-owner-form" method="post" action="#">
+		<ul class="left">					
+			<li>
+				<label for="building_name">Building Name <span style="font-size:10px;font-weight:normal;">(Optional: Nickname)</span></label>
+				<input type="text" class="required" name="building_name" tabindex="1"/>							
+			</li>	
+			<li>
+				<label for="city">City</label>
+				<input type="text"  name="city" tabindex="5"/>							
+			</li>									
+		</ul>
+		<ul class="right">						
+			<li>
+				<label for="building_address">Building Address</label>
+				<input type="text" class="required" name="building_address" tabindex="2"/>							
+			</li>					
+			<li>
+				<label style="width:102px;"id="state_label" for="state">State</label>
+				<label  style="width:162px !important;" id="zip_label" for="zip">Zip Code</label>
+				<select id="state"  name="state" tabindex="4">
+					<option value=""></option>							
+				</select>							
+				<input style="margin-left: 7px; width:180px !important; float:right;" id="zip" type="text" class="required" name="zip" tabindex="4"/>							
+			</li>
+		</ul>	
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div>
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+		</form>				
+	</div>
+</div>
+<!-- end -->

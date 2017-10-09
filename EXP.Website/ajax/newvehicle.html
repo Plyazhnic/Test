@@ -1,0 +1,50 @@
+<!-- New Vehicle -->
+<div id="vehicle" class="pop-up new_vehicle">
+    <a class="close" title="close" href="dashboard.html"></a>
+    <div class="title-bar">
+        <h3>
+            New Vehicle</h3>
+    </div>
+    <div class="content">
+        <p>
+            Provide your vehicle information below and then click Save to save it to your profile.</p>
+        <form id="newVehicleForm" method="post" action="#">
+        <ul class="left">
+            <li>
+                <label for="vehicle_make">Vehicle Make</label>
+                <select name="vehicle_make">
+                </select>
+            </li>
+            <li>
+                <label for="vehicle_model">Vehicle Model</label>
+                <select name="vehicle_model">
+                </select>
+            </li>
+            <li>
+                <label for="vehicle_year">Vehicle Year</label>
+                <select name="vehicle_year">
+                </select>
+            </li>
+        </ul>
+        <ul class="right">
+            <li>
+                <label for="license_number">License Number</label>
+                <input type="text" name="license_number" />
+            </li>
+            <li>
+                <label for="color">Vehicle Color</label>
+                <input type="text" name="color" />
+            </li>
+            <li style="margin: 5px;">
+                <label for="permit_number">Permit Number</label>
+                <input type="text" name="permit_number" /><br>
+                <span style="font-size: 10px; line-height: 31px;">Leave blank if you have not received this. </span></li>
+        </ul>
+        <div style="clear: both;">
+            <input style="float: left; clear: none;" class="button" type="submit" name="save" value="Save" />
+            <input style="float: left; clear: none; margin-left: 22px;" class="button" type="submit" name="cancel" value="Cancel" />
+        </div>
+        </form>
+    </div>
+</div>
+<!-- End New Vehicle -->

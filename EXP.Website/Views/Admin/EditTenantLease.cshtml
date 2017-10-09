@@ -1,0 +1,78 @@
+﻿@model EXP.Services.Models.LeaseModel
+
+@{
+    ViewBag.Title = "EditTenantLease";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Edit Tenant Lease</h2>
+
+@using (Html.BeginForm("EditTenantLease", "Admin", FormMethod.Post, new { @id = "editTenantLeaseForm", @encType = "multipart/form-data" })) {
+
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.LeaseID)
+        @Html.HiddenFor(model => model.CompanyID)
+        @Html.HiddenFor(model => model.BuildingID)
+        @Html.HiddenFor(model => model.Company.CompanyName)
+        @Html.HiddenFor(model => model.DocumentName)
+
+        <ul class="info">
+            <li class="odd">
+                <label>Building Name:</label>
+                @if (Model.Building != null)
+                {
+                    <span>@Model.Building.BuildingName</span>
+                }
+            </li>
+            <li class="even">
+                <label>Building Address:</label>
+                @if (Model.Building != null && Model.Building.BuildingAddress != null)
+                {
+                    <span>@(String.Format("{0} {1} {2} {3}",Model.Building.BuildingAddress.Address1,Model.Building.BuildingAddress.City,
+                        Model.Building.BuildingAddress.State.StateName,Model.Building.BuildingAddress.ZipCode))</span>
+                }
+            </li>
+            <li class="odd">
+                <label>Tenant Name:</label>
+                @if (Model.Company != null)
+                {
+                    <span>@Model.Company.CompanyName</span>
+                }
+            </li>
+            <li class="even">
+                <label class="error" for="TermStart" generated="true"></label>
+                <label class="error" for="TermEnd" generated="true"></label>
+                <label>Lease Term Start:</label>
+                @Html.TextBox("TermStart",Model.TermStart == DateTime.MinValue ? "" : Model.TermStart.ToString("MM/dd/yyyy"), new {@class = "date" })<span class="edit_lease">End</span>@Html.TextBox("TermEnd",Model.TermEnd == DateTime.MinValue ? "" : Model.TermEnd.ToString("MM/dd/yyyy"), new {@class = "date" })
+            </li>
+            <li class="odd">
+                <label class="error" for="LateFee" generated="true"></label>
+                <label>Late Fee:</label>
+                @Html.EditorFor(model => model.LateFee)
+            </li>
+            <li class="even">
+                <label></label>
+                @Html.EditorFor(model => model.TaxExempt)<span class="edit_lease">Tax excempted</span> @Html.EditorFor(model => model.MarketRate)
+                    <span class="edit_lease">Default to market rate after lease expired:</span>
+            </li>
+            <li class="odd comments">
+                <label>General Description of Lease:</label>
+                @Html.TextAreaFor(model => model.Description, new { @class="comments" })
+            </li>
+            <li class="even">
+                <label>Lease Document:</label>
+                <input type="file" name="uploadfile" accept=".PDF"/>
+                <label>@(Model.DocumentName == null ? "" : String.Concat("File on Server: ",Model.DocumentName))</label>
+            </li>
+        </ul>
+        <div class="save">
+            <input type="submit" value="Save" name="save" class="btn btn-primary" />
+        </div>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    window.onload = OnEditTenantLease;
+</script>

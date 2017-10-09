@@ -1,0 +1,65 @@
+﻿
+<div class="row">
+    <div class="span12">
+        <table id="VisitorStallTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Stall Location</th>
+                    <th>Stall Type</th>
+                    <th>Number of Stalls</th>
+                    <th>Booked Stalls</th>
+                    <th>Time Increment (minutes)</th>
+                    <th>Rate($)</th>
+                    <th>Max Rate($)</th>
+                    <th>Grace Period(minutes)</th>
+                    <th>Flat Rate($)</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>
+@*<div class="row">
+    <div class="span12">
+        <table id="VisitorStallTable" class="table table-stall">
+            <thead>
+                <tr>
+                    <th>Stall Location</th>
+                    <th>Stall Type</th>
+                    <th>Number of Stalls</th>
+                    <th>Time Increment (minutes)</th>
+                    <th>Rate($)</th>
+                    <th>Max Rate($)</th>
+                    <th>Grace Period(minutes)</th>
+                    <th>Flat Rate($)</th>
+                    <th colspan="2">Actions</th>
+                </tr>
+            </thead>
+            <tbody> 
+                @if (Model.Count() > 0)
+                {
+                    foreach (EXP.Entity.ParkingStall item in Model)
+                    {
+                        <tr>
+                            <td>@item.StallLocation</td>
+                            <td class="align_center">@item.ParkingStallType.ParkingStallType1</td>
+                            <td class="align_center">@Html.ActionLink(@item.StallNumber.ToString(),"AllocatedStall","Admin",new {@id=item.ParkingStallID},null)</td>
+                            <td class="align_right">TBD</td>
+                            <td class="align_right">TBD</td>
+                            <td class="align_right">TBD</td>
+                            <td class="align_right">TBD</td>
+                            <td class="align_right">TBD</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
+                }
+            </tbody>
+        </table>
+    </div>
+</div>*@
+<script type="text/javascript">
+    window.onload = OnVisitorStalls; 
+</script>

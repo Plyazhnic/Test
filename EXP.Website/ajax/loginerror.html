@@ -1,0 +1,20 @@
+<!-- forgot password sent-->
+		<div id="login-error" class="pop-up" style="margin-top:-100px; margin-left:-215px;">			
+			<a class="close" title="close" href="/"></a>			
+			<div class="content">
+				<h3>Log In Error!</h3>
+                <br />
+                <p></p>
+			</div>
+		</div>
+	<script>    
+    $(document).ready(function(){
+	    $('.close').click(function(event){
+	        event.preventDefault();
+	        $('#overlay').css('z-index', '100');
+	        $('#overlay').hide();
+	        $('.pop-up').filter(':not(#login)').remove();
+	      	return false;
+	   });				
+	});		    
+	</script> 

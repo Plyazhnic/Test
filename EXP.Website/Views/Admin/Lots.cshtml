@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "Lots";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<script type="text/javascript">
+    var BuildingId = @ViewData["BuildingId"]
+    function GetBuildingId()
+    {
+        return BuildingId;
+    }
+    window.onload = OnListLots;
+</script>
+<h2>Lots</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Create lot", "EditLot", null, new { @class="btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="LotsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Lot name</th>
+                    <th>Building Name</th>
+                    <th>Parking Operator</th>
+                    <th>Parking Manager</th>
+                    <th>Parking Attendants</th>
+                    <th>City</th>
+                    <th>Status</th>
+                    <th>Inventory</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>

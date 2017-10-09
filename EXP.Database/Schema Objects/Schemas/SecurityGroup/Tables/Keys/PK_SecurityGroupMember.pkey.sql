@@ -1,0 +1,3 @@
+﻿ALTER TABLE [SecurityGroup].[SecurityGroupMember]
+    ADD CONSTRAINT [PK_SecurityGroupMember] PRIMARY KEY CLUSTERED ([SecurityGroupID] ASC, [SecurityRoleID] ASC, [AccountToProfileID] ASC) WITH (ALLOW_PAGE_LOCKS = ON, ALLOW_ROW_LOCKS = ON, PAD_INDEX = OFF, IGNORE_DUP_KEY = OFF, STATISTICS_NORECOMPUTE = OFF);
+

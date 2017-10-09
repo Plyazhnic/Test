@@ -1,0 +1,184 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Expresspark</title>
+    @Scripts.Render("~/bundles/account")
+    @Styles.Render("~/Styles/reset.css", "~/Styles/style.css", "~/Styles/jquery.selectbox.css", "~/Content/themes/base/jquery.ui.autocomplete.css")
+    <script>
+        var loginUrl = '@Url.Action("Login", "Account")';
+        var setProfileTypeUrl = '@Url.Action("SetProfileType", "Registration")';
+        var setPersonalData = '@Url.Action("SetPersonalData", "Registration")';
+        var getPersonalData = '@Url.Action("GetPersonalData", "Registration")';
+        var getPersonalPhone = '@Url.Action("GetPersonalPhone", "Registration")';
+        var setStatus = '@Url.Action("SetStatus", "Registration")';
+        var dashboardUrl = '@Request.Url.GetLeftPart(UriPartial.Authority)@Url.Action("Dashboard", "Dashboard")';
+        var listMakesUrl = '@Url.Action("ListMakes", "Dashboard")';
+        var listModelsUrl = '@Url.Action("ListModels", "Dashboard")';
+        var newVehicleUrl = '@Url.Action("CreateVehicle", "Registration")';
+        var editVehicleUrl = '@Url.Action("EditVehicle", "Dashboard")';
+        var listTenantsUrl = '@Url.Action("ListTenants", "Registration")';
+        var listLotsUrl = '@Url.Action("ListLots", "Registration")';
+        var listUserProfileTypeUrl = '@Url.Action("ListUserProfileType", "Registration")';
+        var newPaymentCCUrl = '@Url.Action("NewPaymentCreditCard", "Registration")';
+        var newPaymentOCUrl = '@Url.Action("NewPaymentOnlineCheck", "Registration")';
+        var listStatesUrl = '@Url.Action("ListStates", "Dashboard")';
+        var getAddressUrl = '@Url.Action("GetAddress", "Registration")';
+        var ListPhoneTypesUrl = '@Url.Action("ListPhoneTypes", "Dashboard")';
+        var getParkingInfoUrl = '@Url.Action("GetParkingInfo", "Registration")';
+        var setParkingInfoUrl = '@Url.Action("SetParkingInfo", "Registration")';
+        var setCompany = '@Url.Action("SetCompany", "Registration")';
+        var getBuildingAddressUrl = '@Url.Action("GetBuildingAddressByLot", "Registration")';
+        var setCompany2 = '@Url.Action("SetCompanyManager", "Registration")';
+        var setPersonally = '@Url.Action("SetPersonally", "Registration")';
+        var listPhonesUrl = '@Url.Action("ListPhones", "Dashboard")';
+        var setVehicleTenant = '@Url.Action("SetParkingVehicle", "Registration")';
+        var getCompanyAddressUrl = '@Url.Action("GetCompanyAddress", "Registration")';
+        var sendCompanyEmailsUrl = '@Url.Action("SendCompanyEmails", "Registration")';
+        var getRegistrationDataUrl = '@Url.Action("GetStoredRegistrationData", "Registration")';
+
+        var sendBuildingInformationUrl = '@Url.Action("SendBuildingInformation", "Registration")';
+        var sendOwnershipInformationUrl = '@Url.Action("SendOwnershipInformation", "Registration")';
+        var sendPropertyManagementInformationUrl = '@Url.Action("SendPropertyManagementInformation", "Registration")';
+        var sendParkingManagementInformationUrl = '@Url.Action("SendParkingManagementInformation", "Registration")';
+        var sendBankAccountInformationUrl = '@Url.Action("SendBankAccountInformation", "Registration")';
+        var sendHandlerInformationUrl = '@Url.Action("SendHandlerInformation", "Registration")';
+        var sendParkingLotInformationReservedUrl = '@Url.Action("SendParkingLotInformationReserved", "Registration")';
+        var sendParkingLotInformationUnreservedUrl = '@Url.Action("SendParkingLotInformationUnreserved", "Registration")';
+        var sendParkingLotInformationVisitorUrl = '@Url.Action("SendParkingLotInformationVisitor", "Registration")';
+        var sendTenantUrl = '@Url.Action("SendTenant", "Registration")';
+        var saveBuildingOwnerUrl = '@Url.Action("SaveBuildingOwner", "Registration")';
+
+        var GetLogoffLinkHtml = function () {
+            return '@Html.ActionLink("Log off", "LogOff", "Account")';
+        };
+
+        function setupLabel() {
+            if ($('.label_check input').length) {
+                $('.label_check').each(function () {
+                    $(this).removeClass('c_on');
+                });
+                $('.label_check input:checked').each(function () {
+                    $(this).parent('label').addClass('c_on');
+                });
+            };
+            if ($('.label_radio input').length) {
+                $('.label_radio').each(function () {
+                    $(this).removeClass('r_on');
+                });
+                $('.label_radio input:checked').each(function () {
+                    $(this).parent('label').addClass('r_on');
+                });
+            };
+        };
+
+        $(document).ready(function () {
+            $('body').addClass('has-js');
+            $('.label_check, .label_radio').click(function () {
+                setupLabel();
+            });
+
+            setupLabel();
+
+            $.validator.setDefaults({
+                debug: true
+            });
+
+            $('.close11111').click(function (event) {
+                event.preventDefault();
+                $('#overlay').hide();
+                $(this).parents('.pop-up').remove();
+                $('#login').show();
+                $('#backstretch').remove();
+                $.backstretch("/images/home-bg.jpg", { speed: 'slow' });
+                return false;
+            });
+
+            $('#sign-up-link').click(function (event) {
+                $.ajax({
+                    url: "ajax/signup.html",
+                    type: "GET",
+                    dataType: "html",
+                    cache: false,
+                    success: function (html) {
+                        $('#login').hide();
+                        $('body').append(html);
+                        var heightSignUp = $("#sign-up").height()+100;
+                        var heightWrapper = $("#wrapper").height();
+                        height = (heightSignUp > heightWrapper ? heightSignUp : heightWrapper);
+                        $('#overlay').height(height);
+                        $('#overlay').show();
+                        $('#backstretch').remove();
+                        $.backstretch("/images/signup-bg.jpg", { speed: 'slow' });
+                    },
+                    error: function (XMLHttpRequest, etype, exo) {
+                        alert(etype, exo);
+                    }
+                });
+                event.preventDefault();
+            });
+        });
+
+    </script>
+</head>
+<!-- End Head -->
+<body>
+    <div id="wrapper">
+        <!--  begin header -->
+        <div id="header">
+            <div id="logo">
+                <a id="home" href="/" title="Expresspark">Expresspark</a>   
+            </div>
+        </div>
+        <!-- end header -->
+        <!-- begin content -->
+        <div id="content">
+            <p>
+            </p>
+        </div>
+        <!-- end content -->
+        <!-- pop-ups -->
+        <div id="overlay" style="display: none;">
+        </div>
+    </div>
+    <!-- login  -->
+    <div id="login" class="pop-up">
+        <div class="title-bar">
+            <h3>
+                Log in</h3>
+        </div>
+        <div class="content">
+            <form id="loginform">
+                <ul>
+                    <li>
+                        <label for="username">Username</label>
+                        <input class="required" type="text" name="username" />
+                        <a id="forgot-username-link" class="forgot" href="forgotusername.html">Forgot Username?</a>
+                    </li>
+                    <li>
+                        <label for="password">Password</label>
+                        <input type="password" name="password" />
+                        <a id="forgot-password-link" class="forgot" href="forgotpassword.html">Forgot Password?</a>
+                    </li>
+                    <li style="margin-bottom: 20px;">
+                        <label class="label_check" for="remember">
+                            <input id="remember" name="remember" type="checkbox" value="true" />Remember Me</label></li>
+                    <li>Don't have an account? <a id="sign-up-link" href="signup.html">Sign up now.</a></li>
+                </ul>
+                <input class="button" type="submit" name="login" value="Log In" />
+            </form>
+            <div class="note">
+                <p class="bold">
+                    Trouble Logging In?</p>
+                <p>
+                    If you have not yet recieved a confirmation email after<br />
+                    signing up, please <a class="contact_us" href="#">contact us</a> for assistance.</p>
+            </div>
+        </div>
+    </div>
+    @Html.Partial("_FooterPartial")
+</body>
+</html>

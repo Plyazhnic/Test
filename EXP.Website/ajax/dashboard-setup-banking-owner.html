@@ -1,0 +1,86 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+
+        //$('.close').click(function(event){
+        //   	$('#overlay').hide();
+        //   	$(this).parents('.pop-up').hide();
+        //	$('#login').show();
+        //  	event.preventDefault(); 
+        //});
+        $("select").selectbox();
+    });
+</script> 
+
+<!-- begin dashboard setup banking -->
+<div id="dashboard-setup-banking-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-banking-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2 style="padding-bottom:10px;">Bank Account Setup Information</h2>
+		<p style="padding-bottom:10px; font-size:13px; font-weight:normal;">
+		Please fill in the bank account information where collected funds are transferred to
+		</p>
+		<form id="dashboard-setup-banking-owner-form" method="post" action="#">
+		<ul class="left">								
+			<li>
+				<label for="bank_name">Bank Name</label>
+				<input type="text" class="required" name="bank_name"/>							
+			</li>
+			<li>
+				<label for="account_holder_name">Account Holder Name</label>
+				<input style="height:32px;" type="text" class="required" name="account_holder_name"/>							
+			</li>												
+		</ul>
+		<ul class="right">		
+			<li>
+				<label for="account_number">Account Number</label>
+				<input type="text" class="required" name="account_number"/>							
+			</li>				
+			<li>
+				<label for="routing_number">Bank Routing Number</label>
+				<input type="text" class="required" name="routing_number"/>							
+			</li>
+		</ul>					
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+					
+		</form>				
+	</div>
+</div>
+<!-- end --> 

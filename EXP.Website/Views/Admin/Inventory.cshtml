@@ -1,0 +1,58 @@
+﻿@model EXP.Services.Models.LotModel
+@{
+    ViewBag.Title = "Inventory";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>Inventory</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Validation Book Settings", "ValidationBooks", new {id = (int)ViewData["LotId"]}, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Key Cards", "KeyCards", new {id = (int)ViewData["LotId"]}, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<ul class="info">
+    <li class="odd">
+        <span class="title">Lot Name:</span>
+        @if (Model != null)
+        {
+            <span>@Model.LotName</span>
+        } 
+    </li>
+    <li class="even">
+        <span class="title">Lot Address:</span> 
+        @if (Model.Address != null)
+        {
+            <span>@(String.Format("{0} {1} {2} {3}",Model.Address.Address1,Model.Address.City,Model.Address.State.StateName,Model.Address.ZipCode))</span>
+        }
+    </li>
+</ul>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+    <div class="left_span">Montly Stalls:</div>
+    <div class="right_span"><img class="add" src="~/Images/plus1_1.jpg" />@Html.ActionLink("Add Montly Stall","EditStall",new { lotid=Model.LotID},new {@Class = "add"})</div>
+</div>
+@{Html.RenderAction("MontlyStalls", "Admin");}
+<div class="row">
+    <div class="span12">&nbsp;</div>
+    <div class="left_span">Visitor Stalls:</div>
+    <div class="right_span"><img class="add" src="~/Images/plus1_1.jpg" />@Html.ActionLink("Add Visitor Stall", "EditStall", new { lotid=Model.LotID,visitor = true }, new { @Class = "add" })</div>
+</div>
+@{Html.RenderAction("VisitorStalls", "Admin");}
+
+<script type="text/javascript">
+    function GetLotID() {
+        return @Model.LotID;
+    };
+</script>

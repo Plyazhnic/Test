@@ -1,0 +1,87 @@
+
+<script>   
+//Custom Check boxes and radio buttons
+function setupLabel() {
+    if ($('.label_check input').length) {
+        $('.label_check').each(function(){ 
+            $(this).removeClass('c_on');
+        });
+        $('.label_check input:checked').each(function(){ 
+            $(this).parent('label').addClass('c_on');
+        });                
+    };
+    if ($('.label_radio input').length) {
+        $('.label_radio').each(function(){ 
+            $(this).removeClass('r_on');
+        });
+        $('.label_radio input:checked').each(function(){ 
+            $(this).parent('label').addClass('r_on');
+        });
+    };
+};
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+		  	event.preventDefault(); 
+		});
+		$("select").selectbox();				
+	});		    
+	</script> 
+	
+		<!-- dashboard setup  -->
+		<div style="min-height:445px;" id="dashboard-setup-account" class="dashboard-setup-employee pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-account-employee.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Account Information
+				</h2>
+				<form id="dashboard-setup-account-form" method="post" action="#">
+                    <ul class="left">					
+					    <li>
+						    <label for="first_name">First Name</label>
+						    <input type="text" class="required" name="first_name"/>							
+					    </li>	
+					    <li>
+						    <label for="last_name">Last Name</label>
+						    <input type="text" class="required" name="last_name"/>							
+					    </li>			
+				    </ul>
+				    <ul class="right">						
+					    <li>
+						    <label for="email">Email Address</label>
+						    <input type="text" class="required" name="email"/>							
+					    </li>
+					    <li id="phone_select_li">
+						    <label for="phone">Primary Telephone Number</label>
+						    <select id="phone_select" name="device">
+						    </select><input style="width:174px !important;"id="phone_number" class="required" type="text" name="phone"/>							
+					    </li>
+				    </ul>	
+					<div style="clear:both;">
+						<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div>
+						<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+		

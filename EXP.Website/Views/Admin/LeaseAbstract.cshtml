@@ -1,0 +1,86 @@
+﻿@model EXP.Services.Models.LeaseModel
+
+@{
+    ViewBag.Title = "LeaseAbstract";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Lease Abstract</h2>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<ul class="info">
+    <li class="odd">
+        <span class="title">Building Name:</span>
+        @if (Model.Building != null)
+        {
+            <span>@Model.Building.BuildingName</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Building Address:</span>
+        @if (Model.Building != null && Model.Building.BuildingAddress != null)
+        {
+            <span>@(String.Format("{0} {1} {2} {3}",Model.Building.BuildingAddress.Address1,Model.Building.BuildingAddress.City,
+                Model.Building.BuildingAddress.State.StateName,Model.Building.BuildingAddress.ZipCode))</span>
+        }
+    </li>
+    <li class="odd">
+        <span class="title">Tenant Name:</span>
+        @if (Model.Company != null)
+        {
+            <span>@Model.Company.CompanyName</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Tenant Address:</span>
+        @if (Model.Company != null && Model.Company.Address != null)
+        {
+            <span>@(String.Format("{0} {1} {2} {3}",Model.Company.Address.Address1,Model.Company.Address.City,
+                Model.Company.Address.State.StateName,Model.Company.Address.ZipCode))</span>
+        }
+    </li>
+    <li class="odd">
+        <span class="title">Lease Term Start:</span>
+        @if (Model != null)
+        {
+            <span>@Model.TermStart.ToString("MM/dd/yyyy")</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Lease Term End:</span>
+        @if (Model != null)
+        {
+            <span>@Model.TermEnd.ToString("MM/dd/yyyy")</span>
+        }
+    </li>
+    <li class="odd">
+        <span class="title">Tax Exempted:</span>
+        @if (Model != null)
+        {
+            <span>@(Model.TaxExempt ? "yes" : "no")</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Default to market rate after lease expired:</span>
+        @if (Model != null)
+        {
+            <span>@(Model.MarketRate ? "yes" : "no")</span>
+        }
+    </li>
+    <li class="odd tborder">
+        <span class="title"><b>Montly Parking</b></span>
+        <div class="right_span">
+            @Html.ActionLink("Add Lease Details",String.Format("EditLeaseAbstract/{0}",Model.CompanyID), null, new {@class="btn btn-primary" })
+        </div>
+    </li>
+    <li style="height:auto; min-height:30px;">
+        @{Html.RenderAction("MontlyParking", "Admin", new { @companyId = Model.CompanyID });}
+    </li>
+    <li class="odd tborder">
+        <span class="title"><b>Validation Discounts</b></span>
+        <div class="right_span">
+            @Html.ActionLink("Add Validation Discount","UnderConstruction", null, new {@class="btn btn-primary" })
+        </div>
+    </li>
+</ul>

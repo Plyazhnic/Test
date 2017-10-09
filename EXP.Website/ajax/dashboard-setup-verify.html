@@ -1,0 +1,72 @@
+﻿
+	<div id="dashboard-setup" class="dashboard-setup pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-verify-employee.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2 style="padding-bottom:10px;">Verify</h2>
+				<p style="font-size:13px; font-weight:normal;padding-bottom:0; color:#333333;">
+					Please verify all the information entered is correct.
+				</p>
+				<div class="verify-block-left">
+					<h3>Profile Information</h3>
+					<p><strong>Profile Type: </strong>Employee</p>
+					<p><strong>Parking Lot/Building: </strong><span id="parking_lot"></span></p>
+					<p><strong>Tenant Employer: </strong><span id="tenant"></span></p>
+					<p style="margin-top:5px !important;"><a id="edit_profile" href="#">Edit</a></p>
+				</div>
+				<div class="verify-block-right">
+					<h3>Parking Information</h3>
+					<p><strong>Start Date: </strong><span id="start_date"></span></p>
+					<p><strong>Expected End Date: </strong><span id="end_date"></span></p>
+					<p><strong>Reserved Parking &amp; Amount: </strong><span id="reserved"></span></p>
+					<p><strong>Unreserved Parking &amp; Amount: </strong><span id="unreserved"></span></p>
+					<p style="margin-top:5px !important;"><a id="edit_parking" href="#">Edit</a></p>
+				</div>							
+				<div class="verify-block-left">
+					<h3>Account Information</h3>
+					<p><strong>First &amp; Last Name: </strong><span id="name"></span></p>
+					<p><strong>Email Address: </strong><span id="email"></span></p>
+					<p><strong>Telephone Number: </strong><span id="phone_number"></span></p>
+					<p style="margin-top:5px !important;"><a id="edit_account" href="#">Edit</a></p>
+				</div>
+				<div class="verify-block-right">
+					<h3>Parking Information</h3>
+					<p><strong>Will you be parking at location: </strong>Yes</p>
+					<p><strong>Make: </strong><span id="make"></span>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Model: </strong><span id="model"></span></p>
+					<p><strong>Year: </strong><span id="year"></span>&nbsp;&nbsp;&nbsp;&nbsp;<strong>License: </strong><span id="license"></span></p>
+					<p><strong>Color: </strong><span id="color"></span>&nbsp;&nbsp;&nbsp;&nbsp;<strong>Permit: </strong><span id="permit"></span></p>
+					<p style="margin-top:5px !important;"><a id="edit_vehicle" href="#">Edit</a></p>
+				</div>
+				<div style="display:none;" id="credit_card" class="verify-block-left">
+					<h3>Payment Information</h3>
+					<p><strong>Who will Pay for Parking: </strong>Self</p>
+					<p><strong>Payment Method: </strong> Credit Card</p>
+					<p><strong>Cardholder's First Name: </strong><span id="ch_fname"></span></p>
+					<p><strong>Cardholder's Last Name: </strong><span id="ch_lname"></span></p>
+					<p><strong>Credit/Debit Card: </strong><span id="card_number"></span></p>
+					<p><strong>Address: </strong><span id="address"></span></p>
+					<p><strong>City, State, Zip Code: </strong><span id="city_state_zip"></span></p>
+					<p style="margin-top:5px !important;"><a class="edit_payment" href="#">Edit</a></p>
+				</div>
+                <div style="display:none;" id="online_check" class="verify-block-left">
+					<h3>Payment Information</h3>
+					<p><strong>Who will Pay for Parking: </strong>Self</p>
+					<p><strong>Payment Method: </strong>Online Check</p>
+					<p><strong>Name on Account: </strong><span id="name_account"></span></p>
+					<p><strong>Bank Name: </strong><span id="bankname"></span></p>
+					<p><strong>Checking type: </strong><span id="checking_type"></span></p>
+					<p><strong>Routing Number: </strong><span id="routing_number"></span></p>
+					<p style="margin-top:5px !important;"><a class="edit_payment" href="#">Edit</a></p>
+				</div>
+				<form>
+					<div style="clear:both;">
+						<div class="buttons" style="padding-right:3px;"><input class="button" type="submit" name="continue" value="Continue" /></div>				
+					</div>
+				</form>
+			</div>
+		</div>

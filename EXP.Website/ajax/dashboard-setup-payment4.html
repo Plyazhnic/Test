@@ -1,0 +1,178 @@
+
+<script>   
+//Custom Check boxes and radio buttons
+function setupLabel() {
+    if ($('.label_check input').length) {
+        $('.label_check').each(function(){ 
+            $(this).removeClass('c_on');
+        });
+        $('.label_check input:checked').each(function(){ 
+            $(this).parent('label').addClass('c_on');
+        });                
+    };
+    if ($('.label_radio input').length) {
+        $('.label_radio').each(function(){ 
+            $(this).removeClass('r_on');
+        });
+        $('.label_radio input:checked').each(function(){ 
+            $(this).parent('label').addClass('r_on');
+        });
+    };
+};
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+		  	event.preventDefault(); 
+		});
+		$("select").selectbox();				
+	});		    
+	</script> 
+	
+		<!-- dashboard setup  -->
+		<div id="dashboard-setup-payment3" class="dashboard-setup pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-payment-employee.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Payment Information
+				</h2>
+				<div class="left">
+					<label for="type" style="width:350px;">Select Payment Method</label>
+                    <span id="cards"><img src="/images/visa.jpg"/><img src="/images/mc.jpg"/><img src="/images/amex.jpg"/></span>
+					<select name="payment_method">
+                        <option value="">Please select</option>
+                        <option value="credit_card">Credit/Debit Card</option>
+						<option value="online_check">Online Check</option>
+					</select>
+				</div>
+                <form method="post" id="online_check" action="#">
+                   <ul class="left">
+                       <li style="margin-top:2px;">
+						    <label style="margin-top:-1px;">Name on Account</label>
+						    <input type="text" class="required" name="account_name"/>						
+					    </li>				
+					    <li style="height:61px;">
+						    <label for="name">Checking Type</label>
+                            <label id="personal" class="label_radio" for="checking_personal"><input id="checking_personal" type="radio" name="checking_type" value="1" />Personal</label> 	
+						    <label style="float:left;" id="business" class="label_radio" for="checking_business"><input id="checking_business" type="radio" name="checking_type" value="2" />Business</label>
+						    <label id="savings" class="label_radio" for="checking_savings"><input  id="checking_savings" type="radio" name="checking_type" value="3" />Savings</label>							
+					    </li>				
+					    <li>
+						    <label style="padding-top:0px;" for="account_number">Checking Account Number</label>
+						    <input id="account_number" type="text" class="required" name="account_number"/>							
+					    </li>									
+				    </ul>
+				    <ul class="right">		
+					    <li style="padding-top:0px;">
+						    <label for="bank_name">Bank Name</label>
+						    <input type="text" class="required" name="bank_name"/>							
+					    </li>
+					    <li>
+						    <label for="routing_number">Routing Number</label>
+						    <input type="text" class="required" name="routing_number"/>							
+					    </li>
+					    <li>
+						    <label for="account_number2">Confirm Account Number</label>
+						    <input type="text" class="required" name="account_number2"/>							
+					    </li>					
+				    </ul>				
+				</form>
+                <form id="credit_card" method="post" action="#">
+                <input type="hidden" name="addressId" value=""/>
+				<ul class="left">					
+					<li>
+						<label for="card_holder_first_name">Card Holder's First Name</label>
+						<input type="text" class="" name="ch_first_name"/>							
+					</li>	
+					<li>
+						<label for="card_holder_last_name">Card Holder's Last Name</label>
+						<input type="text" class="" name="ch_last_name"/>							
+					</li>				
+					<li style="width:300px;">
+					<label style="width:300px;" style="padding-bottom:10px;">Billing Address</label>
+						<label id="billing_address" class="label_check" for="billing-address">Same as home address
+						<input type="checkbox" id="billing-address" name="billing_address"/></label>							
+					</li>	
+					<li class="li_address">
+						<label for="address1">Address 1</label>
+						<input type="text" class="" name="address1"/>							
+					</li>
+					<li class="li_address">
+						<label for="address2">Address 2</label>
+						<input type="text" name="address2"/>							
+					</li>			
+				</ul>
+				<ul class="right">	
+					<li>
+						<label for="number">Credit or Debit Card Number</label>
+						<input type="text" class="required" name="card_number"/>							
+					</li>	
+					<li>
+                        <div style="width:184px;float:left;">
+						    <label id="exp_date_label" for="expiration_date">Expiration Date</label>
+						    <select id="month" name="month">
+							    <option value="1">01</option>
+							    <option value="2">02</option>
+							    <option value="3">03</option>
+							    <option value="4">04</option>
+							    <option value="5">05</option>
+							    <option value="6">06</option>
+							    <option value="7">07</option>
+							    <option value="8">08</option>
+							    <option value="9">09</option>
+							    <option value="10">10</option>
+							    <option value="11">11</option>
+							    <option value="12">12</option>
+						    </select>							
+						    <select id="year" name="year">
+						    </select>
+                        </div>
+                        <div style="width:76px; float:left;">
+						    <label style=" width: 70px;" id="cvv_label"for="cvv">CVV</label>
+						    <input style="width: 67px;" id="cvv" type="text" class="" name="cvv"/>
+                        </div>					
+					</li>
+                    <li>
+						<label style="padding-bottom:6px; width: 140px;">Auto Pay</label>
+						<label style="float:left;width:105px;" class="label_check" for="auto-pay">Enroll in Auto Pay			
+						<input type="checkbox"  id="auto-pay" name="auto-pay"/></label>								
+					</li>						
+					<li class="li_address">
+						<label for="city">City</label>
+						<input type="text" class="" name="city"/>						
+					</li>						
+					<li class="li_address">
+						<label id="state_label" for="state">State</label>
+						<label id="zip_label" for="zip">Zip Code</label>
+						<select id="state" name="state">						
+						</select>							
+						<input style="width:135px; margin-left:9px;" id="zip" type="text" class="" name="zip"/>								
+					</li>
+				</ul>	
+				</form>		
+			    <div style="clear:both;">
+				    <div class="buttons"><input class="button" type="submit" name="finish" value="Finish" /></div> 
+				    <div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			    </div>
+		    </div>
+	    </div>
+		
+	

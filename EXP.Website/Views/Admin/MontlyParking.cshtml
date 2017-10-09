@@ -1,0 +1,46 @@
+﻿@model IEnumerable<EXP.Services.Models.ParkingInventoryModel>
+<div class="row">
+    <div class="span12">
+        <table id="MontlyParkingTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Lot Name</th>
+                    <th>Stall Location</th>
+                    <th>Stall Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Market Rate($)</th>
+                    <th>Rate($)</th>
+                    <th>Qty</th>
+                    <th>Disc.(%)</th>
+                    <th>Eff.Rate($)</th>
+                    <th>Tax</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@Html.DisplayFor(model => item.Lot.LotName)</td>
+                        <td>@Html.DisplayFor(model => item.ParkingStall.StallLocation)</td>
+                        <td>@Html.DisplayFor(model => item.ParkingStall.ParkingStallType.ParkingStallType1)</td>
+                        <td>@item.EffectiveFrom.Value.ToString("MM/dd/yyyy")</td>
+                        <td>@item.EffectiveTo.Value.ToString("MM/dd/yyyy")</td>
+                        <td>@item.MarketRate</td>
+                        <td>@Html.DisplayFor(model => item.MontlyRate)</td>
+                        <td>@Html.DisplayFor(model => item.NumberOfStalls)</td>
+                        <td>@Html.DisplayFor(model => item.DiscountRate)</td>
+                        <td>@Html.DisplayFor(model => item.MontlyRate)</td>
+                        <td>@*@Html.DisplayFor(model => item.TaxRate)*@</td>
+                        <td>@(item.MontlyRate * item.NumberOfStalls)</td>
+                        <td><a title="Edit" href=@String.Format("/Admin/EditLeaseAbstract/{0}?inventoryId={1}",item.CompanyID,item.ParkingInventoryID)><i class="icon-edit"></i></a>
+                            <a title="Delete" href=@String.Concat("/Admin/DeleteLeaseAbstract/",item.ParkingInventoryID)><i class="icon-remove"></i></a>
+                        </td>
+                    </tr>
+                } 
+            </tbody>
+        </table>
+    </div>
+</div>

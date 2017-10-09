@@ -1,0 +1,563 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A211DE5C-7C77-4645-BBA7-C63A9AAE8E2C}</ProjectGuid>
+    <ProjectTypeGuids>{E3E379DF-F4C6-4180-9B81-6769533ABE47};{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EXP.Website</RootNamespace>
+    <AssemblyName>EXP.Website</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.5.0.2, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Antlr3.Runtime.PCL.3.5.0.3\lib\portable-win+net40+sl40+wp\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="AutoMapper, Version=2.2.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\AutoMapper.2.2.1\lib\net40\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.10.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Helpers, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=4.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.4.0.40804.0\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.2.0.20710.0\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.2.0.20710.0\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.5.0.0-rc\lib\net40\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.Formatting, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.4.0.20505.0\lib\net40\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Net.Http.2.0.20505.0\lib\net40\System.Net.Http.WebRequest.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.4.0.20505.0\lib\net40\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.4.0.20505.0\lib\net40\System.Web.Http.WebHost.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.0.0-beta2\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Providers">
+      <HintPath>..\packages\Microsoft.AspNet.Providers.Core.1.0\lib\net40\System.Web.Providers.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.0.0\lib\WebGrease.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
+    <Compile Include="Controllers\DashboardController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\RegistrationController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ajax\activationcomplete.html" />
+    <Content Include="ajax\almostdone.html" />
+    <Content Include="ajax\confirmresetpassword.html" />
+    <Content Include="ajax\dashboard-employer-notified.html" />
+    <Content Include="ajax\dashboard-landlord-notified-tenant.html" />
+    <Content Include="ajax\dashboard-notification-tenant.html" />
+    <Content Include="ajax\dashboard-setup-account.html" />
+    <Content Include="ajax\dashboard-setup-banking-owner.html" />
+    <Content Include="ajax\dashboard-setup-building-owner.html" />
+    <Content Include="ajax\dashboard-setup-company2-tenant.html" />
+    <Content Include="ajax\dashboard-setup-company7-tenant.html" />
+    <Content Include="ajax\dashboard-setup-congratulations-owner.html" />
+    <Content Include="ajax\dashboard-setup-congratulations-tenant.html" />
+    <Content Include="ajax\dashboard-setup-congratulations.html" />
+    <Content Include="ajax\dashboard-setup-getting-started-tenant.html" />
+    <Content Include="ajax\dashboard-setup-getting-started.html" />
+    <Content Include="ajax\dashboard-setup-management-owner.html" />
+    <Content Include="ajax\dashboard-setup-management2-owner.html" />
+    <Content Include="ajax\dashboard-setup-notification-owner.html" />
+    <Content Include="ajax\dashboard-setup-owner-owner.html" />
+    <Content Include="ajax\dashboard-setup-parking1-owner.html" />
+    <Content Include="ajax\dashboard-setup-parking-tenant.html" />
+    <Content Include="ajax\dashboard-setup-parking-vehicle1-tenant.html" />
+    <Content Include="ajax\dashboard-setup-parking-vehicle2-tenant.html" />
+    <Content Include="ajax\dashboard-setup-parking.html" />
+    <Content Include="ajax\dashboard-setup-parking2-owner.html" />
+    <Content Include="ajax\dashboard-setup-parking3-owner.html" />
+    <Content Include="ajax\dashboard-setup-parking5-owner.html" />
+    <Content Include="ajax\dashboard-setup-parking6-owner.html" />
+    <Content Include="ajax\dashboard-setup-payment.html" />
+    <Content Include="ajax\dashboard-setup-payment2-tenant.html" />
+    <Content Include="ajax\dashboard-setup-payment4-tenant.html" />
+    <Content Include="ajax\dashboard-setup-payment4.html" />
+    <Content Include="ajax\dashboard-setup-profile-tenant.html" />
+    <Content Include="ajax\dashboard-setup-profile.html" />
+    <Content Include="ajax\dashboard-setup-tenant-owner.html" />
+    <Content Include="ajax\dashboard-setup-vehicle.html" />
+    <Content Include="ajax\dashboard-setup-verify-owner.html" />
+    <Content Include="ajax\dashboard-setup-verify-tenant.html" />
+    <Content Include="ajax\dashboard-setup-verify.html" />
+    <Content Include="ajax\dashboard-tenant-notified-tenant.html" />
+    <Content Include="ajax\editbuilding.html" />
+    <Content Include="ajax\personalinfo.html" />
+    <Content Include="ajax\editaddress.html" />
+    <Content Include="ajax\editchecking.html" />
+    <Content Include="ajax\editcreditcard.html" />
+    <Content Include="ajax\editcreditcardbilling.html" />
+    <Content Include="ajax\editemail.html" />
+    <Content Include="ajax\editpassword.html" />
+    <Content Include="ajax\editphone.html" />
+    <Content Include="ajax\editvehicle.html" />
+    <Content Include="ajax\forgotpassword.html" />
+    <Content Include="ajax\forgotpasswordsent.html" />
+    <Content Include="ajax\forgotusername.html" />
+    <Content Include="ajax\newaddress.html" />
+    <Content Include="ajax\newchecking.html" />
+    <Content Include="ajax\newcreditcard.html" />
+    <Content Include="ajax\newemail.html" />
+    <Content Include="ajax\newphone.html" />
+    <Content Include="ajax\newvehicle.html" />
+    <Content Include="ajax\passwordreset.html" />
+    <Content Include="ajax\profileerror.html" />
+    <Content Include="ajax\removephone.html" />
+    <Content Include="ajax\removevehicle.html" />
+    <Content Include="ajax\removevehicleconfirm.html" />
+    <Content Include="ajax\signup.html" />
+    <Content Include="ajax\vehicleinfo.html" />
+    <Content Include="ajax\welcome.html" />
+    <Content Include="ajax\forgotusernamesend.html" />
+    <Content Include="ajax\expiredresetpassword.html" />
+    <Content Include="ajax\loginerror.html" />
+    <Content Include="ajax\contactUs.html" />
+    <Content Include="ajax\contactussent.html" />
+    <Content Include="ajax\property-management-notified.html" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\jquery.ui.accordion.css" />
+    <Content Include="Content\themes\base\jquery.ui.all.css" />
+    <Content Include="Content\themes\base\jquery.ui.autocomplete.css" />
+    <Content Include="Content\themes\base\jquery.ui.base.css" />
+    <Content Include="Content\themes\base\jquery.ui.button.css" />
+    <Content Include="Content\themes\base\jquery.ui.core.css" />
+    <Content Include="Content\themes\base\jquery.ui.datepicker.css" />
+    <Content Include="Content\themes\base\jquery.ui.dialog.css" />
+    <Content Include="Content\themes\base\jquery.ui.progressbar.css" />
+    <Content Include="Content\themes\base\jquery.ui.resizable.css" />
+    <Content Include="Content\themes\base\jquery.ui.selectable.css" />
+    <Content Include="Content\themes\base\jquery.ui.slider.css" />
+    <Content Include="Content\themes\base\jquery.ui.tabs.css" />
+    <Content Include="Content\themes\base\jquery.ui.theme.css" />
+    <Content Include="Emails\landlord-notified.html" />
+    <Content Include="Emails\tenant-building.html" />
+    <Content Include="Emails\tenant-employee-approved-or-disapproved.html" />
+    <Content Include="Emails\tenant-notified-approved-or-disapproved.html" />
+    <Content Include="Emails\tenant-notified-manager.html" />
+    <Content Include="Emails\tenant-notified.html" />
+    <Content Include="Images\add-icon.jpg" />
+    <Content Include="Images\bg.jpg" />
+    <Content Include="Emails\new_invoice.html" />
+    <Content Include="Emails\reset_password.html" />
+    <Content Include="Images\buildings.png" />
+    <Content Include="Images\email\approve.png" />
+    <Content Include="Images\email\disapprove.png" />
+    <Content Include="Images\emp-park.png" />
+    <Content Include="Images\minus.png" />
+    <Content Include="Images\owner-man.png" />
+    <Content Include="Images\owner-start.png" />
+    <Content Include="Images\plus.png" />
+    <Content Include="Images\plus1_1.jpg" />
+    <Content Include="Images\progress-account-employee.jpg" />
+    <Content Include="Images\progress-account-tenant.jpg" />
+    <Content Include="Images\progress-banking-owner.jpg" />
+    <Content Include="Images\progress-building-owner.jpg" />
+    <Content Include="Images\progress-company-tenant.jpg" />
+    <Content Include="Images\progress-management-owner.jpg" />
+    <Content Include="Images\progress-owner.jpg" />
+    <Content Include="Images\progress-parking-employee.jpg" />
+    <Content Include="Images\progress-parking-owner.jpg" />
+    <Content Include="Images\progress-parking-tenant.jpg" />
+    <Content Include="Images\progress-payment-employee.jpg" />
+    <Content Include="Images\progress-payment-tenant.jpg" />
+    <Content Include="Images\progress-profile-tenant.jpg" />
+    <Content Include="Images\progress-start.jpg" />
+    <Content Include="Images\progress-tenant-owner.jpg" />
+    <Content Include="Images\progress-tenant.jpg" />
+    <Content Include="Images\progress-vehicle-employee.jpg" />
+    <Content Include="Images\progress-verify-employee.jpg" />
+    <Content Include="Images\progress-verify-owner.jpg" />
+    <Content Include="Images\progress-verify-tenant.jpg" />
+    <Content Include="Images\reset_password.png" />
+    <Content Include="Emails\verify_account.html" />
+    <Content Include="Images\verify-header-bg.png" />
+    <Content Include="Images\verify_account.png" />
+    <Content Include="Emails\welcome_company_pay.html" />
+    <Content Include="Emails\welcome_self_pay.html" />
+    <Content Include="Emails\reminder_username.html" />
+    <Content Include="Emails\restore_password.html" />
+    <Content Include="favicon.ico" />
+    <Content Include="Global.asax" />
+    <Content Include="Images\alerts-bar.png" />
+    <Content Include="Images\alerts.png" />
+    <Content Include="Images\almost-done-bg.jpg" />
+    <Content Include="Images\amex.jpg" />
+    <Content Include="Images\button-bg.png" />
+    <Content Include="Images\check-off.png" />
+    <Content Include="Images\check-on.png" />
+    <Content Include="Images\close-icon.png" />
+    <Content Include="Images\complete-bg.jpg" />
+    <Content Include="Images\dash-lay-selectMoreButton.gif" />
+    <Content Include="Images\emex.jpg" />
+    <Content Include="Images\error.png" />
+    <Content Include="Images\fon.gif" />
+    <Content Include="Images\footer-bg.png" />
+    <Content Include="Images\glyphicons-halflings.png" />
+    <Content Include="Images\header-bg.png" />
+    <Content Include="Images\home-bg.jpg" />
+    <Content Include="Images\lay-selectMoreButton.gif" />
+    <Content Include="Images\lay-selectMoreButtonHover.gif" />
+    <Content Include="Images\logo.png" />
+    <Content Include="Images\mc.jpg" />
+    <Content Include="Images\ok.png" />
+    <Content Include="Images\profile.png" />
+    <Content Include="Images\progress-account.jpg" />
+    <Content Include="Images\progress-parking.jpg" />
+    <Content Include="Images\progress-payment.jpg" />
+    <Content Include="Images\progress-profile.jpg" />
+    <Content Include="Images\progress-vehicle.jpg" />
+    <Content Include="Images\progress.jpg" />
+    <Content Include="Images\purchase.png" />
+    <Content Include="Images\radio-off.png" />
+    <Content Include="Images\radio-on.png" />
+    <Content Include="Images\reports-bar.png" />
+    <Content Include="Images\reports.png" />
+    <Content Include="Images\signup-bg.jpg" />
+    <Content Include="Images\vertical-line.png" />
+    <Content Include="Images\visa.jpg" />
+    <Content Include="Images\visa.png" />
+    <Content Include="privacy.html" />
+    <Content Include="Scripts\admin.js" />
+    <Content Include="Scripts\alerts.js" />
+    <Content Include="Scripts\common.js" />
+    <Content Include="Scripts\dashboardOwner.js" />
+    <Content Include="Scripts\glDatePicker.min.js" />
+    <Content Include="Scripts\Index.js" />
+    <Content Include="Scripts\jquery-1.6.2-vsdoc.js" />
+    <Content Include="Scripts\jquery-1.6.2.js" />
+    <Content Include="Scripts\jquery-1.6.2.min.js" />
+    <Content Include="Scripts\jquery-1.7.2.min.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.js" />
+    <Content Include="Scripts\jquery-ui-1.8.11.min.js" />
+    <Content Include="Scripts\jquery.backstretch.js" />
+    <Content Include="Scripts\jquery.cookie.js" />
+    <Content Include="Scripts\jquery.form.js" />
+    <Content Include="Scripts\jquery.inputmask.custom.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask.date.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask.extensions.js" />
+    <Content Include="Scripts\jquery.inputmask.numeric.extensions.js" />
+    <Content Include="Scripts\jquery.maskMoney.js" />
+    <Content Include="Scripts\jquery.selectbox-0.6.1.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.my-additional.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\dashboard.js" />
+    <Content Include="Scripts\ownerReports.js" />
+    <Content Include="Scripts\payments.js" />
+    <Content Include="Scripts\personaldata.js" />
+    <Content Include="Scripts\phones.js" />
+    <Content Include="Scripts\registrationBuildingOwner.js" />
+    <Content Include="Scripts\searchBuildings.js" />
+    <Content Include="Scripts\vehicles.js" />
+    <Content Include="Scripts\knockout-2.0.0.debug.js" />
+    <Content Include="Scripts\knockout-2.0.0.js" />
+    <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\contactUs.js" />
+    <Content Include="Styles\admin.css" />
+    <Content Include="Styles\bootstrap.css" />
+    <Content Include="Styles\dashboard.css" />
+    <Content Include="Styles\datatables.css" />
+    <Content Include="Styles\jquery.selectbox.css" />
+    <Content Include="Styles\reset.css" />
+    <Content Include="Styles\style.css" />
+    <Content Include="terms.html" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Content\Site.css" />
+    <Content Include="Scripts\_references.js" />
+    <Content Include="Images\accent.png" />
+    <Content Include="Images\aspNetHome.png" />
+    <Content Include="Images\bullet.png" />
+    <Content Include="Images\facebook.png" />
+    <Content Include="Images\findHosting.png" />
+    <Content Include="Images\heroAccent.png" />
+    <Content Include="Images\NuGetGallery.png" />
+    <Content Include="Images\orderedList0.png" />
+    <Content Include="Images\orderedList1.png" />
+    <Content Include="Images\orderedList2.png" />
+    <Content Include="Images\orderedList3.png" />
+    <Content Include="Images\orderedList4.png" />
+    <Content Include="Images\orderedList5.png" />
+    <Content Include="Images\orderedList6.png" />
+    <Content Include="Images\orderedList7.png" />
+    <Content Include="Images\orderedList8.png" />
+    <Content Include="Images\orderedList9.png" />
+    <Content Include="Images\twitter.png" />
+    <Content Include="Images\windowsLive.png" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+    <Folder Include="Views\Account\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EXP.Core\EXP.Core.csproj">
+      <Project>{4CDA35C1-59E2-45D0-B87D-F0A7D6B47A9F}</Project>
+      <Name>EXP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EXP.DataAccess\EXP.DataAccess.csproj">
+      <Project>{34EE3034-E250-4013-ACC4-FA614BA34224}</Project>
+      <Name>EXP.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EXP.Entity\EXP.Entity.csproj">
+      <Project>{F8753C35-512A-49DF-BD7F-963635626901}</Project>
+      <Name>EXP.Entity</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\EXP.Services\EXP.Services.csproj">
+      <Project>{A5B7F638-B23F-4AA2-AD9D-C6E415C74896}</Project>
+      <Name>EXP.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Properties\PublishProfiles\Profile1.pubxml" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\datatables.js" />
+    <Content Include="Styles\webfonts\222F90_0_0.eot" />
+    <Content Include="Styles\webfonts\222F90_0_0.ttf" />
+    <Content Include="Styles\webfonts\222F90_0_0.woff" />
+    <Content Include="Styles\webfonts\23C22F_0_0.eot" />
+    <Content Include="Styles\webfonts\23C22F_0_0.ttf" />
+    <Content Include="Styles\webfonts\23C22F_0_0.woff" />
+    <Content Include="Styles\webfonts\23E5AA_0_0.eot" />
+    <Content Include="Styles\webfonts\23E5AA_0_0.ttf" />
+    <Content Include="Styles\webfonts\23E5AA_0_0.woff" />
+    <Content Include="Styles\webfonts\23E5AB_0_0.eot" />
+    <Content Include="Styles\webfonts\23E5AB_0_0.ttf" />
+    <Content Include="Styles\webfonts\23E5AB_0_0.woff" />
+    <Content Include="Views\Shared\_FooterPartial.cshtml" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Buildings.cshtml" />
+    <Content Include="Views\Shared\_Admin.cshtml" />
+    <Content Include="Views\Admin\Lots.cshtml" />
+    <Content Include="Views\Admin\Users.cshtml" />
+    <Content Include="Views\Admin\Makes.cshtml" />
+    <Content Include="Views\Admin\SearchBuilding.cshtml" />
+    <Content Include="Views\Admin\BuildingStatistics.cshtml" />
+    <Content Include="Views\Admin\LotStatistics.cshtml" />
+    <Content Include="Views\Admin\Profile.cshtml" />
+    <Content Include="Views\Admin\ChangePassword.cshtml" />
+    <Content Include="Views\Admin\EditUser.cshtml" />
+    <Content Include="Views\Admin\SearchUser.cshtml" />
+    <Content Include="Views\Admin\EditMake.cshtml" />
+    <Content Include="Views\Admin\SearchVehicle.cshtml" />
+    <Content Include="Views\Admin\InvoiceAdjustments.cshtml" />
+    <Content Include="Views\Admin\DeleteUser.cshtml" />
+    <Content Include="Views\Admin\EditBuilding.cshtml" />
+    <Content Include="Views\Admin\DeleteLot.cshtml" />
+    <Content Include="Views\Admin\DeleteMake.cshtml" />
+    <Content Include="Views\Admin\DeleteBuilding.cshtml" />
+    <Content Include="Views\Admin\ResetPassword.cshtml" />
+    <Content Include="Views\Admin\Error.cshtml" />
+    <Content Include="Views\Admin\EditLot.cshtml" />
+    <Content Include="Views\Admin\UnderConstruction.cshtml" />
+    <Content Include="Views\Admin\EditStall.cshtml" />
+    <Content Include="Views\Admin\Inventory.cshtml" />
+    <Content Include="Views\Admin\MontlyStalls.cshtml" />
+    <Content Include="Views\Admin\VisitorStalls.cshtml" />
+    <Content Include="Views\Admin\AllocatedStall.cshtml" />
+    <Content Include="Views\Admin\DeleteStall.cshtml" />
+    <Content Include="Views\Admin\Models.cshtml" />
+    <Content Include="Views\Admin\CreateMake.cshtml" />
+    <Content Include="Views\Admin\ParamtedError.cshtml" />
+    <Content Include="Views\Admin\EditModel.cshtml" />
+    <Content Include="Views\Admin\CreateModel.cshtml" />
+    <Content Include="Views\Admin\Tenants.cshtml" />
+    <Content Include="Views\Admin\ValidationBooks.cshtml" />
+    <Content Include="Views\Admin\KeyCards.cshtml" />
+    <Content Include="Views\Admin\EditValidationBook.cshtml" />
+    <Content Include="Views\Admin\DeleteValidationBook.cshtml" />
+    <Content Include="Views\Admin\EditKeyCard.cshtml" />
+    <Content Include="Views\Admin\DeleteKeyCard.cshtml" />
+    <Content Include="Views\Admin\Employees.cshtml" />
+    <Content Include="Views\Admin\SearchLot.cshtml" />
+    <Content Include="Views\Admin\TenantLease.cshtml" />
+    <Content Include="Views\Admin\EditTenantLease.cshtml" />
+    <Content Include="Views\Admin\LeaseAbstract.cshtml" />
+    <Content Include="Views\Admin\MontlyParking.cshtml" />
+    <Content Include="Views\Admin\EditLeaseAbstract.cshtml" />
+    <Content Include="Views\Admin\DeleteLeaseAbstract.cshtml" />
+    <Content Include="Scripts\jquery.inputmask.js" />
+    <Content Include="Views\Dashboard\Dashboard.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\Home\Confirmation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>
+    </AssemblyOriginatorKeyFile>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>False</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>4253</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>
+          </IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "Delete User";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>Delete User</h2>
+<small>Are you sure you want to delete user @ViewBag.User.LoginName?</small>
+
+<form method="post" action='@string.Concat(Url.Action("DeleteUser", "Admin"), "?userId=", ViewBag.User.UserProfileID)'>
+    <div class="form-actions">
+        <a class="btn" href="@Url.Action("Users", "Admin")">Back To List</a>
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </div>
+</form>

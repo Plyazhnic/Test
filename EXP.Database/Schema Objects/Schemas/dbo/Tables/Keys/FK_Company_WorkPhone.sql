@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[Company]
+	ADD CONSTRAINT [FK_Company_WorkPhone]
+	FOREIGN KEY ([WorkPhoneID]) REFERENCES [dbo].[Phone] ([PhoneID]) ON DELETE NO ACTION ON UPDATE NO ACTION;

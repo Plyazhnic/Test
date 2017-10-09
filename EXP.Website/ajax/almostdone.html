@@ -1,0 +1,38 @@
+		<!-- almost done -->
+		<div id="almost-done" class="pop-up">
+			<div class="title-bar">
+			<a class="close" title="close" href="/"></a>
+				<h3>You're almost done!</h3>
+			</div>
+			<div class="content">
+				<p class="bold">Please check your email to confirm your account.</p>
+				<p>If you do not receive an email in a few minutes, please <a href="contact.html">contact us</a> for assistance.</p>
+			</div>
+		</div>
+	<script>    
+    $(document).ready(function(){
+    	//set up custom form elements
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        setupLabel();
+			
+        //form validator
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+        //close button
+		$('.close').click(function (event) {
+		    $('#backstretch').remove();
+		    $.backstretch("/images/home-bg.jpg", { speed: 'slow' });
+		    $('#overlay').hide();
+		    $(this).parents('.pop-up').hide();
+		    $('#login').show();
+
+		    event.preventDefault();
+		  	return false;
+	    });
+    });
+	</script> 

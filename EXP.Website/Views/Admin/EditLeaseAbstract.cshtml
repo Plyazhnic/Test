@@ -1,0 +1,145 @@
+﻿@model EXP.Services.Models.EditLeaseAbstractModel
+
+@{
+    ViewBag.Title = "Edit LeaseAbstract";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Lease Abstract</h2>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<ul class="info">
+    <li class="odd">
+        <span class="title">Building Name:</span>
+        @if (Model.Lease.Building != null)
+        {
+            <span>@Model.Lease.Building.BuildingName</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Building Address:</span>
+        @if (Model.Lease.Building != null && Model.Lease.Building.BuildingAddress != null)
+        {
+            <span>@(String.Format("{0} {1} {2} {3}",Model.Lease.Building.BuildingAddress.Address1,Model.Lease.Building.BuildingAddress.City,
+                Model.Lease.Building.BuildingAddress.State.StateName,Model.Lease.Building.BuildingAddress.ZipCode))</span>
+        }
+    </li>
+    <li class="odd">
+        <span class="title">Tenant Name:</span>
+        @if (Model.Lease.Company != null)
+        {
+            <span>@Model.Lease.Company.CompanyName</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Tenant Address:</span>
+        @if (Model.Lease.Company != null && Model.Lease.Company.Address != null)
+        {
+            <span>@(String.Format("{0} {1} {2} {3}",Model.Lease.Company.Address.Address1,Model.Lease.Company.Address.City,
+                Model.Lease.Company.Address.State.StateName,Model.Lease.Company.Address.ZipCode))</span>
+        }
+    </li>
+    <li class="odd">
+        <span class="title">Lease Term Start:</span>
+        @if (Model != null)
+        {
+            <span>@Model.Lease.TermStart.ToString("MM/dd/yyyy")</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Lease Term End:</span>
+        @if (Model != null)
+        {
+            <span>@Model.Lease.TermEnd.ToString("MM/dd/yyyy")</span>
+        }
+    </li>
+    <li class="odd">
+        <span class="title">Tax Exempted:</span>
+        @if (Model != null)
+        {
+            <span>@(Model.Lease.TaxExempt ? "yes" : "no")</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Default to market rate after lease expired:</span>
+        @if (Model != null)
+        {
+            <span>@(Model.Lease.MarketRate ? "yes" : "no")</span>
+        }
+    </li>
+    <li class="odd tborder">
+        <span class="title"><b>Montly Parking</b></span>
+        <div class="right_span">
+            @Html.ActionLink("Add Lease Details",String.Format("EditLeaseAbstract/{0}",Model.Lease.CompanyID), null, new {@class="btn btn-primary" })
+        </div>
+    </li>
+    <li style="height:auto; min-height:30px;">
+        @using (Html.BeginForm("EditLeaseAbstract", "Admin",null, FormMethod.Post, new { @id = "editMontlyParkingForm" }))
+        {
+            @Html.HiddenFor(model=>model.Inventory.ParkingInventoryID)
+            @Html.HiddenFor(model=>model.Inventory.BuildingID)
+            @Html.HiddenFor(model=>model.Inventory.CompanyID)
+            @Html.HiddenFor(model=>model.Inventory.isActive)
+            @Html.HiddenFor(model=>model.Inventory.OverSell)
+            @Html.HiddenFor(model=>model.Inventory.UserProfileID)
+            @Html.HiddenFor(model=>model.Inventory.UserVehicleID)
+            @Html.HiddenFor(model=>model.Inventory.PermitNumber)
+
+            <div class="row">
+                <div class="span12">
+                    <table id="EditMontlyParkingTable" class="table table-striped">
+                        <thead>
+                            <tr>
+                                <th>Lot Name</th>
+                                <th>Stall Location</th>
+                                <th>Stall Type</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Market Rate($)</th>
+                                <th>Rate($)</th>
+                                <th>Qty</th>
+                                <th>Disc.(%)</th>
+                                <th>Eff.Rate($)</th>
+                                <th>Tax</th>
+                                <th>Total</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Html.DropDownListFor(model=> model.Inventory.LotID,Model.Lots)</td>
+                                <td>TBD</td>
+                                <td>@Html.DropDownListFor(model=> model.Inventory.ParkingStall.ParkingStallTypeID,Model.StallTypes)</td>
+                                <td>@Html.TextBoxFor(model => model.Inventory.EffectiveFrom, new {@class = "date", @Value = (Model.Inventory.EffectiveFrom == DateTime.MinValue || Model.Inventory.EffectiveFrom == null ? string.Empty : Model.Inventory.EffectiveFrom.Value.ToString("MM/dd/yyyy")) })</td>
+                                <td>@Html.TextBoxFor(model => model.Inventory.EffectiveTo, new { @class = "date", @Value = (Model.Inventory.EffectiveTo == DateTime.MinValue || Model.Inventory.EffectiveTo == null ? string.Empty : Model.Inventory.EffectiveTo.Value.ToString("MM/dd/yyyy")) })</td>
+                                <td>@Html.CheckBoxFor(model => model.Inventory.MarketRate)</td>
+                                <td>@Html.TextBoxFor(model => model.Inventory.MontlyRate, new {@class = "number" })</td>
+                                <td>@Html.TextBoxFor(model => model.Inventory.NumberOfStalls, new {@class = "number" })</td>
+                                <td>@Html.TextBoxFor(model => model.Inventory.DiscountRate, new {@class = "number" })</td>
+                                @{ decimal effRate = Model.Inventory.MontlyRate - (Model.Inventory.MontlyRate * Model.Inventory.DiscountRate / 100);}
+                                <td><span id="effRate">@effRate.ToString("#.##")</span></td>
+                                <td><span>@Html.DisplayFor(model => model.Lease.Building.TaxRate)</span></td>
+                                <td><span id="total">@((effRate * Model.Inventory.NumberOfStalls).ToString("#.##"))</span></td>
+                                <td><span><a name="save" title="Save" href="#"><i class="icon-ok"></i></a>
+                                    <a title="Cancel" href=@String.Format("/Admin/LeaseAbstract/{0}",Model.Lease.CompanyID)><i class="icon-ban-circle"></i></a>
+                                    <a title="Delete" href=@String.Concat("/Admin/DeleteLeaseAbstract/",Model.Inventory.ParkingInventoryID)><i class="icon-remove"></i></a></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        }
+    </li>
+    <li class="odd tborder">
+        <span class="title"><b>Validation Discounts</b></span>
+        <div class="right_span">
+            @Html.ActionLink("Add Validation Discount","UnderConstruction", null, new {@class="btn btn-primary" })
+        </div>
+    </li>
+</ul>
+
+<script type="text/javascript">
+    window.onload = OnEditLeaseAbstract;
+</script>

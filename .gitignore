@@ -1,0 +1,14 @@
+# Build Folders (you can keep bin if you'd like, to store dlls and pdbs)
+bin
+obj
+
+# mstest test results
+TestResults
+/EXP.Website/EXP.Website.Publish.xml
+/EXP.Website/EXP.Website.csproj.user
+
+*.suo
+*.user
+/EXP.Database/sql/debug/*.*
+/EXP.Database/EXP.Database.dbmdl
+/EXP.Website/Log/*.*

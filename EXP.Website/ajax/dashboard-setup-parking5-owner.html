@@ -1,0 +1,80 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+
+        //$('.close').click(function(event){
+        //   	$('#overlay').hide();
+        //   	$(this).parents('.pop-up').hide();
+        //	$('#login').show();
+        //  	event.preventDefault(); 
+        //});
+        $("select").selectbox();
+    });
+</script>
+
+<!-- begin dashboard setup parking5 -->
+<div id="dashboard-setup-parking5-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-parking-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2 style="padding-bottom:10px;">Parking Lot Information</h2>
+		<p style="padding:0 0 10px 0; margin-top:0; color:#222; font-size:15px;">VISITOR Parking Stalls</p>
+		<form id="dashboard-setup-parking5-owner-form" method="post" action="#">
+		<ul class="left">	
+			<li>
+				<label for="number_visitor_stalls">Number of Visitor Parking Stalls</label>
+				<input type="text" class="required" name="number_visitor_stalls"/>							
+			</li>	
+			<li>
+				<label for="visitor_stall_location">Visitor Stall Location</label>
+				<input type="text" class="required" name="visitor_stall_location"/>	
+				<a class="add" href="#">Add Visitor Stall Location</a>						
+			</li>						
+		</ul>
+		<ul class="right">	
+			<li>
+				<label for="visitor_parking_rate">Visitor Parking Rate</label>
+				<input type="text" class="required" name="visitor_parking_rate"/>							
+			</li>	
+		</ul>
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- end -->

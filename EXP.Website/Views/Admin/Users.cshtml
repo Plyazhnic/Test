@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "Users";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Users</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Create user", "EditUser", null, new { @class="btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="UsersTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>User Name</th>
+                    <th>Email</th>
+                    <th>Login Name</th>
+                    <th>Type</th>
+                    <th>Status</th>
+                    <th>Reset Password</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>

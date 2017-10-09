@@ -1,0 +1,111 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+
+        //$('.close').click(function(event){
+        //   	$('#overlay').hide();
+        //   	$(this).parents('.pop-up').hide();
+        //	$('#login').show();
+        //  	event.preventDefault(); 
+        //});
+        $("select").selectbox();
+    });
+</script> 
+
+<!-- begin dashboard setup verify -->
+<div id="dashboard-setup-verify-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Dashboard Setup</h3>
+	</div>
+	<div>
+		<img src="/images/progress-verify-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2 style="padding-bottom:10px;">Verify</h2>
+		<p style="font-size:13px; font-weight:normal;padding-bottom:0; color:#333333;">
+			Please verify all the information entered is correct.
+		</p>
+		<div class="verify-block-left">
+			<h3>Building</h3>
+		    <p><strong>Name:</strong> <span name="buildingName" /></p>
+		    <p><strong>Address:</strong> <span name="buildingAddress" /></p>
+		    <p><strong>City, State, Zip Code:</strong> <span name="buildingCity" />, <span name="buildingState" /> <span name="buildingZip" /></p>
+			<p style="margin-top:5px !important;"><a name="editBuilding" href="#">Edit</a></p>
+		</div>
+		<div class="verify-block-right">
+			<h3>Ownership</h3>
+		    <p><strong>Building Owner/Entity Name:</strong> <span name="ownerName" /></p>
+			<p><strong>First &amp; Last Name:</strong> <span name="ownerFirstName" /> <span name="ownerLastName" /></p>
+			<p><strong>Email Address:</strong> <span name="ownerEmail" /></p>
+			<p><strong>Telephone Number:</strong> <span name="ownerPhoneType" /> - <span name="ownerPhone" /></p>
+			<p style="margin-top:5px !important;"><a name="editOwner" href="#">Edit</a></p>
+		</div>
+							
+		<div style="height:260px;" class="verify-block-left">
+			<h3>Property &amp; Parking Management</h3>
+			<p style="font-size:12px !important; font-weight:bold !important;">PROPERTY MANAGEMENT</p>
+			<p><strong>Company Name:</strong> <span name="propertyName" /></p>
+			<p><strong>Contact First &amp; Last Name:</strong> <span name="propertyFirstName" /> <span name="propertyLastName" /></p>
+			<p><strong>Email Address:</strong> <span name="propertyEmail" /></p>
+			<p><strong>Telephone Number:</strong> <span name="propertyPhoneType" /> - <span name="propertyPhone" /></p>
+			<p style="margin-top:5px !important;"><a name="editPropertyManagement" href="#">Edit</a></p>
+			<p style="font-size:12px !important;padding-top:15px !important; font-weight:bold !important;">PARKING MANAGEMENT</p>
+			<p><strong>Same as Property Management:</strong> <span name="parkingManagerSame" /></p>
+			<p style="margin-top:5px !important;"><a name="editParkingManagement" href="#">Edit</a></p>
+		</div>
+		<div class="verify-block-right">
+			<h3>Banking</h3>
+			<p><strong>Bank Name:</strong> <span name="bankName" /></p>
+			<p><strong>Account Holder Name:</strong> <span name="bankHolderName" /></p>
+			<p><strong>Account Number:</strong> <span name="bankAccountNumber" /></p>
+			<p><strong>Bank Routing Number:</strong> <span name="bankRoutingNumber" /></p>
+			<p style="margin-top:5px !important;"><a name="editBanking" href="#">Edit</a></p>
+		</div>
+		<div class="verify-block-left" style="min-height: 80px;">
+			<h3>Parking</h3>
+			<p><strong>Handling Parking Responsibilities:</strong> <span name="handling" /></p>
+			<p style="margin-top:5px !important;"><a name="editParking" href="#">Edit</a></p>
+		</div>
+		<div class="verify-block-right" style="min-height: 80px; margin-bottom:15px;">
+			<h3>Tenant</h3>
+			<p name="tenantTemplate"><strong><span name="tenantNumber" />.</strong> <span name="tenantEmail" /></p>
+			<p style="margin-top:5px !important;"><a name="editTenants" href="#">Edit</a></p>
+		</div>
+		<form>
+			<div style="clear:both;">
+				<div class="buttons" style="padding-right:3px;"><input class="button" type="submit" name="continue" value="Continue" /></div>
+				
+			</div>
+		</form>
+	</div>
+</div>
+<!-- end --> 

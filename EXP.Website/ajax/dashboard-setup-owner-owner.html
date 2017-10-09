@@ -1,0 +1,90 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+
+        //$('.close').click(function(event){
+        //   	$('#overlay').hide();
+        //   	$(this).parents('.pop-up').hide();
+        //	$('#login').show();
+        //  	event.preventDefault(); 
+        //});
+        $("select").selectbox();
+    });
+</script> 
+
+<!-- begin dashboard setup owner -->
+<div id="dashboard-setup-owner-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2>
+		Ownership Information
+		</h2>
+		<form id="dashboard-setup-owner-owner-form" method="post" action="#">
+		<ul class="left">	
+			<li>
+				<label for="owner_building_name">Building Owner Name/Entity Name</label>
+				<input type="text" class="required" name="owner_building_name"/>							
+			</li>				
+			<li>
+				<label for="owner_first_name">Owner/Contact First Name</label>
+				<input type="text" class="required" name="owner_first_name"/>							
+			</li>
+			<li>
+				<label for="owner_last_name">Owner/Contact Last Name</label>
+				<input style="height:32px;" type="text" class="required" name="owner_last_name"/>							
+			</li>												
+		</ul>
+		<ul class="right">		
+			<li>
+				<label for="owner_email">Owner/Contact Email Address</label>
+				<input type="text" class="required email" name="owner_email"/>							
+			</li>				
+            <li>
+				<label for="owner_phone">Owner/Contact Telephone Number</label>
+				<select style="width:85px;" name="owner_device">
+				</select>
+                <input style="width:213px !important; margin-left:-1px;height:32px; clear:none;float:left; " id="phone" class="required" type="text" name="owner_phone"/>							
+			</li>
+		</ul>					
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+		</form>			
+	</div>
+</div>
+<!-- end --> 

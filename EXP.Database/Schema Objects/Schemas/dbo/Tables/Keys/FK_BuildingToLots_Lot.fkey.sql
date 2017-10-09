@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[BuildingToLots]
+    ADD CONSTRAINT [FK_BuildingToLots_Lot] FOREIGN KEY ([LotID]) REFERENCES [dbo].[Lot] ([LotID]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

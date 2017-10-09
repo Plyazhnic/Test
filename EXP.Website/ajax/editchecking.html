@@ -1,0 +1,49 @@
+
+	<!-- Edit Checking Account -->
+	<div id="edit_checking" class="pop-up basic">
+	<a class="close" title="close" href="dashboard.html"></a>	
+		<div class="title-bar">
+			<h3>Edit Payment Information</h3>
+		</div>
+		<div class="content">
+			<p>Edit the Checking Account information below and then click Save to save the changes.</p>			
+			<form method="post" action="#">
+				<ul class="left">					
+					<li>
+						<label for="name">Name on Account</label>
+						<input type="text" class="required" name="name"/>							
+					</li>
+					<li>
+						<label>Checking Type</label>
+						<label id="personal" class="label_radio" for="checking_personal"><input id="checking_personal" type="radio" name="checking_type" value="personal" />Personal</label> 	
+						<label id="business" class="label_radio" for="checking_business"><input id="checking_business" type="radio" name="checking_type" value="business" />Business</label>
+						<label id="savings" class="label_radio" for="checking_savings"><input  id="checking_savings" type="radio" name="checking_type" value="savings" />Savings</label>						
+					</li>					
+					<li>
+						<label for="account_number">Checking Account Number</label>
+						<input type="text" class="required" name="account_number"/>							
+					</li>									
+				</ul>
+				<ul class="right">		
+					<li>
+						<label for="bank_name">Bank Name</label>
+						<input type="text" class="required" name="bank_name"/>							
+					</li>
+					<li>
+						<label for="routing_number">Routing Number</label>
+						<input type="text" class="required" name="routing_number"/>							
+					</li>
+					<li>
+						<label for="account_number2">Confirm Account Number</label>
+						<input type="text" class="required" name="account_number2"/>							
+					</li>					
+				</ul>				
+				<div style="clear:both;">
+					<input style="float:left; clear:none;" class="button" type="submit" name="save" value="Save" />
+					<input style="float:left; clear:none;margin-left:22px;" class="button" type="submit" name="cancel" value="Cancel" />
+				</div>
+			</form>			
+		</div>
+	</div>
+	<!-- End Edit Checking Account -->
+	

@@ -1,0 +1,50 @@
+
+<script>   
+    
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+		  	event.preventDefault(); 
+		});
+		 					
+	});		    
+	</script> 
+	
+
+		<!-- dashboard setup  -->
+		<div id="dashboard-setup-start" class="dashboard-setup pop-up start">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-start.jpg" height="100" />
+			</div>
+			<div class="content">
+				<p>
+				Getting started is easy! We will just need to ask you a few<br/>
+				questions in order to setup your personal dashboard. 
+				</p>
+				<form id="getting-started" method="post" action="#">
+					
+					<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div>
+					<div class="buttons"><input class="button" type="submit" name="cancel" value="Cancel" /></div>
+				</form>
+				
+			</div>
+		</div>
+		
+	

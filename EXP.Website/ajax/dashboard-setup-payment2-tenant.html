@@ -1,0 +1,70 @@
+
+<script>   
+
+    $(document).ready(function(){
+
+
+        $('body').addClass('has-js');
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+		  	event.preventDefault(); 
+		});
+
+		$("select").selectbox();				
+	});		    
+</script> 
+
+		<!-- dashboard setup  -->
+		<div style="min-height:340px;" id="dashboard-setup-company-tenant2" class="dashboard-setup pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-payment-tenant.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Account Information
+				</h2>
+				<form id="company-emails" method="post" action="#">
+				<ul style="width:473px;">	
+					
+					<li>
+						<label style="width:473px;">Will the Company Be Paying for Employee(s) Parking?</label><br/>
+						<label id="yes_label" class="label_radio" for="company_pay_yes"><input id="company_pay_yes" type="radio" name="company_pay" value="yes" />Yes</label> 	
+						<label style="float:left;" id="no_label" class="label_radio" for="company_pay_no"><input id="company_pay_no" type="radio" name="company_pay" value="no" />No</label>
+					</li>	
+                </ul>
+				<ul style="width:490px;" class="ul_email">				
+				<li id="email-addresses" >
+						<p style="font-size:13px;padding-bottom:0; text-align:left; padding-top:18px;color:#222">Please add the email addresses and name for all employees</p>
+						<input type="text" class="email" name="employee_email[0]" /><!--value="Email" /-->
+                        <input type="text" class="name" name="name[0]" /><!--value="Name" -->
+                        <label style="float:right;width:105px;" class="label_check" for="are_paying[0]">Will you are pay			
+						<input type="checkbox" id="are_paying[0]" name="are_paying[0]"/></label>								
+					</li>	
+					<li>
+                        <!--font-size:13px;color:#222;text-decoration:none;height:15px;display:block;float:left;position:relative;-->
+					<p id="add_delete" style="padding-bottom:0;"><a id="add" class="add" style="font-size:12px;font-weight:normal;color:#5F5F5F;text-decoration:none;display:block;float:left;position:relative;margin-left:15px;" href="#"><img src="/images/plus.png" style="padding-top:0;"/> Add Email</a></p>
+					</li>
+													
+				</ul>
+				
+					<div style="clear:both;">
+						<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+						<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+		
+	

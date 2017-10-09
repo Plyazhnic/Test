@@ -1,0 +1,43 @@
+<div id="welcome" class="pop-up">
+    <div class="title-bar">
+        <a class="close" title="close" href="/"></a>
+        <h3>Welcome to Expresspark</h3>
+    </div>
+    <div class="content">
+        <p class="bold">
+            Getting started is easy! We will just need to ask you a few questions
+            <br />
+            in order to set up your personal dashboard.
+        </p>
+        <p>
+            Please select all that apply:</p>
+        <form id="welcome-form" method="post" action="#">
+        <ul>
+            <li><label class="label_check" for="option8"><input name="option8" id="option8" type="checkbox" value="true" />I buy daily or event parking from time-to-time</label></li>
+            <li><label class="label_check" for="option6"><input name="option6" id="option6" type="checkbox" value="true" />I am an employee affiliated with an office</label></li>
+            <li><label class="label_check" for="option3"><input name="option3" id="option3" type="checkbox" value="true" />I am the contact person who oversees all the parking arrangements for my office</label></li>
+            <li><label class="label_check" for="option5"><input name="option5" id="option5" type="checkbox" value="true" />I am the parking manager for a building or property</label></li>
+            <li><label class="label_check" for="option4"><input name="option4" id="option4" type="checkbox" value="true" />I am a property manager</label></li>
+            <li><label class="label_check" for="option2"><input name="option2" id="option2" type="checkbox" value="true" />I am a owner of an office building</label></li>
+        </ul>
+        <input class="button" type="submit" name="submit" value="Continue" />
+        </form>
+    </div>
+</div>
+<script>
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+    });
+
+    $('input:checkbox').click(function () {
+        $('input:checkbox').prop('checked', false);
+        $(this).prop('checked', true);
+    });
+</script>
+

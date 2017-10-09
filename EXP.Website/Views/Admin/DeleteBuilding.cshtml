@@ -1,0 +1,13 @@
+﻿@{
+    ViewBag.Title = "DeleteBuilding";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>DeleteBuilding</h2>
+<h3>Are you sure you want to delete Building #@ViewBag.BuildingID?</h3>
+<form method="post" action='@string.Concat(Url.Action("DeleteBuilding", "Admin"), "?buildingId=", ViewBag.BuildingID)'>
+    <div class="form-actions">
+        <a class="btn" href="@Url.Action("Buildings", "Admin")">Back To List</a>
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </div>
+</form>

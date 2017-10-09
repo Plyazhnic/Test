@@ -1,0 +1,35 @@
+<!-- Edit Email -->
+<div id="email" class="pop-up">
+    <a class="close" title="close" href="dashboard.html"></a>
+    <div class="title-bar">
+        <h3>
+            Edit Email</h3>
+    </div>
+    <div class="content">
+        <p>
+            Edit the email address information below and then click Save to save the changes.</p>
+        <form id="editEmailForm" method="post" action="#">
+        <ul class="left">
+            <li>
+                <label for="email">
+                    Email Address</label>
+                <input class="required" type="text" name="email" />
+            </li>
+        </ul>
+        <ul class="right">
+            <li>
+                <label for="email2">
+                    Confirm Email Address</label>
+                <input type="text" name="email2" />
+            </li>
+        </ul>
+        <div style="clear: both;">
+            <input style="float: left; clear: none;" class="button" type="submit" name="save"
+                value="Save" />
+            <input style="float: left; clear: none; margin-left: 22px;" class="button" type="submit"
+                name="cancel" value="Cancel" />
+        </div>
+        </form>
+    </div>
+</div>
+<!-- End Edit Email -->

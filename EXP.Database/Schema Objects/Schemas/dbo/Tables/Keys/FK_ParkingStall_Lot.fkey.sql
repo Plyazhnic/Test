@@ -1,0 +1,3 @@
+﻿ALTER TABLE [dbo].[ParkingStall]
+    ADD CONSTRAINT [FK_ParkingStall_Lot] FOREIGN KEY ([LotID]) REFERENCES [dbo].[Lot] ([LotID]) ON DELETE NO ACTION ON UPDATE NO ACTION;
+

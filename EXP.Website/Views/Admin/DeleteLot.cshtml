@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "DeleteLot";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>DeleteLot</h2>
+
+<h3>Are you sure you want to delete lot @ViewBag.Lot.LotName?</h3>
+<form method="post" action='@string.Concat(Url.Action("DeleteLot", "Admin"), "?lotId=", ViewBag.Lot.LotID)'>
+    <div class="form-actions">
+        <a class="btn" href="@Url.Action("Lots", "Admin")">Back To List</a>
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </div>
+</form>

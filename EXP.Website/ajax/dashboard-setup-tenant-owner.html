@@ -1,0 +1,74 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+        $("select").selectbox();
+    });
+</script> 
+
+<!-- begin dashboard setup tenant -->
+<div id="dashboard-setup-tenant-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-tenant-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2 style="padding-bottom:10px;">
+		Tenant Information
+		</h2>
+		<p style="padding:0 0 10px 0; margin-top:0; color:#222; font-weight:normal; font-size:12px;">Please provide the contact email address for each Tenant</p>
+		<form id="dashboard-setup-tenant-owner-form" method="post" action="#">
+		<ul id="email_container" class="left">	
+			<li id="email-address0" class="email-addresses">
+				<label for="tenant_company">Company Name</label>
+			    <input type="text" class="company" group="companies" name="company0"/>
+                <label for="tenant_contact">Email</label>
+			    <input type="text" class="email tenant_contact" group="tenant_contact" name="tenant_contact0"/>
+                <label for="tenant_notified">*&nbsp;person responsible for office admin</label>
+			    <label class="error" for="company0" generated="true"></label>
+                <label class="error" for="tenant_contact0" style="margin-left: 15px;" generated="true"></label> 
+			</li>
+            <li id="buttons">
+                <p id="add_delete" style="padding-bottom:0;"><a name="addTenant" class="add" style="font-weight:normal; font-size:12px; " href="#">Add Next Tenants Email Address</a></p>
+            </li>						
+		</ul>
+		<ul class="right">						
+		</ul>
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+		</form>
+	</div>
+</div>
+<!-- end -->

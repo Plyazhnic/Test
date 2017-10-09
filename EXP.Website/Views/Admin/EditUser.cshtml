@@ -1,0 +1,183 @@
+﻿@model EXP.Services.Models.EditUserModel
+
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>EditUser</h2>
+
+@using (Html.BeginForm("EditUser", "Admin", FormMethod.Post, new { @id = "editUserForm" }))
+{
+    <fieldset>
+        <legend></legend>
+        @Html.HiddenFor(model => model.User.UserProfileID)
+        @Html.HiddenFor(model => model.User.AddressID)
+        @Html.HiddenFor(model => model.Company.AddressID)
+        @Html.HiddenFor(model => model.Company.Address.AddressID)
+        @Html.HiddenFor(model => model.PersonalAddress.AddressID)
+        @Html.HiddenFor(model => model.Company.WorkPhoneID)
+        @Html.HiddenFor(model => model.Company.FaxID)
+        @Html.HiddenFor(model => model.Company.WorkPhone.PhoneID)
+        @Html.HiddenFor(model => model.Company.Fax.PhoneID)
+        @Html.HiddenFor(model => model.WorkPhone.PhoneID)
+        @Html.HiddenFor(model => model.WorkFax.PhoneID)
+        @Html.HiddenFor(model => model.CellPhone.PhoneID)
+        <ul class="left">
+            <li class="bBorder company_fields">
+                <label><span id="title_span" class="blue">Company information</span></label>
+            </li>
+            <li class="odd">
+                <label><b>Please select a user type:</b></label>
+                <label class="error" for="User_UserProfileTypeID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.User.UserProfileTypeID,Model.ProfileTypes,"Select Type of User")
+                <span id="isSupervisor_box" style="display:none;">@Html.CheckBoxFor(model=>model.User.isSupervisor)<label class="">is Supervisor</label></span>
+            </li>
+            <li id="company_select_area" class="even" style="display:none;">
+                <label><b>Please select company:</b></label>
+                <label class="error" for="Company_CompanyID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.Company.CompanyID, Model.Companies,"Select Company")
+                <a id="add_new_tenant" href="#" class="btn btn-primary">Add</a>
+            </li>
+            <li class="even tborder company_fields">
+                <label>Company Name:</label>
+                @Html.EditorFor(model => model.Company.CompanyName)
+            </li>
+        </ul>
+        <ul id="addressList" class="left company_fields">
+            <li class="odd">
+                <label>Mailing Address:</label>
+                @Html.EditorFor(model => model.Company.Address.Address1)
+            </li>
+            <li class="even">
+                <label>Address cont.:</label>
+                @Html.EditorFor(model => model.Company.Address.Address2)
+            </li>
+            <li class="odd">
+                <label>City:</label>
+                @Html.EditorFor(model => model.Company.Address.City)
+            </li>
+            <li class="even">
+                <label>State:</label>
+                <label class="error" for="Company_Address_StateID" generated="true"></label>
+               @Html.DropDownListFor(model=> model.Company.Address.StateID,Model.States,"Select State")
+            </li>
+            <li class="odd">
+                <label>Zip Code:</label>
+                @Html.EditorFor(model => model.Company.Address.ZipCode)
+            </li>
+            <li class="even">
+                <label>Work Phone:</label>
+                @Html.EditorFor(model => model.Company.WorkPhone.PhoneNumber)
+            </li>
+            <li class="odd">
+                <label>Fax:</label>
+                @Html.EditorFor(model => model.Company.Fax.PhoneNumber)
+            </li>
+            <li id="building_box" class="odd tborder" style="display:none">
+                <label>Building:</label>
+                <label class="error" for="BuildingID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.BuildingID,Model.Buildings,"Select Building")
+            </li>
+        </ul>
+        <ul class="left">
+            <li class="odd">
+                <label><span class="blue">Contact information</span></label>
+            </li>
+            <li id="operator_box" class="odd tborder" style="display:none">
+                <label>Parking Operator:</label>
+                <label class="error" for="ParkingOperatorID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.User.OperatorID,Model.ParkingOperators,"Select Parking Operator")
+            </li>
+            <li id="title_box" class="even tborder">
+                <label>Title:</label>
+                <label class="error" for="User_TitlePreffix" generated="true"></label>
+                @Html.DropDownListFor(model=> model.User.TitlePreffix,Model.Titles,"Select Title")
+            </li>
+            <li class="odd">
+                <label>First Name:</label>
+                @Html.EditorFor(model => model.User.FirstName)
+            </li>
+            <li class="even">
+                <label>Last Name:</label>
+                @Html.EditorFor(model => model.User.LastName)
+            </li>
+            <li class="odd">
+                <label>Email Address:</label>
+                @Html.EditorFor(model => model.User.EmailAddress)
+            </li>
+            <li id="li_isCompany" class="use_li">
+                 @Html.CheckBoxFor(model=>model.iSCompany)<label class="use_lbl">Use Company's Mailing Address</label>
+            </li>
+        </ul>
+        <ul id="mailingList" class="left">
+            <li class="even">
+                <label>Address:</label>
+                @Html.EditorFor(model => model.PersonalAddress.Address1)
+            </li>
+            <li class="odd">
+                <label>Address cont.:</label>
+                @Html.EditorFor(model => model.PersonalAddress.Address2)
+            </li>
+            <li class="even">
+                <label>City:</label>
+                @Html.EditorFor(model => model.PersonalAddress.City)
+            </li>
+            <li class="odd">
+                <label>State:</label>
+                <label class="error" for="PersonalAddress_StateID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.PersonalAddress.StateID,Model.States,"Select State")
+            </li>
+            <li class="even">
+                <label>Zip Code:</label>
+                @Html.EditorFor(model => model.PersonalAddress.ZipCode)
+            </li>
+            <li class="odd">
+                <label>Work Phone:</label>
+                @Html.EditorFor(model => model.WorkPhone.PhoneNumber)
+            </li>
+            <li class="even">
+                <label>Cell Phone:</label>
+                @Html.EditorFor(model => model.CellPhone.PhoneNumber)
+            </li>
+            <li class="odd">
+                <label>Fax:</label>
+                @Html.EditorFor(model => model.WorkFax.PhoneNumber)
+            </li>
+            <li id="hiredate_box" class="even" style="display:none">
+                <label>Hire Date:</label>
+                @Html.EditorFor(model => model.User.HireDate, new { @class = "date" })
+            </li>
+        </ul>
+        <ul class="left">
+            <li class="odd">
+                <label><span class="blue">Login Details</span></label>
+            </li>
+            <li class="even tborder">
+                <label>Create Username:</label>
+                @Html.EditorFor(model => model.User.UserName)
+            </li>
+            <li id="li_Password" class="odd">
+                <label>Create Password:</label>
+                @Html.PasswordFor(model => model.Password)
+            </li>
+            <li id="li_Password2" class="even">
+                <label>Confirm Password:</label>
+                @Html.PasswordFor(model => model.Password2)
+            </li>
+            <li class="odd comments">
+                <label>Comments:</label>
+                @Html.TextAreaFor(model => model.User.Comments, new { @class="comments" })
+            </li>
+        </ul>
+
+        <div class="save">
+            <input type="submit" value="Save" name="save" class="btn btn-primary" />
+        </div>
+    </fieldset>    
+}
+
+
+<script type="text/javascript">
+    window.onload = OnEditUser;
+</script>

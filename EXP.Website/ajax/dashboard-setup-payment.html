@@ -1,0 +1,81 @@
+
+<script>   
+//Custom Check boxes and radio buttons
+function setupLabel() {
+    if ($('.label_check input').length) {
+        $('.label_check').each(function(){ 
+            $(this).removeClass('c_on');
+        });
+        $('.label_check input:checked').each(function(){ 
+            $(this).parent('label').addClass('c_on');
+        });                
+    };
+    if ($('.label_radio input').length) {
+        $('.label_radio').each(function(){ 
+            $(this).removeClass('r_on');
+        });
+        $('.label_radio input:checked').each(function(){ 
+            $(this).parent('label').addClass('r_on');
+        });
+    };
+};
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+		  	event.preventDefault(); 
+		});
+		$("select").selectbox();				
+	});		    
+	</script> 
+	
+
+		<!-- dashboard setup  -->
+		<div style="min-height:455px;" id="dashboard-setup-payment" class="dashboard-setup pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-payment-employee.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Payment Information
+				</h2>
+				<form id="profile" method="post" action="#">
+					<ul>
+						<li>
+						<label style="width:450px; padding-top:0;padding-bottom:10px;" >Who Will Pay for Your Parking?</label>
+						<label style="width:450px; padding-top:0;padding-bottom:10px;font-weight:normal;" class="label_radio" for="me"><input style="padding-bottom:2px;" id="me" type="radio" name="payment" value="1" />I will be paying for my own parking</label> 	
+						<label style="width:450px; padding-top:0;font-weight:normal;" class="label_radio" for="tenant"><input id="tenant" type="radio" name="payment" value="2" />My company (tenant) will be paying for my parking*</label>						
+					</li>	
+					<li style="clear:both; width:450px; font-size:11px; padding-bottom:0; margin-bottom:0;">
+						<p id="footnote" style="width:450px; padding-top:20px; text-align:left; font-size:11px; padding-bottom:0; margin-bottom:5px;">* If Tenant has not yet signed up, You will be responsible for paying your own parking. 
+						Once the tenant has signed up and accepted you as an employee they will then pay
+						for your parking.
+						</p>
+					</li>
+					</ul>
+					<div style="clear:both;">
+						<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div>
+						<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+		
+	

@@ -1,0 +1,78 @@
+﻿@model EXP.Services.Models.EditStallModel
+
+@{
+    ViewBag.Title = "EditStall";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>EditStall</h2>
+
+@using (Html.BeginForm("EditStall", "Admin", FormMethod.Post, new { @id = "editStallForm" }))
+{
+    <fieldset>
+        <legend></legend>
+        @Html.HiddenFor(model => model.ParkingStallID)
+        @Html.HiddenFor(model => model.LotID)
+        <ul class="left">
+            <li class="odd">
+                <label>Stall Location:</label>
+                @Html.EditorFor(model => model.StallLocation)
+            </li>
+            <li class="even">
+                <label>Stall Type:</label>
+                <label class="error" for="ParkingStallTypeID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.ParkingStallTypeID,Model.StallTypes,"Select Type")
+            </li>
+            <li class="odd">
+                <label>Number of Stalls:</label>
+                @Html.EditorFor(model => model.StallNumber)
+            </li>
+            <li class="even notVisitor">
+                <label>Montly Rate($):</label>
+                @Html.EditorFor(model => model.MontlyRate)
+            </li>
+            <li class="odd notVisitor">
+                <label>Over Sell (%):</label>
+                @Html.EditorFor(model => model.OverSell)
+            </li>
+            <li class="even visitor">
+                <label>Rate($):</label>
+                @Html.EditorFor(model => model.Rate)
+            </li>
+            <li class="odd visitor">
+                <label>Max Rate($):</label>
+                @Html.EditorFor(model => model.MaxRate)
+            </li>
+            <li class="even visitor">
+                <label>Flat Rate($):</label>
+                @Html.EditorFor(model => model.FlatRate)
+            </li>
+            <li class="odd visitor">
+                <label>Time increment(mins):</label>
+                @Html.EditorFor(model => model.TimeIncrement)
+            </li>
+            <li class="even visitor">
+                <label>Grace Period(mins):</label>
+                @Html.EditorFor(model => model.GracePeriod)
+            </li>
+            <li id="notes" class="even  comments">
+                <label>Notes:</label>
+                @Html.TextAreaFor(model => model.StallDescription, new { @class="comments" })
+            </li>
+        </ul>
+        <div class="save">
+            <input type="submit" value="Save" name="save" class="btn btn-primary" />
+        </div>
+     </fieldset>
+    
+}
+<script type="text/javascript">
+    window.onload = function () {
+        if ($("#ParkingStallTypeID").val() == 5) {
+            $("#editStallForm").find('.notVisitor').hide();
+            $("#editStallForm").find('.visitor').show();
+            $("#notes").removeClass("even");
+            $("#notes").addClass("odd");
+        }
+    };
+</script>

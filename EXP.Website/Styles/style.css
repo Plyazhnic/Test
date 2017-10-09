@@ -1,0 +1,1744 @@
+@CHARSET "UTF-8";
+
+/* BASIC ELEMENTS */
+  /*font-weight:normal;font-style:normal;*/
+@font-face {font-family: 'Swiss721BT-Bold';src: url('webfonts/222F90_0_0.eot');src: url('webfonts/222F90_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/222F90_0_0.woff') format('woff'),url('webfonts/222F90_0_0.ttf') format('truetype');}
+@font-face {font-family: 'Swiss721BT-Roman';src: url('webfonts/23C22F_0_0.eot');src: url('webfonts/23C22F_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/23C22F_0_0.woff') format('woff'),url('webfonts/23C22F_0_0.ttf') format('truetype');}
+@font-face {font-family: 'Swiss721BT-Light';src: url('webfonts/23E5AA_0_0.eot');src: url('webfonts/23E5AA_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/23E5AA_0_0.woff') format('woff'),url('webfonts/23E5AA_0_0.ttf') format('truetype');}
+@font-face {font-family: 'Swiss721BT-Thin';src: url('webfonts/23E5AB_0_0.eot');src: url('webfonts/23E5AB_0_0.eot?#iefix') format('embedded-opentype'),url('webfonts/23E5AB_0_0.woff') format('woff'),url('webfonts/23E5AB_0_0.ttf') format('truetype');}
+ 
+
+#mti_wfs_colophon{display:none;}
+body{font-family:'Swiss721BT-Roman'; background-color:#0f131c; color:#5f5f5f;}
+
+h2{font-size:38px;}
+h3{font-family:'Swiss721BT-Bold'; font-weight:normal;}
+
+p{color:#5f5f5f;font-size:12px;margin-bottom:18px;}
+
+a{color:#5f5f5f;}
+a:active{color:#5f5f5f;}
+a:hover{color:#1a82b8;}
+a:visited{color:#5f5f5f;}
+
+ul{padding-bottom:15px;}
+ul li{font-size:13px; margin-bottom:15px;}
+
+input[type="checkbox"]{margin-right:5px;}
+
+.bold{font-weight:bold;}/*-webkit-font-smoothing: antialiased;*/
+
+#tagline{font-family:'Swiss721BT-Thin';}
+
+.dashboard-setup label.error {
+    color: #FF0000 !important;
+    width: auto;
+    float: none;
+    display: inline;
+    font-size: 14px;
+}
+
+#dashboard-setup-company-manager label.error {
+    position: absolute;
+}
+
+.button{
+	display:block;
+	background:url('/images/button-bg.png') repeat-x;
+	height:30px;
+	font-family:'Swiss721BT-Bold';
+	background-position:top left;
+	border:1px solid #00517b;
+	padding:0 29px 0 29px;
+	border-radius:4px;
+	color:#fff;
+	font-size:14px;
+	text-shadow: 1px 1px 0 rgba(0, 81, 123, 1);
+	font-family:'Swiss721BT-Bold';
+	line-height:30px;
+}
+
+.button:hover{
+	cursor:pointer;
+	background-position:bottom left !important;
+	color:#fff;
+}
+
+#wrapper{
+	border:none;
+	left:0;
+	top:0;
+	padding:0;
+	position:fixed;
+	width:100%;
+	height:100%;	
+}
+
+#header{
+	position:relative;
+	float:left;
+	width:100%;
+	height:61px;
+	background: url('/images/header-bg.png') repeat-x;
+}
+
+#header #logo a{
+	display:block;
+	background: url('/images/logo.png') no-repeat;
+	width:675px;
+	height:37px;
+	margin:13px 0 0 35px;
+	text-indent:-9999px;
+	float:left;
+}
+
+
+#content{
+	float:left;
+	position:relative;
+	clear:both;
+	width:1255px;
+	height:804px;
+}
+
+#footer{
+	position:fixed;
+	bottom:0;
+	left:0;
+	width:100%;
+	height:23px;
+	background: url('/images/footer-bg.png') repeat-x;
+	padding:12px 35px 0 23px;
+}
+
+#footer ul{
+	list-style:none;
+	margin:0;
+	padding:0;		
+	position:relative;
+	float:left;
+	margin-bottom:0;
+}
+
+#footer ul li{
+	padding:0 12px 1px 12px;
+	border-right:1px solid #5d5b5b;
+	display:inline;	
+	height:13px;
+	position:relative;
+	float:left;	
+	margin-bottom:0;
+}
+
+#footer ul li:last-child{border-right:none;}
+
+#footer ul li a{
+	color:#9f9f9f;
+	font-size:11px;
+	text-decoration:none;
+	line-height:11px;
+}
+
+#footer a:hover{text-decoration:underline;}
+	
+#copyright{
+	text-align:left;
+	width:225px;
+	padding-top:2px;
+	padding-right:42px;
+	float:right;
+	position:absolute;
+	color:#9f9f9f;
+	font-size:11px;
+	right:0;
+}
+
+#overlay{
+	width:100%;
+	height:100%;
+	position:absolute;
+	top:0;
+	left:0;
+	background:#000;
+	opacity:0.33;
+	z-index:100;
+}
+
+.pop-up{
+	background-color:#fff;
+	border:1px solid #191919;
+	position:absolute;
+	z-index:101;
+	top:50%;
+	left:50%;
+}
+
+.pop-up .title-bar{	
+	position:relative;
+	float:left;
+	background-color:#2e2e2e;
+	height:80px;
+	width:100%
+}
+
+.pop-up .title-bar h3{
+	font-family:'Swiss721BT-Thin';
+	margin-top:17px;
+	margin-left:30px;
+	color:#fff;
+	font-size:38px;
+}
+
+.pop-up .content{
+	position:relative;
+	float:left;
+	padding:25px;
+}
+
+.close{
+	background:url('/images/close-icon.png') no-repeat;
+	position:absolute;
+	width:15px;
+	height:16px;
+	display:block;
+	top:10px;
+	right:15px;
+	z-index:1000;
+}
+
+.close:hover{background-position:bottom left;}
+
+#forgot-password .close, 
+#forgot-username .close,
+#employer-notified .close{
+	background:url('/images/close-icon.png') no-repeat;
+	position:absolute;
+	width:15px;
+	height:16px;
+	display:block;
+	top:10px;
+	right:15px;
+	z-index:1000;
+	background-position:bottom left;
+}
+
+#forgot-password .close:hover, 
+#forgot-username .close:hover, 
+#employer-notified .close.hover{
+	background-position:top left;
+}
+
+#welcome{
+	margin-left:-275px;
+	margin-top:-220px;
+	width:550px;
+	height:440px;	
+}
+
+#sign-up{
+	margin-left:-298px;
+	margin-top:-307px;
+	width:595px;
+	height:689px;
+}
+
+#sign-up ul{
+	float:left;
+	padding-bottom:10px;
+	width:550px;
+}
+
+#sign-up input[type="submit"]{clear:both;}
+
+#sign-up label.error, #forgot-password label.error, #forgot-username label.error, #password-reset-form label.error, #contact-us label.error {
+    display: block;
+    position: relative;
+    float: right;
+    width: 185px;
+    height: 8px;
+    padding: 6px 10px 14px 30px;
+    border: 1px solid #848484;
+    top: 0;
+    margin-right: 10px;
+    background: #f2d8d8 url('/images/error.png') 2px 3px no-repeat;
+    color: #880000;
+    font-size: 15px;
+}
+
+#forgot-password label.error, #forgot-username label.error, #password-reset-form label.error{
+	height:auto;
+	padding:5px 10px 6px 32px;	
+    width:70px;
+    margin:0px;
+}
+
+#password-reset-form label.error {
+    width:100px;
+}
+
+#sign-up label.success {
+    position: relative;
+    float: right;
+    width: 185px;
+    height: 8px;
+    padding: 6px 10px 14px 32px;
+    border: 1px solid #848484;
+    top: 0;
+    margin-right: 10px;
+    background: #D1ECC9 url('/images/ok.png') 7px 3px no-repeat;
+    color: #28811D;
+    font-size: 15px;
+}
+
+#agree_span label.error
+{
+    background: none;
+    border: none;
+    float: left;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 22px;
+    color: #FF0000;
+}
+
+#agree_span
+{
+    height: 12px;
+    display: inline-block;
+    width: 300px;
+    padding-top: -10px;
+}
+
+#login{
+	margin-left:-135px;
+	margin-top:-255px;
+	width:370px;
+	height:510px;
+	left:70%;	
+}
+
+#login input[type="text"], #login input[type="password"], #sign-up input[type="text"], #sign-up input[type="password"] {
+    width: 303px;
+    height: 28px;
+    clear: both;
+    font-size: 15px;
+}
+
+#login label, 
+#sign-up label{
+	width:310px;
+	color:#2e2e2e;
+	font-size:14px;
+	font-weight:bold;
+	display:block;
+	padding-bottom:5px;
+	float:left;
+	position:relative;
+}
+
+#sign-up label.label_check{
+	width:510px;
+	margin-bottom: 12px !important;
+}
+
+#login .forgot{
+	padding:5px 0;
+	display:block;
+	clear:both;
+	position:relative;
+	font-size:10px;
+	text-decoration:none;
+}
+
+#login p{
+	margin-bottom:5px;
+}
+
+#login ul{
+	padding-bottom:10px;
+}
+
+div.note {
+	margin-top:20px;
+	padding:10px 0 0 0;
+	border-top: 1px solid #191919;
+	font-family:'Swiss721BT-Roman';
+	font-size:12px;
+}
+
+#forgot-username, #forgot-password-sent, #forgot-username-send, #reset-password-confirm, #login-error, #profile-error, #contact-us-sent{	
+	border:6px solid #363030;
+	border-radius:6px;
+    z-index:103;
+}
+
+
+#forgot-username{	
+	margin-top:-125px;
+	margin-left:-195px;
+	width:390px;
+	height:250px;
+	border:6px solid #363030;
+	border-radius:6px;
+    z-index: 103;
+}
+
+#forgot-password, 
+#employer-notified, 
+#landlord-notified, 
+#tenant-notified {
+	margin-left:-215px;
+	margin-top:-123px;
+	width:430px;
+	height:245px;
+	border:6px solid #363030;
+	border-radius:6px;
+	z-index: 103;
+}
+
+#forgot-password {
+    width:390px;
+}
+
+#company-notified{
+	margin-left:-215px;
+	margin-top:-123px;
+	width:480px;
+	height:245px;
+	border:6px solid #363030;
+	border-radius:6px;
+}
+
+#notification {
+	margin-left:-195px;
+	margin-top:-123px;
+	width:390px;
+	border:6px solid #363030;
+	border-radius:6px;
+	min-height:180px;
+    z-index: 103;
+}
+
+#property-management-notified {
+	margin-left:-195px;
+	margin-top:-123px;
+	width:480px;
+    height:130px;
+	border:6px solid #363030;
+	border-radius:6px;
+	min-height:180px;
+    z-index: 103;
+}
+
+#property-management-notified p {
+    font-size: 13px;
+    width: 410px;
+}
+
+.tenant{
+	margin-left:-217px !important;	
+	width:434px !important;
+}
+
+#forgot-password-sent{	
+	margin-left:-240px;
+	margin-top:-55px;
+	width:480px;
+	height:110px;
+}
+
+/* REMOVE */
+#company-notified h3,
+#forgot-username h3, 
+#forgot-username-send h3,
+#forgot-password-sent h3, 
+#forgot-password h3, 
+#employer-notified h3, 
+#landlord-notified h3, 
+#notification h3, 
+#property-management-notified h3, 
+#tenant-notified h3,
+#contact-us-sent h3{	
+	font-size:21px;
+	color:#231f20;
+	margin-bottom:15px;
+}
+
+.notifed h3{
+	font-size:21px;
+	color:#231f20;
+	margin-bottom:15px;
+}
+
+.notifed p{
+	margin-bottom:25px;
+}
+
+/* REMOVE */
+#forgot-username p, 
+#forgot-password-sent p, 
+#forgot-password p, 
+#employer-notified p, 
+#landlord-notified p, 
+#notification p, 
+#tenant-notified p{	
+	margin-bottom:25px;
+}
+
+#forgot-username input[type="text"], 
+#forgot-password input[type="text"]{
+	width:200px;
+	height:28px;
+	clear:both;	
+}
+
+#forgot-username label, 
+#forgot-password label,
+#contact-us label{
+	color:#2e2e2e;
+	font-size:14px;
+	font-weight:bold;
+	display:block;
+	padding-bottom:5px;
+	float:left;
+	position:relative;
+    width: 300px;
+}
+
+#reset-password-confirm{
+	margin-left:-222px;
+	margin-top:-98px;
+	width:445px;
+	height:196px;
+}
+
+#reset-password-confirm p{margin-bottom:28px;}
+
+#almost-done{	
+	margin-left:-262px;
+	margin-top:-90px;
+	width:620px;
+	height:180px;
+	z-index: 103;
+}
+
+#activation-complete{	
+	margin-left:-298px;
+	margin-top:-112px;
+	width:620px;
+	height:225px;
+}
+
+#activation-complete a.button{	
+	padding-top:7px;
+	display:block;
+	width:48px;
+	height:21px;
+	text-decoration:none;
+	text-align:center;
+}
+
+#activation-complete a.button:hover{text-decoration:none;}
+
+#vehicle-info{
+	margin-left:-307px;
+	margin-top:-190px;
+	width: 615px;
+	height: 390px;
+}
+
+#vehicle-info .content{width: 565px;}
+
+#vehicle-info input[type="text"]{
+	width:250px;
+	height:28px;
+	clear:both;		
+}
+
+#vehicle-info label{
+	width:310px;
+	color:#2e2e2e;
+	font-size:14px;
+	font-weight:bold;
+	display:block;
+	padding-bottom:5px;
+	float:left;
+	position:relative;
+}
+
+#password-reset{	
+	margin-left:-222px;
+	margin-top:-175px;
+	width:445px;
+	height:350px;
+}
+
+#password-reset input[type="password"]{
+	width:235px;
+	height:28px;
+	clear:both;		
+}
+
+#password-reset label{
+	width:310px;
+	color:#2e2e2e;
+	font-size:14px;
+	font-weight:bold;
+	display:block;
+	padding-bottom:5px;
+	float:left;
+	position:relative;	
+}
+
+#contact-us {
+    min-height: 485px;
+    margin-left: -258px;
+    margin-top: -250px;
+    width: 500px;
+    z-index:103;
+}
+
+#contact-us textarea{
+    border: 1px solid #848484;
+    clear: both;
+    height: 100px;
+    padding: 0 4px;
+    width: 440px;
+}
+
+#contact-us label.error{
+    background: url("/images/error.png") no-repeat scroll 5px 5px #F2D8D8;
+    height: 10px;
+    padding: 8px 10px 14px 36px;
+    margin: 0px;
+    width: 125px;
+}
+
+#contact-us p{
+    margin-bottom: 20px;
+}
+
+#contact-us ul{
+    padding: 0px;
+}
+
+#contact-us-sent {
+    height: 110px;
+    margin-left: -258px;
+    margin-top: -50px;
+    width: 470px;
+}
+
+.label_check{
+	font-weight:normal !important;
+	font-size: 13px !important;
+    margin-bottom: 15px !important;
+    color: #5F5F5F !important;
+    font-family: 'Swiss721BT-Roman' !important;
+}
+
+/*NOTIFIED */
+#employer-notified{height:106px;}
+
+#company-notified{height:160px;}
+
+#landlord-notified, 
+#notification, 
+#tenant-notified{height:122px; z-index:103;}
+
+/* DASHBOARD SETUP */
+/* class */
+
+.start p{
+	padding-bottom:20px !important;
+	font-size:16px;
+	font-weight:bold;
+	text-align:center;
+}
+
+.dashboard-setup select{background:#fff; border:1px solid #aaa; height:21px; width:27px;-webkit-appearance: none;}
+
+.dashboard-setup{width:620px;}
+
+.dashboard-setup label {
+    color: #2E2E2E !important;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    position: relative;
+    width: 262px;
+}
+.dashboard-setup ul{
+	float:left;
+	padding-bottom:10px;
+	width:286px;
+}
+.dashboard-setup select{
+	width:286px;
+	height:32px;
+	clear:both;	
+	line-height:32px;
+	font-size:13px;
+	padding: 3px 0;
+    -webkit-appearance: none;
+}
+
+.dashboard-setup div.buttons{float:right;margin-left:15px;}
+
+.dashboard-setup .content{
+	padding-top:0;
+	width:560px;
+	padding:0 30px 25px 30px
+}
+
+.dashboard-setup h2, .dashboard-setup-owner h2{
+	text-align:center;
+	font-size:20px;
+	line-height:19px;
+	font-weight:bold;
+	padding-bottom:30px;
+	color:#000;
+}
+
+.dashboard-setup .button{
+	display:block;
+	background:url('/images/button-bg.png') repeat-x;
+	height:30px;
+	font-family:'Swiss721BT-Bold';
+	background-position:top left;
+	border:1px solid #00517b;
+	padding:0 25px 0 25px;
+	border-radius:4px;
+	color:#fff;
+	font-size:14px;
+	text-shadow: 1px 1px 0 rgba(0, 81, 123, 1);
+	font-family:'Swiss721BT-Bold';
+	line-height:30px;
+}
+
+/* id */
+#dashboard-setup {height:383px;margin-left:-261px;}
+
+#dashboard-setup, 
+#dashboard-setup-company-tenant,
+#dashboard-setup-company-tenant2,
+#dashboard-setup-company-tenant3,
+#dashboard-setup-company-tenant4,
+#dashboard-setup-company-tenant6,
+#dashboard-setup-company-tenant7,
+#dashboard-setup-profile,
+#dashboard-setup-profile2, 
+#dashboard-setup-profile3,
+#dashboard-setup-parking, 
+#dashboard-setup-account, 
+#dashboard-setup-vehicle, 
+#dashboard-setup-payment, 
+#dashboard-setup-payment2, 
+#dashboard-setup-payment3, 
+#dashboard-setup-payment4,
+#dashboard-setup-payment5,
+.dashboard-setup-tenant {
+	
+	margin-left:-310px;
+	margin-top:-210px;
+}
+
+#dashboard-setup-parking {
+	height:453px;
+	margin-left:-310px;
+}
+
+.tenant-parking {
+	height:550px !important;
+	margin-left:-261px;
+	margin-top: -210px !important;
+}
+
+#dashboard-setup-profile3 {
+	height:527px;
+	margin-left:-261px;
+}
+
+#dashboard-setup-profile2 {
+	height:447px;
+	margin-left:-261px;
+}
+
+#dashboard-setup-profile {
+	min-height:375px;
+	margin-left:-310px;
+}
+
+#dashboard-setup-profile .disabled, 
+#dashboard-setup-profile2 .disabled{
+	background-color:#ccc;
+	background:url(/images/button-bg-dis.png) repeat-x;
+	cursor:default;
+}
+
+#dashboard-setup-account{min-height:595px;}
+
+#dashboard-setup-company-tenant{height:425px;}
+
+#dashboard-setup-company-tenant2{min-height:345px;}
+
+#dashboard-setup-vehicle {height:525px;}
+
+#dashboard-setup-vehicle .jquery-selectbox {
+    margin-bottom: 20px;
+}
+
+#dashboard-setup-payment {height:445px;}
+
+#dashboard-setup-payment2 {height:362px;}
+
+#dashboard-setup-payment3 {min-height:380px;}
+
+#dashboard-setup-payment4 {height:603px;}
+
+#dashboard-setup-payment5 {height:755px; margin-left:-310px;}
+#dashboard-setup p, 
+.dashboard-setup p,
+.dashboard-setup-employee p, .dashboard-setup-tenant p {
+	text-align:center;
+	font-size:16px;
+	line-height:19px;
+	font-weight:bold;
+	padding-bottom:80px;
+}
+
+#password{
+	margin-left:-308px;
+	margin-top:-208px;
+	width:618px;
+	height:418px;
+	left:50%;
+}
+
+#personal, 
+#business, 
+#savings, 
+#yes_label, 
+#no_label, 
+#use-address_yes_label, 
+#use-address_no_label {
+	font-weight:normal;
+	width:70px;
+	padding-top:1px;
+	padding-bottom:3px;
+}
+
+#property_label, 
+#parking_label, 
+#owner_label{
+	font-weight:normal;
+	width:188px;
+	padding-top:1px;
+	padding-bottom:3px;
+}
+
+#dashboard-setup-payment5 select,
+#dashboard-setup-payment4 select, 
+#dashboard-setup-payment3 select,
+#dashboard-setup-account select{
+	width:261px;
+	height:32px;
+	clear:both;	
+	line-height:32px;
+	font-size:13px;
+	padding: 3px 0;
+    -webkit-appearance: none;
+}
+
+#address ul, 
+#email ul, 
+#password ul, 
+#phone ul, 
+#vehicle ul, 
+#dashboard-setup-account ul, 
+#dashboard-setup-payment3 ul,
+#dashboard-setup-payment4 ul, 
+#dashboard-setup-payment5 ul,
+#dashboard-setup-vehicle ul, 
+#dashboard-setup-parking ul,  
+#dashboard-setup-company-tenant ul, 
+#dashboard-setup-company-tenant2 ul,
+.dashboard-setup-tenant ul{
+	position:relative;
+	width:260px;
+	margin:0
+}
+ul.left,
+#address ul.left, 
+#email ul.left, 
+#password ul.left, 
+#phone ul.left, 
+#vehicle ul.left, 
+#dashboard-setup-account ul.left, 
+#dashboard-setup-payment3.ul.left, 
+#dashboard-setup-payment4 ul.left, 
+#dashboard-setup-payment5 ul.left, 
+#dashboard-setup-vehicle ul.left, 
+#dashboard-setup-parking ul.left,  
+#dashboard-setup-company-tenant ul.left, 
+#dashboard-setup-company-tenant2 ul.left,
+#dashboard-setup-company-tenant3 ul.left,
+#dashboard-setup-company-tenant4 ul.left,
+#dashboard-setup-company-tenant5 ul.left,
+#dashboard-setup-company-tenant6 ul.left,
+#dashboard-setup-company-tenant7 ul.left,
+.dashboard-setup-tenant ul.left{
+	float:left;	
+}
+
+ul.right,
+#address ul.right, 
+#email ul.right, 
+#password ul.right, 
+#phone ul.right, 
+#vehicle ul.right, 
+#dashboard-setup-account ul.right, 
+#dashboard-setup-payment3 ul.right,
+#dashboard-setup-payment4  ul.right, 
+#dashboard-setup-payment5  ul.right, 
+#dashboard-setup-vehicle ul.right, 
+#dashboard-setup-parking ul.right, 
+#dashboard-setup-company-tenant ul.right, 
+#dashboard-setup-company-tenant2 ul.right,
+.dashboard-setup-tenant ul.right{
+	float:right;
+}
+
+#address input[type="text"], 
+#email input[type="text"], 
+#password input[type="password"], 
+#vehicle input[type="text"], 
+#dashboard-setup-account input[type="text"],
+#dashboard-setup-payment3 input[type="text"], 
+#dashboard-setup-payment4 input[type="text"], 
+#dashboard-setup-payment5 input[type="text"], 
+#dashboard-setup-payment6 input[type="text"], 
+#dashboard-setup-vehicle input[type="text"], 
+#dashboard-setup-company-tenant input[type="text"], 
+#dashboard-setup-company-tenant2 input[type="text"],
+.dashboard-setup-tenant input[type="text"],
+#dashboard-setup-parking input[type="text"],
+#contact-us input[type="text"]{
+	width:252px;
+	height:32px;
+	clear:both;	
+	border: 1px solid #848484;
+	margin-bottom:5px;
+	padding:0 4px;
+}
+
+#company-emails input[type="text"] {
+    width: 145px;
+    margin-right: 5px;
+    margin-left: 5px;
+}
+
+#company-emails label.label_check {
+    top: 7px;
+    right: 12px;
+}
+
+#dashboard-setup-payment3 input[name="cvv"]{
+	width:69px !important;
+	clear:none;
+}
+
+#dashboard-setup-payment3 select[name="month"]{
+	width:69px;
+	clear:none;
+    -webkit-appearance: none;
+}
+#dashboard-setup-payment3 select[name="year"]{
+	width:69px;
+	clear:none;
+    -webkit-appearance: none;
+}
+
+#dashboard-setup-payment3 select[name="state"]{
+	width:69px;
+	clear:none;
+    -webkit-appearance: none;
+}
+#dashboard-setup-payment3 input[name="zip"]{
+	width:69px;
+	clear:none;
+}
+
+#cards {
+    position: absolute;
+    margin-top: 20px;
+    margin-left: -50px;
+}
+
+#dashboard-setup-payment5 img,
+#dashboard-setup-payment3 img,
+#dashboard-setup-payment4 img{
+	padding-top:0px;    
+}
+
+#dashboard-setup-payment3 #type,
+#dashboard-setup-payment4 #type,
+#dashboard-setup-payment5 #type,
+#dashboard-setup-payment6 #type{
+	width:263px;	
+	clear:both;		
+	font-size:13px;
+	padding: 4px 0;
+}
+
+#dashboard-setup-payment3 #month,
+#dashboard-setup-payment4 #month,
+#dashboard-setup-payment5 #month{
+	width:62px;
+	margin-right:20px !important;	
+	font-size:13px;
+	clear:none;
+	float:left;
+	position:relative;
+}
+
+#dashboard-setup-account .jquery-selectbox ,
+#dashboard-setup-payment3 .jquery-selectbox,
+#dashboard-setup-payment4 .jquery-selectbox,
+#dashboard-setup-payment5 .jquery-selectbox {
+    margin-right: 19px;
+}
+
+#dashboard-setup-payment3 #exp_date_label,
+#dashboard-setup-payment4 #exp_date_label,
+#dashboard-setup-payment5 #exp_date_labe{
+	width:200px;
+}
+
+#dashboard-setup-payment3 #year,
+#dashboard-setup-payment4 #year,
+#dashboard-setup-payment5 #year{
+	width:84px;	
+	font-size:13px;
+	padding: 4px 0;
+	float:left;
+	position:relative;
+	clear:none;
+	margin-left:20px;
+	margin-right:20px;
+}
+
+#dashboard-setup-payment3 #cvv_label,
+#dashboard-setup-payment4 #cvv_label,
+#dashboard-setup-payment5 #cvv_label{
+	width:200px;
+}
+
+#dashboard-setup-payment3 #cvv,
+#dashboard-setup-payment4 #cvv,
+#dashboard-setup-payment5 #cvv{
+	width:68px;
+	position:relative;
+	clear:none;	
+}
+
+#dashboard-setup-account #state ,
+#dashboard-setup-payment3 #state, 
+#dashboard-setup-payment4 #state,  
+#dashboard-setup-payment5 #state,
+#dashboard-setup-company-tenant2 #state,
+.dashboard-setup-tenant #state
+{
+	width:85px;	
+	font-size:13px;
+	padding: 4px 0;
+	float:left;
+	position:relative;
+	clear:none;	
+	margin-right:20px;
+}
+
+#dashboard-setup-account #state_label, 
+#dashboard-setup-payment3 #state_label, 
+#dashboard-setup-payment4 #state_label, 
+#dashboard-setup-payment5 #state_label, 
+#dashboard-setup-company-tenant2 #state_label,
+.dashboard-setup-tenant #state_label{
+	width:97px;
+	margin-right:17px;
+}
+
+#dashboard-setup-account #zip,
+#dashboard-setup-payment3 #zip, 
+#dashboard-setup-payment4 #zip, 
+#dashboard-setup-payment5 #zip, 
+#dashboard-setup-company-tenant2 #zip,
+.dashboard-setup-tenant #zip{
+	width:89px;	
+	float:left;
+	position:relative;
+	clear:none;	
+	margin-left:11px;
+	height:32px;
+}
+
+#dashboard-setup-account #zip_label, 
+#dashboard-setup-payment3 #zip_label,
+#dashboard-setup-payment4 #zip_label,  
+#dashboard-setup-payment5 #zip_label, 
+#dashboard-setup-company-tenant2 #zip_label,
+.dashboard-setup-tenant #zip_label{
+	width:75px;		
+}
+
+#dashboard-setup-payment3 #address_info,
+#dashboard-setup-payment4 #address_info,
+#dashboard-setup-payment5 #address_info{
+	font-size:14px;
+	margin-bottom:10px;	
+}
+
+#dashboard-setup-account #phone_number{
+	width:123px;
+	clear:none;
+	position:relative;
+	float:left;
+	height:32px;
+}
+
+#dashboard-setup-account #phone_select_li .jquery-selectbox .jquery-selectbox-moreButton {
+    background: url("../images/lay-selectMoreButton.gif") repeat scroll -2px 0 transparent;
+    cursor: pointer;
+    float: right;
+    height: 32px;
+    width: 28px;
+}
+
+#dashboard-setup-account #phone_select{
+	width:102px;
+	height:32px;
+	position:relative;
+	float:left;
+	line-height:32px;
+	font-size:13px;
+	padding: 4px 0;
+	margin:0;
+    -webkit-appearance: none;
+}
+
+#dashboard-setup-account .left .jquery-selectbox {
+    margin-right: 0;
+}
+
+#dashboard-setup-parking select{
+ 	width:97px;
+ 	height:34px !important;
+     -webkit-appearance: none;
+}
+ 
+#dashboard-setup-parking span{
+ 	font-size:11px;
+ 	font-weight:normal;
+}
+
+#unreserved_spaces_cost, #reserved_spaces_cost {
+	width:142px !important;
+	height:32px !important;
+	margin-left:11px;
+	padding:0 4px;
+}
+
+#phone select {
+    float: left;
+    font-size: 13px;
+    height: 34px;
+    line-height: 34px;
+    padding: 4px 0;
+    position: relative;
+    width: 71px;
+    -webkit-appearance: none;
+}
+
+#dashboard-setup-company-tenant2 .jquery-selectbox .jquery-selectbox-moreButton,
+.dashboard-tenant .jquery-selectbox .jquery-selectbox-moreButton,
+.dashboard-setup-tenant .jquery-selectbox .jquery-selectbox-moreButton{
+    background: url("../images/lay-selectMoreButton.gif") repeat scroll -0 0 transparent;
+    cursor: pointer;
+    float: right;
+    height: 32px;
+    width: 32px;
+}
+
+#dashboard-setup-parking-vehicle2 .jquery-selectbox .jquery-selectbox-moreButton,
+#phone_select_li .jquery-selectbox .jquery-selectbox-moreButton
+{
+    background: url("../images/lay-selectMoreButton.gif") repeat scroll -2px 0 transparent;
+    cursor: pointer;
+    float: right;
+    height: 32px;
+    width: 30px;
+}
+.dashboard-tenant select,
+.dashboard-setup-tenant select {
+    clear: both;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    padding: 3px 0;
+    width: 87px;
+    -webkit-appearance: none;
+}
+.verify-block-left,
+.verify-block-right{
+	width: 265px;	
+	position:relative;
+	min-height:195px;
+}
+
+.verify-block-left{
+	float:left;
+	margin-right:29px;
+}
+
+.verify-block-right{
+	float:right;
+}
+
+.verify-block-left p, .verify-block-right p, p.edit {
+    margin: 0 0 0 0 !important;
+    text-align: left !important;
+    font-size: 11px !important;
+    padding: 0 0 0 10px !important;
+    font-weight: normal !important;
+    color: #333333;
+}
+
+p.edit{
+ 	padding:0 !important;
+}
+ 
+.verify-block-left p strong, 
+.verify-block-right p strong{	
+	font-weight:bold !important;	
+}
+
+.verify-block-left h3, .verify-block-right h3{
+	margin-bottom:10px;
+	line-height:29px;
+	padding:1px 10px 0 10px;
+	background:url('/images/verify-header-bg.png') repeat-x;
+	font-size:14px;
+    color: #333333;
+}
+
+/* EMPLOYEE DASHBOARD SETUP */
+.dashboard-setup-employee select{background:#fff; border:1px solid #aaa; height:21px; width:27px;-webkit-appearance: none;}
+
+.dashboard-setup-employee #phone_select {
+    float: left;
+    font-size: 13px;
+    height: 32px;
+    line-height: 32px;
+    margin: 0;
+    padding: 4px 0;
+    position: relative;
+    width: 77px !important;
+    -webkit-appearance: none;
+}
+
+.dashboard-setup-employee{
+	margin-left: -310px;
+    margin-top: -210px;
+}
+.dashboard-setup-employee{width:620px;}
+
+.dashboard-setup-employee label {
+    color: #2E2E2E !important;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    position: relative;
+    width: 262px;
+}
+.dashboard-setup-employee label.error {
+    color: #FF0000 !important;
+}
+.dashboard-setup-employee ul{
+	float:left;
+	padding-bottom:10px;
+	width:286px;
+}
+.dashboard-setup-employee select{
+	width:286px;
+	height:32px;
+	clear:both;	
+	line-height:32px;
+	font-size:13px;
+	padding: 3px 0;
+    -webkit-appearance: none;
+}
+.dashboard-setup-employee form div.buttons{float:right;margin-left:15px;}
+
+.dashboard-setup-employee .content{
+	padding-top:0;
+	width:560px;
+	padding:0 30px 25px 30px
+}
+
+.dashboard-setup-employee h2 {
+	text-align:center;
+	font-size:20px;
+	line-height:19px;
+	font-weight:bold;
+	padding-bottom:30px;
+	color:#000;
+}
+
+.dashboard-setup-employee .button{
+	display:block;
+	background:url('/images/button-bg.png') repeat-x;
+	height:30px;
+	font-family:'Swiss721BT-Bold';
+	background-position:top left;
+	border:1px solid #00517b;
+	padding:0 25px 0 25px;
+	border-radius:4px;
+	color:#fff;
+	font-size:14px;
+	text-shadow: 1px 1px 0 rgba(0, 81, 123, 1);
+	font-family:'Swiss721BT-Bold';
+	line-height:30px;
+}
+
+.dashboard-setup-employee #phone_select_li .jquery-selectbox {
+    margin-right: -1px !important;
+}
+
+/* OWNER DASHBOARD SETUP */
+
+.dashboard-setup-owner{
+	width:725px;
+ 	margin-left: -362px;
+    margin-top: -210px;
+}
+    
+.dashboard-setup-owner p{
+	text-align:center;
+	font-size:16px;
+	line-height:19px;
+	font-weight:bold;
+	padding-bottom:80px;
+}
+
+.dashboard-setup-owner label {
+    color: #2E2E2E !important;
+    display: block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+    padding-bottom: 5px;
+    position: relative;
+    width: 307px;
+}
+.dashboard-setup-owner label.error {
+    color: #FF0000 !important;
+}
+
+#dashboard-setup-tenant-owner input.email {
+    clear: none;
+}
+
+#dashboard-setup-tenant-owner label.error {
+    width: 270px;
+    float: right;
+    top: 10px;
+}
+
+#dashboard-setup-tenant-owner #email_container {
+    width:600px !important;
+}
+
+#dashboard-setup-tenant-owner #email_container li.email-addresses {
+    min-height: 60px;
+}
+
+#dashboard-setup-tenant-owner #email_container #buttons {
+    margin-top: 30px;
+    height: 10px;
+    margin-bottom: 10px;
+}
+
+.dashboard-setup-owner #state_label{
+	width:95px;
+	margin-right:17px;
+}
+.dashboard-setup-owner #zip_label {
+    width: 75px;
+}
+
+
+.dashboard-setup-owner input[type="text"], 
+.dashboard-setup-owner #address input[type="text"], 
+.dashboard-setup-owner  #email input[type="text"], 
+.dashboard-setup-owner  #password input[type="password"], 
+.dashboard-setup-owner #vehicle input[type="text"], 
+.dashboard-setup-owner #dashboard-setup-account input[type="text"], 
+.dashboard-setup-owner #dashboard-setup-payment3 input[type="text"], 
+.dashboard-setup-owner #dashboard-setup-payment4 input[type="text"], 
+.dashboard-setup-owner #dashboard-setup-vehicle input[type="text"], 
+.dashboard-setup-owner #dashboard-setup-company-tenant input[type="text"], 
+.dashboard-setup-owner #dashboard-setup-company-tenant2 input[type="text"], 
+.dashboard-setup-owner #dashboard-setup-parking input[type="text"]{
+	width:300px !important;
+	height:30px;
+	clear:both;	
+	border: 1px solid #848484;
+	margin-bottom:5px;
+	padding:0 4px;
+}
+
+.dashboard-setup-owner a, 
+.verify-block-left a, 
+.verify-block-right a{
+	color:#1a82b8 !important;
+	font-size:12px;
+}
+
+.dashboard-setup-owner ul{padding-bottom:10px;width:309px !important;}
+
+.dashboard-setup-owner select{
+	width:300px;
+	height:32px;
+	clear:both;	
+	line-height:32px;
+	font-size:13px;
+	padding: 3px 0;
+    -webkit-appearance: none;
+}
+
+.dashboard-setup-owner form div.buttons{float:right;margin-left:15px;}
+
+.dashboard-setup-owner .content{
+	padding-top:0;
+	width:665px;
+	padding:0 30px 25px 30px
+}
+
+.dashboard-setup-owner .verify-block-left, 
+.dashboard-setup-owner .verify-block-right{
+	width: 310px;	
+	position:relative;
+	min-height:170px;
+}
+
+.dashboard-setup-owner li a.add{
+	text-decoration:none;
+	padding-left:24px;
+	display:block;
+	height:18px;
+    width:200px;
+	line-height:19px;
+	font-size:11px;
+	 color: #5F5F5F !important;
+	background:url('/images/add-icon.jpg') no-repeat;
+}
+
+.dashboard-setup-owner #zip {
+    clear: none;
+    float: left;
+    height: 32px;
+    margin-left: 11px;
+    position: relative;
+    width: 89px;
+}
+.dashboard-setup-owner #state {
+    clear: none;
+    float: left;
+    font-size: 13px;
+    margin-right: 20px;
+    padding: 4px 0;
+    position: relative;
+    width: 85px;
+}
+
+#total_reserved_stalls, 
+#total_reserved_stalls_cost, 
+#total_visitor_stalls, 
+#total_visitor_stalls_cost,
+#total_unreserved_stalls, 
+#total_unreserved_stalls_cost{
+	width:135px !important;
+	clear:none !important;
+}
+
+#total_reserved_stalls, 
+#total_visitor_stalls, 
+#total_unreserved_stalls{
+	margin-right:15px;
+}
+
+
+/* IDs */
+
+#dashboard-setup-start-owner{min-height:290px;margin-left: -310px;margin-top: -210px;}
+#dashboard-setup-banking-owner{	min-height:480px;}
+
+#dashboard-setup-profile-owner{	min-height:370px;margin-left: -310px;margin-top: -210px;}
+
+
+#dashboard-setup-building-owner{min-height:450px;}
+#dashboard-setup-building-owner .jquery-selectbox{
+    margin-right: 19px;
+}
+
+#dashboard-setup-tenant-owner{
+	min-height:400px;
+}
+
+#dashboard-setup-management-owner{
+	min-height:530px;
+}
+
+#dashboard-setup-management1-owner{
+	min-height:360px;
+}
+
+#dashboard-setup-management2-owner{
+	min-height:358px;
+}
+
+#dashboard-setup-owner-owner{
+	min-height:530px;
+}
+
+#dashboard-setup-parking-owner{
+	min-height:350px;
+}
+
+#dashboard-setup-parking2-owner{
+	min-height:490px;
+}
+
+#dashboard-setup-parking3-owner{
+	min-height:535px;
+}
+
+#dashboard-setup-parking4-owner{
+	min-height:630px;
+}
+
+#dashboard-setup-parking5-owner{
+	min-height:490px;
+}
+
+#dashboard-setup-parking6-owner{
+	min-height:535px;
+}
+
+
+#dashboard-setup-congratulations-owner{
+	min-height:335px;
+}
+
+#dashboard-setup-verify-owner, #dashboard-setup{
+    height: 600px;
+    width: 742px;
+    overflow: auto;
+    margin-top: -300px;
+}
+
+#dashboard-setup{
+    width: 637px;
+}
+
+.dashboard-setup-owner .jquery-selectbox .jquery-selectbox-moreButton {
+    background: url("../images/lay-selectMoreButton.gif") repeat scroll -2px 0 transparent;
+    cursor: pointer;
+    float: right;
+    height: 32px;
+    width: 30px;
+}
+
+#email_container li.email-addresses label {
+    display: inline-block;
+    width: auto;
+    margin-right: 10px;
+    float: left;
+    height: 30px;
+    line-height: 30px;
+}
+
+#email_container li.email-addresses label.error {
+    display: block;
+    margin-right: 0px;
+    height: 15px;
+    position: relative;
+    line-height: 0px;
+}
+
+#email_container li.email-addresses label[for="tenant_contact"] {
+    margin-left: 25px;
+}
+
+#email_container li.email-addresses label[for="tenant_notified"] {
+    margin-left: 315px;
+    height: 15px;
+    font-size: 13px;
+    font-weight: normal;
+    margin-top: -5px;
+}
+
+#email_container li.email-addresses input {
+    width: 150px !important;
+    display: inline-block;
+    float: left;
+    clear: right;
+}
+
+#email_container li.email-addresses input.tenant_contact {
+    width: 200px !important;
+    clear: right;
+}
+
+
+/*CALENDAR */
+/* Table style */
+.gldp-default table
+{
+	border-spacing:1px;
+	border-collapse:inherit;
+}
+
+/* Default row height */
+.gldp-default tr
+{
+	line-height:28px;
+}
+
+/* Default style of cell */
+.gldp-default td
+{
+	margin:0;
+	padding:0;
+	width:34px;
+	text-align:center;
+}
+
+/* Previous and Next arrows */
+.gldp-default-prevnext
+{
+	font-family:"times new roman";
+	color:#222;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Month Year title */
+.gldp-default-monyear
+{
+	color:#222;
+	font-size:1.3em !important;
+	font-weight:bold;
+}
+
+/* Days of the week (Sun, Mon, ...) */
+.gldp-default-dow
+{
+	background-color:#5b97c8;
+	color:#eee;
+	font-size:0.8em !important;
+	font-weight:bold;
+}
+
+/* Selectable days */
+.gldp-default-day
+{
+	background-color:#fff;
+	color:#222;
+	border:solid 1px #fff;
+	font-weight:bold;
+}
+.gldp-default-day-hover
+{
+	background-color:#fff;
+	color:#5b97c8;
+	border:solid 1px #f82200;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Selected days */
+.gldp-default-selected
+{
+	background-color:#fee;
+	color:#222;
+	border:solid 1px #f82200;
+}
+
+/* Today */
+.gldp-default-today
+{
+	background-color:#5b97c8;
+	color:#fff;
+	border:solid 1px #5b97c8;
+	font-weight:bold;
+}
+.gldp-default-today-hover
+{
+	background-color:#fff;
+	color:#f82200;
+	border:solid 1px #5b97c8;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Weekends */
+.gldp-default-sat, .gldp-default-sun
+{
+	background-color:#fff;
+	color:#004f8f;
+	border:solid 1px #fff;
+	font-weight:bold;
+}
+.gldp-default-sat-hover, .gldp-default-sun-hover
+{
+	background-color:#fff;
+	color:#004f8f;
+	border:solid 1px #f82200;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Non-selectable day.  Includes:previous/next month days and days that fall in the allowOld and endDate conditions */
+.gldp-default-noday
+{
+	background-color:#fff;
+	border:solid 1px #fff;
+	color:#666;
+	cursor:wait;
+}
+
+#start_date-gldp, #end_date-gldp{
+	display: block;
+    left: 0 !important;
+    position: absolute;
+    top: 23px !important;
+	z-index:10000;
+	width:260px;
+	border:solid 1px #cecece;
+	background-color:#cecece;
+	font-size:10px;
+}
+
+/* FORM REPLACEMENT */
+.has-js .label_check,
+.has-js .label_radio { padding-left: 24px; padding-top:2px;}
+.has-js .label_radio { background: url(/images/radio-off.png) no-repeat; }
+.has-js .label_check { background: url(/images/check-off.png) no-repeat; }
+.has-js label.c_on { background: url(/images/check-on.png) no-repeat; }
+.has-js label.r_on { background: url(/images/radio-on.png) no-repeat; }
+.has-js .label_check input,
+.has-js .label_radio input { position: absolute; left: -9999px; }

@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.Title = "Tenants";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<script type="text/javascript">
+    var BuildingId = @ViewData["BuildingID"] 
+        
+    function GetBuildingId()
+    {
+        return BuildingId;
+    }
+    window.onload = OnListTenants;
+    
+</script>
+<h2>Tenants</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Create tenant", "EditUser", null, new { @class="btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="TenantsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Company Name</th>
+                    <th>Mailing Address</th>
+                    <th>Contact Name</th>
+                    <th>Email</th>
+                    <th>Tenant Company Status</th>
+                    <th>Tenant Lease</th>
+                    <th>Lease Abstract</th>
+                    <th>Employees</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>

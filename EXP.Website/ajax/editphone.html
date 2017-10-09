@@ -1,0 +1,38 @@
+	<!-- Edit Phone -->
+	<div id="phone" class="pop-up">
+	<a class="close" title="close" href="dashboard.html"></a>	
+		<div class="title-bar">
+			<h3>Edit Phone</h3>
+		</div>
+		<div class="content">
+			<p>Edit the phone number below and then click Save to save the changes.</p>			
+			<form id="editPhoneForm" method="post" action="#">
+                <label id="list_phones_label" for="phones">Phone(s)</label>
+                <select id="list_phones" name="phones">
+                </select><br />
+				<ul id="edit_phone_ul" class="left" style="padding-bottom:0px;">            
+					<li style="margin-bottom:5px;">
+						<label for="phone">Primary Telephone Number</label><label id="extension_label" for="extension">Extension <span style="font-weight:normal;">(optional)</span></label>
+                        <br /><br />
+						<select name="phone_type" class="required" >
+							<option value="">Phone Type</option>
+						</select><input id="phone_number" class="required" type="text" name="phone_number"/>
+					    <input style="width:120px;" type="text" name="extension"/>	
+                        <label class="error" for="phone_type" generated="true"></label>	
+                        <label class="error" for="phone_number" generated="true"></label>								
+					</li>
+					<li style="margin:5px 0px;">
+						<label id="phone_types_label">Phone Type</label>
+                        <label id="home" class="label_radio" for="phone_home"><input id="phone_home" type="radio" name="phone_type" value="home" />Home</label> 	
+						<label id="other" class="label_radio" for="phone_other"><input  id="phone_other" type="radio" name="phone_type" value="other" />Business/Other</label>							
+					</li>				
+				</ul>
+				<div style="clear:both;">
+					<input style="float:left; clear:none;" class="button" type="submit" name="save" value="Save" />
+					<input style="float:left; clear:none;margin-left:22px;" class="button" type="submit" name="cancel" value="Cancel" />
+				</div>
+			</form>			
+		</div>
+	</div>
+	<!-- End Edit Phone -->
+	

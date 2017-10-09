@@ -1,0 +1,70 @@
+﻿<script>
+    //Custom Check boxes and radio buttons
+    function setupLabel() {
+        if ($('.label_check input').length) {
+            $('.label_check').each(function () {
+                $(this).removeClass('c_on');
+            });
+            $('.label_check input:checked').each(function () {
+                $(this).parent('label').addClass('c_on');
+            });
+        };
+        if ($('.label_radio input').length) {
+            $('.label_radio').each(function () {
+                $(this).removeClass('r_on');
+            });
+            $('.label_radio input:checked').each(function () {
+                $(this).parent('label').addClass('r_on');
+            });
+        };
+    };
+    $(document).ready(function () {
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function () {
+            setupLabel();
+        });
+
+        setupLabel();
+
+        $.validator.setDefaults({
+            debug: true
+        });
+
+        //$('.close').click(function(event){
+        //   	$('#overlay').hide();
+        //   	$(this).parents('.pop-up').hide();
+        //	$('#login').show();
+        //  	event.preventDefault(); 
+        //});
+        $("select").selectbox();
+    });
+</script> 
+
+<!-- begin dashboard setup parking -->
+<div id="dashboard-setup-parking1-owner" class="dashboard-setup-owner pop-up">
+	<a class="close" title="close" href="/"></a>	
+	<div class="title-bar">
+		<h3>Add New Building</h3>
+	</div>
+	<div>
+		<img src="/images/progress-parking-owner.jpg" height="100" />
+	</div>
+	<div class="content">
+		<h2>Parking Lot Information</h2>			
+		<form id="dashboard-setup-parking1-owner-form" method="post" action="#">
+		<ul style="width:653px !important; padding-bottom:30px;">					
+			<li>
+				<label style="width:653px;">Who will be handling the buildings parking responsiblities?</label><br/>
+				<label id="property_label" class="label_radio" for="property_manager"><input id="property_manager" type="radio" name="manager" value="yes" />Property Management</label> 	
+				<label style="float:left;" id="parking_label" class="label_radio" for="parking_manager"><input id="parking_manager" type="radio" name="manager" value="yes" />Parking Management</label>
+				<label style="float:left;" id="owner_label" class="label_radio" for="owner_manager"><input id="owner_manager" type="radio" name="manager" value="yes" />Building Owner</label>
+			</li>								
+		</ul>					
+			<div style="clear:both;">
+				<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+				<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+			</div>
+		</form>				
+	</div>
+</div>
+<!-- end -->

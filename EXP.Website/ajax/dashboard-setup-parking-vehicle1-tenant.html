@@ -1,0 +1,69 @@
+
+<script>   
+//Custom Check boxes and radio buttons
+function setupLabel() {
+    if ($('.label_check input').length) {
+        $('.label_check').each(function(){ 
+            $(this).removeClass('c_on');
+        });
+        $('.label_check input:checked').each(function(){ 
+            $(this).parent('label').addClass('c_on');
+        });                
+    };
+    if ($('.label_radio input').length) {
+        $('.label_radio').each(function(){ 
+            $(this).removeClass('r_on');
+        });
+        $('.label_radio input:checked').each(function(){ 
+            $(this).parent('label').addClass('r_on');
+        });
+    };
+};
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		$("select").selectbox();				
+	});		    
+	</script> 
+	
+		<!-- dashboard setup  -->
+		<div style="height:345px;"id="dashboard-setup-company-tenant2" class="dashboard-setup pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-account-tenant.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Account Information
+				</h2>
+				<form method="post" action="#">
+				<ul style="width:473px;">	
+					
+					<li>
+						<label style="width:473px;">Will You be Personally Parking a Vehicle at this Location?</label><br/>
+						<label id="yes_label" class="label_radio" for="personal_parking_yes"><input id="personal_parking_yes" type="radio" name="personal_parking" value="yes" />Yes</label> 	
+						<label style="float:left;" id="no_label" class="label_radio" for="personal_parking_no"><input id="personal_parking_no" type="radio" name="personal_parking" value="no" />No</label>
+					</li>	
+													
+				</ul>
+			
+					<div style="clear:both;">
+						<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+						<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+	

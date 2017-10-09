@@ -1,0 +1,86 @@
+
+<script>   
+//Custom Check boxes and radio buttons
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+		  	event.preventDefault(); 
+		});
+		$("select").selectbox();				
+	});		    
+	</script> 
+	
+
+		<!-- dashboard setup  -->
+		<div id="dashboard-setup-company-tenant2" class="dashboard-setup pop-up dashboard-setup-tenant">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-company-tenant.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Company Information
+				</h2>
+				<form method="post" action="#">
+				<ul class="left">	
+								
+					<li>
+						<label for="name">Company Name</label>
+						<input type="text" class="required" name="name"/>							
+					</li>
+					<li>
+						<label>Use Building Address</label>
+						<label id="yes_label" class="label_radio" for="use_buliding_address_yes"><input id="use_buliding_address_yes" type="radio" name="use_buliding_address" value="yes" />Yes</label> 	
+						<label style="float:left;" id="no_label" class="label_radio" for="use_buliding_address_no"><input id="use_buliding_address_no" type="radio" name="use_buliding_address" value="no" />No</label>
+					</li>		
+								
+					<li class="li_address">
+						<label style="padding-top:25px;" for="address1">Mailing Address 1</label>
+						<input type="text" class="required" name="address1"/>							
+					</li>
+								
+					<li class="li_address">
+						<label for="address2">Mailing Address 2</label>
+						<input style="height:32px;" type="text" class="required" name="address2"/>							
+					</li>			
+													
+				</ul>
+				<ul class="right">		
+					<li>
+						<label for="suite_number">Suite Number</label>
+						<input type="text" class="required" name="suite_number"/>							
+					</li>
+					<li class="li_address">
+						<label style="padding-top:70px;" for="city">City</label>
+						<input type="text" class="required" name="city"/>							
+					</li>	
+					<li class="li_address">
+						<label style="width: 95px; margin-right: 17px;"id="state_label" for="state">State</label>
+						<label  style="width:135px;" id="zip_label" for="zip">Zip Code</label>
+						<select style="width:90px; " id="state"  name="state">
+							<option value=""></option>							
+						</select>							
+						<input style="float:right; clear:none; width:138px; height:32px;" id="zip" type="text" class="required" name="zip"/>							
+					</li>		
+				</ul>				
+					
+					<div style="clear:both;">
+						<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div> 
+						<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+		

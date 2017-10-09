@@ -1,0 +1,41 @@
+﻿@model EXP.Services.Models.EditBookModel
+@{
+    ViewBag.Title = "Edit Validation Book";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>Edit Validation Book</h2>
+@using (Html.BeginForm("EditValidationBook", "Admin", FormMethod.Post, new { @id = "EditValidationBookForm" }))
+{
+    <fieldset>
+        <legend></legend>
+        @Html.HiddenFor(model => model.BookID)
+        @Html.HiddenFor(model => model.LotID)
+        <ul class="left">
+            <li class="bBorder company_fields">
+                <label><span id="title_span" class="blue">Validation Book information</span></label>
+            </li>
+            <li class="odd" style="height: auto; padding-bottom: 20px">
+                <label><b>Please select if validation book is active</b></label>
+                <label class="error" for="User_UserProfileTypeID" generated="true"></label>
+                @Html.DropDownListFor(model => model.IsActive, new List<SelectListItem> { new SelectListItem { Text = "Active", Value = "True" }, new SelectListItem { Text = "Not active", Value = "False" } })
+            </li>
+            <li class="even tborder company_fields">
+                <label>Book Name:</label>
+                @Html.EditorFor(model => model.BookName)
+            </li>
+            <li class="odd comments" style="height:30px">
+                <label>Ticket Count</label>
+                @Html.EditorFor(model => model.TicketCount)
+            </li>
+            <li class="even tborder company_fields"> 
+                <label>Rate:</label>
+                @Html.EditorFor(model => model.Rate)
+            </li>
+        </ul>
+        <br />
+        <br />
+        <div class="save">
+            <input type="submit" value="Save" name="save" class="btn btn-primary" />
+        </div>
+    </fieldset>
+}

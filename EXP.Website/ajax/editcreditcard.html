@@ -1,0 +1,189 @@
+	<!-- Edit Credit Card -->
+	<div id="credit_card_billing" class="pop-up basic" style="width: 612px; height: auto" >
+	<a class="close" title="close" href="dashboard.html"></a>	
+		<div class="title-bar">
+			<h3>Edit Payment Information</h3>
+		</div>
+		<div class="content">
+			<p>Edit the payment information below and then click Save to save the changes.</p>			
+			<!--<form method="post" action="#">
+				<ul class="left">					
+					<li>
+						<label for="card_holder">Card Holder</label>
+						<input type="text" class="required" name="card_holder"/>							
+					</li>
+					<li>
+						<label for="type">Type</label>
+						<select id="type" name="type">
+							<option value="">American Express</option>
+						</select>							
+					</li>					
+					<li>
+						<label for="number">Number</label>
+						<input type="text" class="required" name="number"/>							
+					</li>
+					<li>
+						<label id="exp_date_label" for="expiration_date">Expiration Date</label>
+						<label id="cvv_label"for="cvv">CVV</label>
+						<select id="month" name="month">
+							<option value="1">01</option>
+							<option value="2">02</option>
+							<option value="3">03</option>
+							<option value="4">04</option>
+							<option value="5">05</option>
+							<option value="6">06</option>
+							<option value="7">07</option>
+							<option value="8">08</option>
+							<option value="9">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>							
+						<select id="year"  name="year">
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>							
+						<input id="cvv" type="text" class="required" name="cvv"/>							
+					</li>				
+				</ul>
+				<ul class="right">		
+					<li style="padding-bottom:26px;">
+						<label>Billing Address</label>						
+						<p id="address_info">
+						Someones Name<br/>
+						5555 Address St<br/>
+						City, State, Zip<br/>
+						</p>
+						<a href="editcreditcardbilling.html">Edit</a>												
+					</li>					
+				</ul>				
+				<div style="clear:both;">
+					<input style="float:left; clear:none;" class="button" type="submit" name="save" value="Save" />
+					<input style="float:left; clear:none;margin-left:22px;" class="button" type="submit" name="cancel" value="Cancel" />
+				</div>
+			</form>			-->
+            <div id="manage_payment_method" class="left" style="height: 50px">
+				<label for="payment_method" style="width: 258px">Payment Method</label>
+				<select id="payment_method" name="payment_method">
+                    <option value="credit_card">Credit Card</option>
+					<option value="online_check">Online Check</option>
+				</select>
+			</div>
+            <form id="credit_card" method="post" action="#">
+                <input type="hidden" name="paymentId" value=""/>
+                <input type="hidden" name="addressId" value=""/>
+                <input type="hidden" name="creditCardId" value=""/>
+				<ul class="left" style="height: 410px; width: 278px">									
+					<li>
+						<label for="number">Credit or Debit Card Number</label>
+						<input type="text" class="" name="card_number"/>							
+					</li>
+					<li>
+						<label for="card_holder_first_name">Card Holder's First Name</label>
+						<input type="text" class="required" name="ch_first_name"/>							
+					</li>
+					<li>
+						<label for="card_holder_last_name">Card Holder's Last Name</label>
+						<input type="text" class="required" name="ch_last_name"/>							
+					</li>
+                    <li>
+						<label id="exp_date_label" for="expiration_date">Expiration Date</label>
+						<label id="cvv_label"for="cvv">CVV</label>
+						<select id="month" name="month">
+							<option value="01">01</option>
+							<option value="02">02</option>
+							<option value="03">03</option>
+							<option value="04">04</option>
+							<option value="05">05</option>
+							<option value="06">06</option>
+							<option value="07">07</option>
+							<option value="08">08</option>
+							<option value="09">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>							
+						<select id="year" name="year" style="margin-left: 14px; width:65px">
+						</select>							
+						<input id="cvv" type="text" class="required" name="cvv" style="margin-left:16px; width: 67px"/>							
+					</li>
+                    <li>
+						<label  style="padding-bottom:10px;">Auto Pay</label>
+						<label id="auto_pay" class="label_check" for="auto-pay">Enroll in Auto Pay
+						<input type="checkbox"  name="auto_pay"/></label>						
+					</li>	
+							
+				</ul>
+				<ul class="right" style="height: 410px; width: 278px">	
+					<li>
+					<img src="/images/visa.jpg"/><img src="/images/mc.jpg"/>	<img src="/images/amex.jpg"/>							
+					</li>
+                    <li>
+					    <label style="padding-bottom:10px;">Billing Address</label>
+						<label id="billing_address" class="label_check" for="billing-address">Same as home address
+						<input type="checkbox"  name="billing_address"/></label>							
+					</li>	
+                    <li>
+						<label for="city">City</label>
+						<input type="text"  name="city"/>							
+					</li>
+                    <li>
+						<label for="address1">Address 1</label>
+						<input type="text" class="required" name="address1"/>							
+					</li>		
+					<li>
+						<label for="address2">Address 2</label>
+						<input type="text"  name="address2"/>							
+					</li>
+					<li>
+						<label id="state_label" for="state">State</label>
+						<label id="zip_label" for="zip">Zip Code</label>
+						<select id="state"  name="state">
+							<option value="">Select states</option>							
+						</select>							
+						<input id="zip" type="text" class="required" name="zip" style="margin-left: 3px; width:79px"/>							
+					</li>
+				</ul>				
+			</form>
+            <form method="post" id="online_check" action="#">
+                <input type="hidden" name="onlineCheckId" value=""/>
+                <ul class="left" style="height:240px; width: 278px">				
+					<li>
+						<label for="name">Name on Account</label>
+						<input type="text" class="required" name="account_name"/>							
+					</li>
+                    <li style="padding-top:0px;">
+						<label for="bank_name">Bank Name</label>
+						<input type="text" class="required" name="bank_name"/>							
+					</li>
+					<li>
+						<label>Checking Type</label><br />
+						<label id="personal" class="label_radio" style="width:105px" for="checking_personal"><input id="checking_personal" checked="checked" type="radio" name="checking_type" value="1" />Personal</label> 	
+						<label style="float:left; width:105px" id="business" class="label_radio" for="checking_business"><input id="checking_business" type="radio" name="checking_type" value="2" />Business</label>
+						<label id="savings" class="label_radio" style="width:105px" for="checking_savings"><input  id="checking_savings" type="radio" name="checking_type" value="3" />Savings</label>						
+					</li>														
+				</ul>
+				<ul class="right" style="height:240px; width: 278px">				
+					<li>
+						<label for="routing_number">Routing Number</label>
+						<input type="text" class="required" name="routing_number"/>							
+					</li>
+                    <li>
+						<label for="account_number">Checking Account Number</label>
+						<input id="account_number" type="text" class="required" name="account_number"/>							
+					</li>
+					<li>
+						<label for="account_number2">Confirm Account Number</label>
+						<input type="text" class="required" name="account_number2"/>							
+					</li>					
+				</ul>				
+			</form>	
+            <div style="clear:both;">
+				<input style="float:left; clear:none;" class="button" type="submit" name="save" value="Save" />
+				<input style="float:left; clear:none;margin-left:22px;" class="button" type="submit" name="cancel" value="Cancel" />
+			</div>	
+		</div>
+	</div>
+	<!-- End Edit Credit Card -->

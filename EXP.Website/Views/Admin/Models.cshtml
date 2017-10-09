@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "Models";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<script type="text/javascript">
+    var MakeId = @ViewData["MakeId"]
+    function GetMakeId()
+    {
+        return MakeId;
+    }
+    window.onload = OnListModels;
+</script>
+<h2>VehicleModels</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Create model", "CreateModel", new {MakeId = (int)ViewData["MakeId"]}, new { @class = "btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="VehicleModelsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Model</th>
+                    <th>Description</th>
+                    <th>isActive</th>
+                    <th>Updated date</th>
+                    <th>Created date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>

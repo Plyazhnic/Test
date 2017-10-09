@@ -1,0 +1,37 @@
+﻿
+@model EXP.Services.Models.EditMakeModel
+@{
+    ViewBag.Title = "Create Make";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>CreateMake</h2>
+@using (Html.BeginForm("CreateMake", "Admin", FormMethod.Post, new { @id = "AddMakeForm" }))
+{
+    <fieldset>
+        <legend></legend>
+        <ul class="left">
+            <li class="bBorder company_fields">
+                <label><span id="title_span" class="blue">Make information</span></label>
+            </li>
+            <li class="odd">
+                <label><b>Please select if make is active:</b></label>
+                <label class="error" for="User_UserProfileTypeID" generated="true"></label>
+                @Html.DropDownListFor(model => model.isActive, new List<SelectListItem> { new SelectListItem { Text = "Active", Value = "true" }, new SelectListItem { Text = " Not active", Value = "false" } })
+            </li>
+            <li class="even tborder company_fields">
+                <label>Name:</label>
+                @Html.EditorFor(model => model.VehicleMake1)
+            </li>
+            <li class="odd comments">
+                <label>Description</label>
+                @Html.TextAreaFor(model => model.VehicleMakeDescription, new { @class="comments" })
+            </li>
+       </ul>
+        <br />
+        <br />    
+        <div class="save">
+                <input type="submit" value="Save" name="save" class="btn btn-primary" />
+            </div>
+    </fieldset>
+}

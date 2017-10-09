@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "Delete Key Card";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Delete Key Card</h2>
+
+<h3>Are you sure you want to delete Key Card ?</h3>
+<form method="post" action='@string.Concat(Url.Action("DeleteKeyCard", "Admin"), "?Lotid=" + ViewBag.card.LotID)'> 
+    <div class="form-actions">
+        <a class="btn" href="@string.Concat(Url.Action("ValidationBooks", "Admin"), "/", ViewBag.card.LotID)">Back To List</a>
+        <input class="btn btn-danger" type="submit" value="Delete">
+    </div>
+</form>

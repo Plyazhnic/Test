@@ -1,0 +1,88 @@
+﻿@model EXP.Services.Models.SearchBuildingModel
+
+@{
+    ViewBag.Title = "Search Buildings";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+@Scripts.Render("~/Scripts/searchBuildings.js")
+<h2>Search Buildings</h2>
+
+@using (Html.BeginForm("SearchBuilding", "Admin", FormMethod.Post, new { @id = "searchBuildingForm" }))
+{
+    <table id="searchCriteria">
+        <tr>
+            <td>
+                <ul class="left">
+                    <li class="odd">
+                        <label>Building Name:</label>
+                        @Html.EditorFor(model => model.BuildingName)
+                    </li>
+                    <li class="even">
+                        <label>Owner's Last Name:</label>
+                        @Html.EditorFor(model => model.OwnersLastName)
+                    </li>
+                    <li class="odd">
+                        <label>Manager Last Name:</label>
+                        @Html.EditorFor(model => model.ManagerLastName)
+                    </li>
+                    <li class="even">
+                        <label>State:</label>
+                        @Html.DropDownListFor(model => model.StateID, Model.States, "All")
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <ul class="left">
+                    <li class="odd">
+                        <label>Owner's First Name:</label>
+                        @Html.EditorFor(model => model.OwnersFirstName)
+                    </li>
+                    <li class="even">
+                        <label>Manager First Name:</label>
+                        @Html.EditorFor(model => model.ManagerFirstName)
+                    </li>
+                    <li class="odd">
+                        <label>City:</label>
+                        @Html.EditorFor(model => model.City)
+                    </li>
+                    <li class="even">
+                        <label>Zip Code:</label>
+                        @Html.EditorFor(model => model.ZipCode)
+                    </li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="SEARCH" id="btnSave" name="btnSave" class="btn btn-warning" />
+    <br/>
+
+    if (Model.Buildings != null) {
+    <b>Search Results</b>
+    <table id="lstResult" class="table table-striped dataTable">
+        <tr>
+            <th>Building Name</th>
+            <th>Owner</th>
+            <th>Manager</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Tenants</th>
+            <th>Parking Lots</th>
+        </tr>
+        @{ int i = 0; }
+        @foreach (var building in Model.Buildings)
+        {
+            <tr class='@(i % 2 == 0 ? "odd" : "even")'>
+                <td>@building.BuildingName</td>
+                <td>@string.Format("{0} {1}", building.OwnerFirstName, building.OwnerLastName)</td>
+                <td>@string.Format("{0} {1}", building.ManagerFirstName, building.ManagerLastName)</td>
+                <td>@building.City</td>
+                <td>@string.Format("{0}", building.IsActive ? "Active" : "Inactive")</td>
+                <td></td>
+                <td></td>
+            </tr>
+            {i++;}
+        }
+    </table>
+    }
+}

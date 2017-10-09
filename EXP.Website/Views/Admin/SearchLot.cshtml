@@ -1,0 +1,70 @@
+﻿@model EXP.Services.Models.SearchLotModel
+@{
+    ViewBag.Title = "Search Lots";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+<h2>Search Lots</h2>
+@using (Html.BeginForm("SearchLot", "Admin", FormMethod.Post, new { @id = "searchBuildingForm" }))
+{
+    <table id="searchCriteria">
+        <tr>
+            <td>
+                <ul class="left">
+                    <li class="odd">
+                        <label>Lot Name:</label>
+                        @Html.EditorFor(model => model.LotName)
+                    </li>                   
+                    <li class="even">
+                        <label>State:</label>
+                        @Html.DropDownListFor(model => model.StateID, Model.States, "All")
+                    </li>
+                </ul>
+            </td>
+            <td>
+                <ul class="left">
+                    <li class="odd">
+                        <label>City:</label>
+                        @Html.EditorFor(model => model.City)
+                    </li>
+                    <li class="even">
+                        <label>Zip Code:</label>
+                        @Html.EditorFor(model => model.ZipCode)
+                    </li>                    
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <input type="submit" value="SEARCH" id="btnSave" name="btnSave" class="btn btn-warning" />
+    <br/>
+
+    if (Model.Lots != null) {
+    <b>Search Results</b>
+    <table id="lstResult" class="table table-striped dataTable">
+        <tr>
+            <th>Lot name</th>
+            <th>Building Name</th>
+            <th>Parking Operator</th>
+            <th>Parking Manager</th>
+            <th>Parking Attendants</th>
+            <th>City</th>
+            <th>Status</th>
+            <th>Inventory</th>
+        </tr>
+        @{ int i = 0; }
+        @foreach (var Lot in Model.Lots)
+        {
+            <tr class='@(i % 2 == 0 ? "odd" : "even")'>
+                <td>@Lot.LotName</td>
+                <td>@Lot.BuildingName</td>
+                <td>TBD</td>
+                <td>TBD</td>
+                <td></td>
+                <td>@Lot.City</td>
+                <td>@string.Format("{0}", Lot.IsActive ? "Active" : "Inactive")</td>
+                <td><a href="/Admin/Inventory/@Lot.LotID"  >View inventory</a></td>
+            </tr>
+            { i++; }
+        }
+    </table>
+    }
+}

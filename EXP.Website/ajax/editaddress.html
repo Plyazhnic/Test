@@ -1,0 +1,44 @@
+<!-- New Address -->
+	<div id="address" class="pop-up edit_address">
+	<a class="close" title="close" href="dashboard.html"></a>	
+		<div class="title-bar">
+			<h3>Edit Address</h3>
+		</div>
+		<div class="content">
+			<p>Provide an address below and then click Save to save it to your profile.</p>			
+			<form id="editBuildingForm" method="post" action="#">
+				<ul class="left">
+					<li>
+						<label id="city" for="city">City</label>
+						<input type="text" name="city"/>	
+					</li>
+                    <li>
+						<label for="address1">Address 1</label>
+						<input class="required" type="text" name="address1"/>							
+					</li>	
+				</ul>
+				<ul class="right">
+                    <li>
+                        <label for="address2">Address 2</label>
+						<input type="text" name="address2"/>	                       
+                    </li>						
+					<li>
+                        <div class="state2">
+							<label id="state" for="state">State</label>
+							<select name="state">
+                                <option value="">Select state</option>	
+							</select>
+						</div>							
+					    <label for="zipcode">Zip Code</label>
+						<input type="text" name="zipcode"/>				
+					</li>									
+				</ul>		
+				<div style="clear:both;">
+					<input style="float:left; clear:none;" class="button" type="submit" name="save" value="Save" />
+                    <input style="float: left; clear: none; margin-left: 22px;" class="button" type="submit"
+                        name="cancel" value="Cancel" />
+				</div>
+			</form>			
+		</div>
+	</div>
+	<!-- End New Address -->

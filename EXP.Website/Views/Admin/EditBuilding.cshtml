@@ -1,0 +1,200 @@
+﻿@model EXP.Services.Models.EditBuildingModel
+
+@{
+    ViewBag.Title = "EditBuilding";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Edit/Create Building</h2>
+
+@using (Html.BeginForm("EditBuilding", "Admin", FormMethod.Post, new { @id = "editBuildingForm" }))
+{
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.Building.BuildingID)
+        @Html.HiddenFor(model => model.Building.AddressID)
+        @Html.HiddenFor(model => model.Building.MailingAddressID)
+        @Html.HiddenFor(model => model.BuildingAddress.AddressID)
+        @Html.HiddenFor(model => model.MailingAddress.AddressID)
+        <ul class="left">
+            <li class="odd">
+                <label>Building Name:</label>
+                @Html.EditorFor(model => model.Building.BuildingName)
+            </li>
+            <li class="even">
+                <label>Select Building Owner:</label>
+                <label class="error" for="Building_OwnerID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.Building.OwnerID,Model.Owners,"Select Building Owner")
+                <a href="#" class="btn btn-primary">Add</a>
+            </li>
+            <li class="odd">
+                <label>Select Building Manager:</label>
+                @Html.DropDownListFor(model=> model.Building.ManagerID,Model.Managers,"Select Building Manager")
+                <a href="#" class="btn btn-primary">Add</a>
+            </li>
+            <li class="even">
+                <label>Building Address:</label>
+                @Html.EditorFor(model => model.BuildingAddress.Address1)
+            </li>
+            <li class="odd">
+                <label>Address cont.:</label>
+                @Html.EditorFor(model => model.BuildingAddress.Address2)
+            </li>
+            <li class="even">
+                <label>City:</label>
+                @Html.EditorFor(model => model.BuildingAddress.City)
+            </li>
+            <li class="odd">
+                <label>State:</label>
+                <label class="error" for="BuildingAddress_StateID" generated="true"></label>
+               @Html.DropDownListFor(model=> model.BuildingAddress.StateID,Model.States,"Select State")
+            </li>
+            <li class="even">
+                <label>Zip Code:</label>
+                @Html.EditorFor(model => model.BuildingAddress.ZipCode)
+            </li>
+            <li class="odd">
+                <label>Phone:</label>
+                @Html.EditorFor(model => model.Building.PrimaryPhoneNumber)
+            </li>
+            <li class="even">
+                <label>Fax:</label>
+                @Html.EditorFor(model => model.Building.PrimaryFaxNumber)
+            </li>
+            <li class="odd">
+                <label>Status:</label>
+                @Html.DropDownListFor(model=>model.Building.IsActive,new List<SelectListItem>(){ new SelectListItem(){ Text = "Active", Value="True"}, new SelectListItem(){ Text = "Not active", Value="False"}})
+            </li>
+            <li class="use_li">
+                 @Html.CheckBoxFor(model=>model.iSMailing)<label class="use_lbl">Use Building Address As Mailing Address</label>
+            </li>
+        </ul>
+        <ul id="mailingList" class="left">
+            <li class="odd tborder">
+                <label>Mailing Address:</label>
+                @Html.EditorFor(model => model.MailingAddress.Address1)
+            </li>
+            <li class="even">
+                <label>Address cont.:</label>
+                @Html.EditorFor(model => model.MailingAddress.Address2)
+            </li>
+            <li class="odd">
+                <label>City:</label>
+                @Html.EditorFor(model => model.MailingAddress.City)
+            </li>
+            <li class="even">
+                <label>State:</label>
+                <label class="error" for="MailingAddress_StateID" generated="true"></label>
+                @Html.DropDownListFor(model=> model.MailingAddress.StateID,Model.States,"Select State")
+            </li>
+            <li class="odd">
+                <label>Zip Code:</label>
+                @Html.EditorFor(model => model.MailingAddress.ZipCode)
+            </li>
+            <li class="even">
+                <label>Phone:</label>
+                @Html.EditorFor(model => model.Building.MailingPhoneNumber)
+            </li>
+            <li class="odd">
+                <label>Fax:</label>
+                @Html.EditorFor(model => model.Building.MailingFaxNumber)
+            </li>
+        </ul>
+        <ul id="bankAccountList" class="left">
+            <li class="odd">
+                <label class="use_lbl"><span class="blue">Bank Account Setup Details</span></label>
+            </li>
+            <li class="odd tborder">
+                <label>Bank Name:</label>
+                @Html.EditorFor(model => model.Building.BankName)
+            </li>
+            <li class="even">
+                <label>Account Holder Name:</label>
+                @Html.EditorFor(model => model.Building.AccountName)
+            </li>
+            <li class="odd">
+                <label>Account Number:</label>
+                @Html.EditorFor(model => model.Building.AccountNumber)
+            </li>
+            <li class="even">
+                <label>Bank Routing Number:</label>
+                @Html.EditorFor(model => model.Building.RoutingNumber)
+            </li>
+            <li class="odd comments">
+                <label>Other Notes:</label>
+                @Html.TextAreaFor(model => model.Building.Notes)
+            </li>
+        </ul>
+        <ul id="billingList" class="left">
+            <li class="odd">
+                <label class="use_lbl"><span class="blue">Billing &amp Invoicing</span></label>
+            </li>
+            <li class="odd tborder">
+                <label>City Parking Tax Rate(%):</label>
+                @Html.EditorFor(model => model.Building.TaxRate)
+            </li>
+            <li class="even">
+                <label>Billing Date:</label>
+                <label>1st day of the mounth</label>
+            </li>
+            <li class="odd">
+                <label>Due Date Reminder (days):</label>
+                @Html.EditorFor(model => model.Building.DueDateReminder)
+            </li>
+            <li class="even">
+                <label>Reminder Frequency(days):</label>
+                @Html.EditorFor(model => model.Building.ReminderFrequency)
+            </li>
+            <li class="odd">
+                <label>Reminder Cutoff(days):</label>
+                @Html.EditorFor(model => model.Building.ReminderCutoff)
+            </li>
+            <li class="even">
+                <label>Invoice Regeneration Cutt-Off Day:</label>
+                @Html.DropDownListFor(model => model.Building.InvoiceCutoff,Model.InvoiceCutoffs,"Select")
+            </li>       
+        </ul>
+        <ul id="feesList" class="left">
+            <li class="odd">
+                <label class="use_lbl"><span class="blue">ExpressPark Fees</span></label>
+            </li>
+            <li class="odd tborder">
+                <label>ACH Discount Rate(%):</label>
+                @Html.EditorFor(model => model.Building.ACHDiscountRate)
+            </li>
+            <li class="even">
+                <label>Credit Card Discount Rate(%):</label>
+                @Html.EditorFor(model => model.Building.CCDiscountRate)
+            </li>
+            <li class="odd">
+                <label>Montly Fee($):</label>
+                @Html.EditorFor(model => model.Building.MontlyFee)
+            </li>
+            <li class="even">
+                <label>Montly Fee Billing Day:</label>
+                @Html.DropDownListFor(model => model.Building.MFBillingDay,Model.MFBillngDays,"Select")
+            </li>
+            <li class="odd">
+                <label class="use_lbl"><span class="blue">Notification Settings</span></label>
+            </li>
+            <li class="odd comments tborder">
+                <label>Validation Book Notification Email:</label>
+                @Html.TextAreaFor(model => model.Building.VBNotification)
+            </li>       
+        </ul>
+        <div class="save">
+            <input type="submit" value="Save" name="save" class="btn btn-primary" />
+        </div>
+    </fieldset>
+}
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        if ($('#iSMailing').is(':checked')) {
+            $('#mailingList').find('input:text').attr('readonly', true).css('opacity', 0.7);
+            $('#mailingList').find('select').attr('readonly', true).css('opacity', 0.7);
+        }
+    })
+</script>
+

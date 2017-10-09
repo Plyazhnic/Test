@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Buildings";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>Buildings</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Create building", "EditBuilding", null, new { @class="btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="BuildingsTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Building name</th>
+                    <th>Owner</th>
+                    <th>Manager</th>
+                    <th>City</th>
+                    <th>Status</th>
+                    <th>Tenants</th>
+                    <th>Parking lots</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>

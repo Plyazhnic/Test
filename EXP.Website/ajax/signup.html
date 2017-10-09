@@ -1,0 +1,229 @@
+		<!-- sign up  -->
+		<div id="sign-up" class="pop-up">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Sign Up</h3>
+			</div>
+			<div class="content">
+				
+				<form id="signup-form" method="post" action="#">
+                    <input id="tenantId" type="hidden" value=""/>
+					<ul>
+						<li>
+							<label for="full-name">First Name</label>
+							<input class="required" type="text" name="firstname"/>
+							
+						</li>
+                        <li>
+							<label for="full-name">Last Name</label>
+							<input class="required" type="text" name="lastname"/>
+							
+						</li>
+						<li id="li_email">
+							<label for="email">Email Address</label>
+							<input class="required email"type="text" name="email"/>
+							
+						</li>
+						<li id="li_userName">
+							<label for="username">Desired Username</label>
+							<input id="sign-up-username" class="required" type="text" name="username"/>
+                            <!--<label class="success" for="username"></label>-->
+						</li>
+						
+						<li >
+							<label for="password">Password</label>
+							<input id="sign-up-password" class="required" type="password" name="password"/>
+							
+						</li>
+						<li >
+							<label for="password2">Confirm Password</label>
+							<input class="required" type="password" name="password2"/>
+							
+						</li>
+						<li style="margin-bottom:20px;"><label class="label_check" for="subscribe_check"><input type="checkbox" id="subscribe_check" name="subscribe_check" value="subscribe" checked="checked"/>
+							I would like to receive news about Expresspark, including updates, services and offers.<br/> 
+							Your data will never be shared with anyone.</label>
+						</li>
+						<li style="margin-bottom:10px;"><label class="label_check" for="agree"><input type="checkbox" id="agree" name="agree"  value="agree"/>Agree to <a href="terms.html">Terms of Use</a> and <a href="privacy.html">Privacy Statement</a>
+						</label>
+                            <span id="agree_span">
+                                <label class="error" for="agree" generated="true"></label>
+                            </span>
+						</li>
+					</ul>
+                    
+				<input class="button" type="submit" name="sign-up" value="Sign Up" />
+				</form>
+				
+			</div>
+		</div>
+	<script>   
+    
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+		
+		$('.close').click(function(event){
+		   	$('#overlay').hide();
+		   	$(this).parents('.pop-up').hide();
+			$('#login').show();
+            $('#backstretch').remove();
+            $.backstretch("/images/home-bg.jpg", { speed: 'slow' });
+		  	event.preventDefault(); 
+		});
+
+		$("#signup-form").validate({
+            validClass: "success",
+		    errorClass: "error",
+		    success: function (label) {
+		          label.not('[for="agree"]').addClass("success").text("OK");
+		    },
+
+            rules: {
+                email: {
+                    required: true,
+                    email: true,
+                    uniqueEmail: true
+                },
+                username: {
+                    required: true,
+                    uniqueUserName: true
+                },
+                password: {
+                    required: true,
+                    minlength: 6,
+                },
+                password2: {
+                    required: true,
+                    minlength: 6,
+                    equalTo: "#sign-up-password"
+                },
+                agree: {
+                    required: true,
+                },
+            },
+            messages: {
+                email: { required: "No email address", email: "Invalid email address", uniqueEmail: "email already exists" },
+                username: { uniqueUserName: "Already exists" },
+                password: { required: "Too short", minlength: "Too short" },
+                password2: { required: "Password doesn't match", minlength: "Password doesn't match", equalTo: "Password doesn't match" }
+            }
+        });
+
+		var rez;
+
+        $.validator.addMethod("uniqueUserName", function (value, element) {
+            if (value=='') {
+                $('#li_userName').find('label.success').remove();
+            }
+            $.ajax({
+                url: "./Account/CheckUsername",
+                type: "POST",
+                async: false,
+                dataType: "json",
+                data: {
+                    "userName": value
+                },
+                success: function (response) {
+                    rez = response.success;
+                }
+            });
+            return rez;
+        }, "Already exists");
+
+        var rez1;
+
+        $.validator.addMethod("uniqueEmail", function (value, element) {
+            if (value == '') {
+                $('#li_email').find('label.success').remove();
+            }
+            $.ajax({
+                url: "./Account/CheckEmail",
+                type: "POST",
+                async: false,
+                dataType: "json",
+                data: {
+                    "email": value
+                },
+                success: function (response) {
+                    rez1 = response.success;
+                }
+            });
+            return rez1;
+        }, "Already exists");
+        
+
+
+		$('#signup-form').submit(function(event) {
+		    $("#signup-form").validate();
+
+		    if ($("#signup-form").valid()) {
+		        $.ajax({
+		            url: "./Account/ResetSession",
+		            type: "POST",
+		            async: false,
+		            dataType: "json",
+		            success: function (response) {
+		            }
+		        });
+		        $('#signup-form').find('[name=sign-up]').attr('disabled', 'disabled');
+		        $.ajax({
+		            url: "./Account/Register",
+		            type: "POST",
+		            dataType: "json",
+		            data: {
+                        "firstName": $(this).find('input[name="firstname"]').val(),
+		                "lastName": $(this).find('input[name="lastname"]').val(),
+		                "email": $(this).find('input[name="email"]').val(),
+		                "userName": $(this).find('input[name="username"]').val(),
+		                "password": $(this).find('input[name="password"]').val(),
+		                "subscribe": $(this).find('input[name="subscribe_check"]').is(':checked'),
+		                "tenantId": $(this).find('#tenantId').val()
+		            },
+                    success: function (registerResponse) {
+                        if (registerResponse.success) {
+                            $.cookie("ASP.NET_SessionId", registerResponse.sessionId);
+			                $.ajax({
+				                url: "ajax/almostdone.html",
+				                type: "GET",
+				                dataType:"html",				
+				                success: function(html) {		
+				                    $('#sign-up').remove();
+
+				                    $('#backstretch').remove();
+				                    $.backstretch("/images/almost-done-bg.jpg", { speed: 'slow' });
+        
+                                    $('#overlay').show();
+                                    		
+					                $('body').append(html);						   
+				                },
+				                error: function(XMLHttpRequest , etype, exo){
+					                alert(etype, exo);
+				                 }					 
+			                });			
+                        } else {
+                            $('#signup-form').find('[name=sign-up]').removeAttr('disabled');
+                            alert(registerResponse.error);
+                        }
+                    },
+                    error: function (XMLHttpRequest, etype, exo) {
+                        alert(etype, exo);
+                        return;
+                    }
+		        });
+		    }
+
+		  	event.preventDefault(); 
+		  	return false;
+	   });
+	});
+	</script> 
+	

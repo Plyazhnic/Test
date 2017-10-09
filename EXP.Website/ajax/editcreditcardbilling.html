@@ -1,0 +1,89 @@
+<!-- Edit Credit Card Billing -->
+	<div id="credit_card_billing" class="pop-up billing">
+	<a class="close" title="close" href="dashboard.html"></a>	
+		<div class="title-bar">
+			<h3>Edit Payment Information</h3>
+		</div>
+		<div class="content">
+			<p>Edit the payment information below and then click Save to save the changes.</p>			
+			<form method="post" action="#">
+				<ul class="left">					
+					<li>
+						<label for="card_holder">Card Holder</label>
+						<input type="text" class="required" name="card_holder"/>							
+					</li>
+					<li>
+						<label for="type">Type</label>
+						<select id="type" name="type">
+							<option value="">American Express</option>
+						</select>							
+					</li>					
+					<li>
+						<label for="number">Number</label>
+						<input type="text" class="required" name="number"/>							
+					</li>
+					<li>
+						<label id="exp_date_label" for="expiration_date">Expiration Date</label>
+						<label id="cvv_label"for="cvv">CVV</label>
+						<select id="month" name="month">
+							<option value="1">01</option>
+							<option value="2">02</option>
+							<option value="3">03</option>
+							<option value="4">04</option>
+							<option value="5">05</option>
+							<option value="6">06</option>
+							<option value="7">07</option>
+							<option value="8">08</option>
+							<option value="9">09</option>
+							<option value="10">10</option>
+							<option value="11">11</option>
+							<option value="12">12</option>
+						</select>							
+						<select id="year"  name="year">
+							<option value="2012">2012</option>
+							<option value="2013">2013</option>
+							<option value="2014">2014</option>
+							<option value="2015">2015</option>
+						</select>	
+						<input id="cvv" type="text" class="required" name="cvv"/>							
+					</li>				
+				</ul>
+				<ul class="right" style="padding-bottom:0;">		
+					<li style="padding-bottom:22px;">
+						<label>Billing Address</label>						
+						<p id="address_info">
+						Someones Name<br/>
+						5555 Address St<br/>
+						City, State, Zip<br/>
+						</p>
+						<a href="#">Edit</a>												
+					</li>
+					<li>
+						<label for="address1">Address 1</label>
+						<input type="text" class="required" name="address1"/>							
+					</li>
+					<li>
+						<label for="address2">Address 2</label>
+						<input type="text" class="required" name="address2"/>							
+					</li>
+					<li>
+						<label for="city">City</label>
+						<input type="text" class="required" name="city"/>							
+					</li>
+					<li>
+						<label id="state_label" for="state">State</label>
+						<label id="zip_label" for="zip">Zip Code</label>
+						<select id="state"  name="state">
+							<option value=""></option>							
+						</select>							
+						<input id="zip" type="text" class="required" name="zip"/>							
+					</li>
+				</ul>				
+				<div style="clear:both;">
+					<input style="float:left; clear:none;" class="button" type="submit" name="save" value="Save" />
+					<input style="float:left; clear:none;margin-left:22px;" class="button" type="submit" name="cancel" value="Cancel" />
+				</div>
+			</form>			
+		</div>
+	</div>
+	<!-- End Edit Credit Card Billing -->

@@ -1,0 +1,103 @@
+
+<script>   
+//Custom Check boxes and radio buttons
+function setupLabel() {
+    if ($('.label_check input').length) {
+        $('.label_check').each(function(){ 
+            $(this).removeClass('c_on');
+        });
+        $('.label_check input:checked').each(function(){ 
+            $(this).parent('label').addClass('c_on');
+        });                
+    };
+    if ($('.label_radio input').length) {
+        $('.label_radio').each(function(){ 
+            $(this).removeClass('r_on');
+        });
+        $('.label_radio input:checked').each(function(){ 
+            $(this).parent('label').addClass('r_on');
+        });
+    };
+};
+    $(document).ready(function(){
+        $('body').addClass('has-js');
+        $('.label_check, .label_radio').click(function(){
+            setupLabel();
+        });
+        
+        setupLabel();         
+			
+		$.validator.setDefaults({
+			   debug: true
+		});
+
+		$("select").selectbox();
+
+		var currentTime = new Date();
+		var month = currentTime.getMonth();
+		var day = currentTime.getDate();
+		var year = currentTime.getFullYear();
+		var settings = {
+		    startDate: new Date(year, month , day),
+		   // selectedDate: new Date(year, month ,day ),
+		    allowOld: false,
+		}
+		$('#start_date').glDatePicker(settings);
+		$('#end_date').glDatePicker(settings);
+	});		    
+	</script> 
+	
+
+		<!-- dashboard setup  -->
+		<div style="height:450px !important;" id="dashboard-setup-parking" class="dashboard-setup pop-up tenant-parking">
+			<a class="close" title="close" href="/"></a>	
+			<div class="title-bar">
+				<h3>Dashboard Setup</h3>
+			</div>
+			<div>
+				<img src="/images/progress-parking-employee.jpg" height="100" />
+			</div>
+			<div class="content">
+				<h2>
+				Parking Information
+				</h2>
+				<form method="post" action="#">
+				<ul class="left">					
+					<li>
+						<label for="start_date">Start Date <span>(First Day Parking)</span></label>
+						<input id="start_date" type="text" class="required date" name="start_date"/>							
+					</li>	
+				
+					<li>
+						<label for="reserved_spaces">Reserved Parking Spaces</label>
+						<select id="reserved_spaces" name="reserved_spaces">
+							<option value="">0</option>
+						</select>
+						<input id="reserved_spaces_cost" class="required" type="text" value="" name="reserved_spaces_cost"/>							
+					</li>		
+				</ul>
+				<ul class="right">	
+					
+					<li>
+						<label for="end_date">Expected End Date <span>(Last Day Parking)</span></label>
+						<input id="end_date"type="text" class="required date" name="end_date"/>							
+					</li>
+					
+					<li>
+						<label for="unreserved_spaces">Unreserved Parking Spaces</label>
+						<select id="unreserved_spaces" name="unreserved_spaces">
+							<option value="">0</option>
+						</select>
+						<input id="unreserved_spaces_cost" class="required" type="text" value="" name="unreserved_spaces_cost"/>							
+					</li>
+				</ul>	
+					<div style="clear:both;">
+						<div class="buttons"><input class="button" type="submit" name="continue" value="Continue" /></div>
+						<div class="buttons"><input class="button" type="submit" name="back" value="Back" /></div>
+					</div>
+				</form>
+				
+			</div>
+		</div>
+		
+	

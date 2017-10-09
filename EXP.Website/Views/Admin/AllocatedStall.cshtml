@@ -1,0 +1,76 @@
+﻿@model EXP.Services.Models.ParkingInventoryModel
+@{
+    ViewBag.Title = "AllocatedStall";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>AllocatedStall</h2>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<ul class="info">
+    <li class="odd bold">
+        <span class="title">Building Name:</span>
+        @if (Model.Building != null)
+        {
+            <span>@Model.Building.BuildingName</span>
+        }
+    </li>
+    <li class="even bold">
+        <span class="title">Lot Name:</span>
+        @if (Model.Lot != null)
+        {
+            <span>@Model.Lot.LotName</span>
+        }
+    </li>
+    <li class="odd">
+    </li>
+    <li class="odd tborder">
+        <span class="title">Stall Location:</span>
+        @if (Model.ParkingStall != null)
+        {
+            <span>@Model.ParkingStall.StallLocation</span>
+        }
+    </li>
+    <li class="even">
+        <span class="title">Stall Type:</span>
+        @if (Model.ParkingStall != null && Model.ParkingStall.ParkingStallType != null)
+        {
+            <span>@Model.ParkingStall.ParkingStallType.ParkingStallType1</span>
+        }
+    </li>
+    <li class="odd">
+        <span class="title">Count:</span>
+        @if (Model.CountStalls != null)
+        {
+            <span>@Model.CountStalls</span>
+        }
+    </li>
+</ul>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="AllocatedStallTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Tenant Name</th>
+                    <th>No of Stalls</th>
+                    <th>Rate</th>
+                    <th>Discount</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>
+<script type="text/javascript">
+    window.onload = function () {
+        OnAllocatedStalls(@Model.ParkingStallID);
+       @*// getCount(@Model.ParkingStallID);*@
+    } 
+</script>

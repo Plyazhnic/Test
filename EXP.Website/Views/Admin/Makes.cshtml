@@ -1,0 +1,34 @@
+﻿@{
+    ViewBag.Title = "VehicleMakes";
+    Layout = "~/Views/Shared/_Admin.cshtml";
+}
+
+<h2>VehicleMakes</h2>
+<div class="row">
+    <div class="span12">
+        <div class="btn-group">
+            @Html.ActionLink("Create make", "CreateMake", null, new { @class="btn btn-primary" })
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="span12">&nbsp;</div>
+</div>
+<div class="row">
+    <div class="span12">
+        <table id="VehicleMakesTable" class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Make</th>
+                    <th>Description</th>
+                    <th>isActive</th>
+                    <th>Updated date</th>
+                    <th>Created date</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody> 
+            </tbody>
+        </table>
+    </div>
+</div>

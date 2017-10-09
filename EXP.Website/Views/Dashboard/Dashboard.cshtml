@@ -1,0 +1,614 @@
+﻿@using EXP.Entity
+@using EXP.Entity.Enumerations
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Expresspark</title>
+    @Scripts.Render("~/bundles/dashboardCommon")
+    @if (ViewBag.UserProfile.UserProfileTypeID != (int)UserProfileTypeEnum.BuildingOwner)
+    {
+        @Scripts.Render("~/bundles/dashboard")
+    }
+    else
+    {
+        @Scripts.Render("~/bundles/dashboardOwner")
+    }
+    @Styles.Render("~/styles/dashboardStyles")
+    
+     <link href="~/Content/themes/base/jquery.ui.autocomplete.css" rel="stylesheet" type="text/css" />
+    <script>
+        var changeEmailUrl = '@Url.Action("ChangeEmail", "Dashboard")';
+        var changePasswordUrl = '@Url.Action("ChangePassword", "Dashboard")';
+        var newVehicleUrl = '@Url.Action("NewVehicle", "Dashboard")';
+        var editVehicleUrl = '@Url.Action("EditVehicle", "Dashboard")';
+        var removeVehicleUrl = '@Url.Action("RemoveVehicle", "Dashboard")';
+        var getVehicleUrl = '@Url.Action("GetVehicle", "Dashboard")';
+        var listVehiclesUrl = '@Url.Action("ListVehicles", "Dashboard")';
+        var listMakesUrl = '@Url.Action("ListMakes", "Dashboard")';
+        var listModelsUrl = '@Url.Action("ListModels", "Dashboard")';
+        var ListPhoneTypesUrl = '@Url.Action("ListPhoneTypes", "Dashboard")';
+        var getPersonallyAddressUrl = '@Url.Action("GetPersonallyAddress", "Dashboard")';
+        var editPersonalAddressUrl = '@Url.Action("EditPersonalAddress", "Dashboard")';
+        var dashboardUrl = '@Request.Url.GetLeftPart(UriPartial.Authority)@Url.Action("Dashboard", "Dashboard")';
+        var deleteAlertUrl = '@Url.Action("DeleteAlert", "Dashboard")';
+        var newPhoneUrl = '@Url.Action("NewPhone", "Dashboard")';
+        var listPhonesUrl = '@Url.Action("ListPhones", "Dashboard")';
+        var editPhoneUrl = '@Url.Action("EditPhone", "Dashboard")';
+        var removePhoneUrl = '@Url.Action("RemovePhone", "Dashboard")';
+        var getPhoneUrl = '@Url.Action("GetPhone", "Dashboard")';
+        var listStatesUrl = '@Url.Action("ListStates", "Dashboard")';
+        var newPaymentCCUrl = '@Url.Action("NewPaymentCreditCard", "Dashboard")';
+        var newPaymentOCUrl = '@Url.Action("NewPaymentOnlineCheck", "Dashboard")';
+        var getPaymentUrl = '@Url.Action("GetPayment", "Dashboard")';
+        var editCreditCardUrl = '@Url.Action("EditCreditCard", "Dashboard")';
+        var editOnlineCheckUrl = '@Url.Action("EditOnlineCheck", "Dashboard")';
+        var listBuildingTenantsUrl = '@Url.Action("ListBuildingTenants", "Dashboard")';
+        var getBuildingAddressUrl = '@Url.Action("GetBuildingAddress", "Dashboard")';
+        var editBuildingAddressUrl = '@Url.Action("EditBuildingAddress", "Dashboard")';
+        var getPhonesUrl = '@Url.Action("GetPhones", "Dashboard")';
+        var deleteBuildingAddressUrl = '@Url.Action("DeleteBuildingAddress", "Dashboard")';
+    </script>
+</head>
+<!-- End Head -->
+<body>
+    <div id="wrapper">
+        <!--  begin header -->
+        <div id="header">
+            <div id="logo">
+                <a class="logo_link" href="/" title="Expresspark">Expresspark</a>
+                <div id="sign_out">
+                    <ul>
+                        <li><a id="userNameLink" class="user_name" href="editpassword.html">Welcome: @string.Format("{0} {1}", ViewBag.UserProfile.FirstName, ViewBag.UserProfile.LastName)</a></li>
+                        <li>@Html.ActionLink("Sign Out", "LogOff", "Account", null, new { @class = "sign_out_link" })</li>                        
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- end header -->
+        <!-- begin content -->
+        <div id="content">
+            <div id="alerts" class="panel">
+                <div id="alerts_head">
+                    <img src="/images/alerts.png" /></div>
+                <div id="alerts_bar">
+                    <div class="date">
+                        <p>
+                            Date</p>
+                    </div>
+                    <div class="subject">
+                        <p>
+                            Subject</p>
+                    </div>
+                </div>
+                <div id="alerts_table">
+                    <table id="alert">
+                        <tbody>
+                            @{
+                                string url = "";
+                                string id = "";
+                                foreach (EXP.Entity.Alert alert in ViewBag.Alerts)
+                                {
+                                    switch (alert.EntityTypeID)
+                                    {
+                                        case (int)AlertEntityTypeEnum.PersonInfo:
+                                            id = "editAddressLink1";
+                                            url = "editaddress.html";
+                                            break;
+                                        case (int)AlertEntityTypeEnum.Vehicle:
+                                            id = "editVehicleLink1";
+                                            url = "editvehicle.html";
+                                            break;
+                                        case (int)AlertEntityTypeEnum.EmptyVehicle:
+                                            id = "newVehicleLink1";
+                                            url = "newvehicle.html";
+                                            break;
+                                        case (int)AlertEntityTypeEnum.ParkingInformation:
+                                            id = "editParkingLink1";
+                                            url = "";
+                                            break;
+                                        case (int)AlertEntityTypeEnum.EmptyPayment:
+                                            id = "editCreditCardLink1";
+                                            url = "editcreditcard.html";
+                                            break;
+                                        case (int)AlertEntityTypeEnum.Payment:
+                                            id = "editCreditCardLink1";
+                                            url = "editcreditcard.html";
+                                            break;
+                                    }
+                                <tr>
+                                    <td class="date_cell">
+                                        <label class="label_check" for=@String.Concat("alert", alert.AlertID)>
+                                            <input id=@String.Concat("alert", alert.AlertID) name=@String.Concat("alert", alert.AlertID) type="checkbox" />
+                                                @alert.CreatedDate.ToString("d", System.Globalization.DateTimeFormatInfo.InvariantInfo)</label>
+                                    </td>
+                                    <td class="info_cell">
+                                        @if (alert.AlertType.AlertPeriodValue != null &&
+                                            DateTime.Compare(alert.CreatedDate.AddDays((double)alert.AlertType.AlertPeriodValue), DateTime.Now) <= 0)
+                                        {  <span class="redAlert"><a id=@id href=@url>@alert.AlertText</a></span>  }
+                                        else
+                                        {  <span><a id=@id href=@url>@alert.AlertText</a></span>  }
+                                    </td>
+                                </tr>
+                                }}
+                            @*<tr>
+                                <td class="date_cell">
+                                    <label class="label_check" for="alert1">
+                                        <input id="alert1" name="alert1" type="checkbox" />08/16/12</label>
+                                </td>
+                                <td class="info_cell">
+                                    Your credit card will expire in 4 days. Please update your informtion under the
+                                    My Profile dialog box.
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="date_cell">
+                                    <label class="label_check" for="alert2">
+                                        <input id="alert2" name="alert2" type="checkbox" />07/02/12</label>
+                                </td>
+                                <td class="info_cell">
+                                    Your June invoice is now available.
+                                </td>
+                            </tr>*@
+                        </tbody>
+                    </table>
+                    <div class="form_button">
+                        <input class="button" type="submit" value="Delete" name="Delete" /></div>
+                </div>
+            </div>
+            <div class="left">
+                @if (ViewBag.UserProfile.UserProfileTypeID != (int)UserProfileTypeEnum.BuildingOwner)
+                {
+                    <div id="purchase" class="panel">
+                        <div id="purchase_head">
+                            <img src="/images/purchase.png" /></div>
+                        <div id="purchase_body">
+                            <div class="column">
+                                <div id="view_invoice" class="column_head">
+                                    <a href="#">View Invoice</a>
+                                </div>
+                                <div class="panel_content">
+                                    <p>
+                                        Statement Balance:&nbsp;&nbsp;&nbsp;&nbsp;<span class="bold">$75.00</span></p>
+                                    <p>
+                                        Payment Due Date:&nbsp;&nbsp;&nbsp;&nbsp;<span class="bold">09/01/12</span></p>
+                                    <div class="payment_button">
+                                        <input class="button" type="submit" value="Make Payment" name="payment" /></div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="column_head">
+                                    <h4>
+                                        Validation Books</h4>
+                                </div>
+                                <div class="panel_content" style="">
+                                    <div style="float: left; margin-right: 33px;">
+                                        <p>
+                                            Quantity:&nbsp;</p>
+                                    </div>
+                                    <select style="margin-left: 0;" name="key_cards_quantity">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <div style="clear: both;">
+                                        <p>
+                                            Amount Due:&nbsp;&nbsp;&nbsp;&nbsp;<span class="bold">$0.00</span></p>
+                                    </div>
+                                    <div class="payment_button">
+                                        <input class="button" type="submit" value="Make Payment" name="payment" /></div>
+                                </div>
+                            </div>
+                            <div class="column">
+                                <div class="column_head">
+                                    <h4>
+                                        Key Cards</h4>
+                                </div>
+                                <div class="panel_content">
+                                    <div style="float: left; margin-right: 33px;">
+                                        <p>
+                                            Quantity:&nbsp;</p>
+                                    </div>
+                                    <select style="margin-left: 0;" name="validation_books_quantity">
+                                        <option value="0">0</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                    </select>
+                                    <div style="clear: both;">
+                                        <p>
+                                            Amount Due:&nbsp;&nbsp;&nbsp;&nbsp;<span class="bold">$0.00</span></p>
+                                    </div>
+                                    <div class="payment_button">
+                                        <input class="button" type="submit" value="Make Payment" name="payment" /></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.UserProfile.UserProfileTypeID == (int)UserProfileTypeEnum.BuildingOwner)
+                {
+				    <div id="buildings" class="panel" style="height: auto; ">
+					    <div id="buildings_head"><img src="/images/buildings.png" /></div>
+					    <div id="buildings_body" style="height:auto; ">
+					    <div style="padding-left:0;" class="form_button"><input class="button" type="submit" value="Add Building" name="add_building"/></div>
+						   @if (ViewBag.Buildings != null & ViewBag.Buildings.Count > 0)
+                           {
+                               foreach (Building building in ViewBag.Buildings)
+                               { 
+                                <div class="column" data-id="@building.BuildingID" style="height:auto; ">
+                                    <div class="panel_content" style="height:auto" >
+                                        <p>
+                                            <span class="bold">@building.BuildingName</span><br />
+                                            @building.BuildingAddress.Address1 
+                                            @if(!string.IsNullOrEmpty(building.BuildingAddress.Address2)){<span>,</span>} 
+                                            &nbsp<span data-id="address2" >@building.BuildingAddress.Address2</span><br />
+                                            @building.BuildingAddress.City,&nbsp @building.BuildingAddress.State.StateName,&nbsp @building.BuildingAddress.ZipCode<br />
+                                            <a data-id="@building.BuildingID"  href="/editemail.html">Edit</a> | <a data-id="@building.BuildingID" href="addtenant.html">Add Tenant </a>| <a data-id="@building.BuildingID" href="#">Remove</a>
+                                        </p>
+                                    </div>
+                                </div>                             
+                               }
+                           }                                                
+					    </div>
+				    </div>
+                }
+
+                @if (ViewBag.UserProfile.UserProfileTypeID != (int)UserProfileTypeEnum.BuildingOwner)
+                {
+                    <div id="profile" class="panel">
+                        <div id="profile_head"><img src="/images/profile.png" /></div>
+                        <div id="profile_body">
+                            <div class="column" style="width:180px" >
+                                <div class="panel_content" style="">
+                                    <p>
+                                        <span class="bold">Company Address</span><br />
+                                        12345 This Street, Apt 0<br />
+                                        City, State Zip
+                                    </p>
+                                    <br />
+                                    <p>
+                                        <span class="bold">Email Address</span><br />
+                                        <span id="emailAddress">@ViewBag.UserProfile.EmailAddress</span>
+                                        <br />
+                                        <a id="editEmailLink" href="editemail.html">Edit</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="column" style="width:180px">
+                                <div class="panel_content" style="">
+                                    <p>
+                                        <span class="bold">Personal Address</span><br />
+                                        <span id="personal_address">@ViewBag.Address.Address1<br />
+                                            @ViewBag.Address.City@if (!String.IsNullOrEmpty(ViewBag.Address.ZipCode))
+                                                                 {
+                                                                     <span>,</span>
+                                                                 } @ViewBag.Address.ZipCode</span>
+                                        <br />
+                                        <a id="editAddressLink" href="editaddress.html">Edit</a>
+                                    </p>
+                                    <p>
+                                        <span class="bold">Username/Password</span><br />
+                                        <br />
+                                        <a id="editPasswordLink" href="/editpassword.html">Edit Password</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="column" style="width:180px" >
+                                <div class="panel_content" style="">
+                                    <p>
+                                        <span class="bold">Phone</span><br />
+                                        <span id="phones">
+                                            @if (ViewBag.Phones.Count == 0)
+                                            {
+                                                <br />
+                                            }
+                                            @foreach (EXP.Entity.Phone phone in ViewBag.Phones)
+                                            {
+                                                <span id=@String.Concat("phone", phone.PhoneID)>
+                                                    @String.Format("{0} ({1})", phone.PhoneNumber, phone.PhoneType.PhoneType1)</span>
+                                                if (ViewBag.Phones.IndexOf(phone) == 0)
+                                                {
+                                                    <br />
+                                                }
+                                            } 
+                                        </span>
+                                        <br />
+                                        <span id="spanManagePhones" style='@string.Concat("display: ", (ViewBag.Phones.Count == 0 ? "none" : ""))'><a id="editPhoneLink" href="/editphone.html">Edit</a>&nbsp; | &nbsp;<a id="removePhoneLink" href="/removephone.html">Remove</a>&nbsp; | &nbsp;</span><a id="newPhoneLink" href="/newphone.html">New</a>
+                                    </p>
+                                    <p>
+                                        <span class="bold">Payment Method</span><br />
+                                        @*<img src="/images/visa.png">&nbsp; ending in 2222*@
+                                        @if (!String.IsNullOrEmpty(ViewBag.CreditCard))
+                                        {
+                                            @String.Format("card ending in {0}", ViewBag.CreditCard)
+                                        }
+                                        <br />
+                                        <a id="editCreditCardLink" href="editcreditcard.html">Edit</a>&nbsp; @*| &nbsp;<a href="#">Remove</a>&nbsp;*@
+                                        @*| &nbsp;<a id="newCreditCardLink" href="newcreditcard.html">New</a>*@
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="vehicle_column" class="column" style="width:180px">
+                                <div class="panel_content" style="">
+                                    <p>
+                                        <span class="bold">Vehicle(s)</span><br />
+                                        <span id="vehicles">
+                                            @if (ViewBag.Vehicles.Count == 0)
+                                            {
+                                                <br />
+                                            }
+                                            @foreach (EXP.Entity.Vehicle vehicle in ViewBag.Vehicles)
+                                            {
+                                                <span id=@String.Concat("vehicle", vehicle.VehicleID)>
+                                                    @String.Format("{0} {1}", vehicle.VehicleMake != null ? vehicle.VehicleMake.VehicleMake1 : "", vehicle.VehicleModel != null ? vehicle.VehicleModel.VehicleModel1 : "")</span>
+                                                if (ViewBag.Vehicles.IndexOf(vehicle) == 0)
+                                                {
+                                                    <br />
+                                                }
+                                            } 
+                                        </span>
+                                        <br />
+                                        <span id="spanManageVehicles" style='@string.Concat("display: ", (ViewBag.Vehicles.Count == 0 ? "none" : ""))'><a id="editVehicleLink" href="editvehicle.html">Edit</a>&nbsp; | &nbsp;<a id="removeVehicleLink" href="removevehicle.html">Remove</a>&nbsp; | &nbsp;</span><a id="newVehicleLink" href="newvehicle.html">New</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                @if (ViewBag.UserProfile.UserProfileTypeID == (int)UserProfileTypeEnum.BuildingOwner)
+                {
+				    <div id="profile-owner" class="panel">
+					    <div id="profile_head"><img src="/images/profile.png" /></div>
+					    <div id="profile_body">
+						    <div class="column">							
+							    <div class="panel_content" style="">
+							    <p><span class="bold">Email Address</span><br/>
+							    <span id="emailAddress">@ViewBag.UserProfile.EmailAddress</span>
+							    <br/>
+							    <a id="editEmailLink" href="editemail.html">Edit</a>
+							    </p>								
+							    </div>				
+						    </div>
+						    <div class="column">							
+							    <div class="panel_content" style="">
+							    <p><span class="bold">Username/Password</span><br/>
+							    <br/>
+                                <a id="editPasswordLink" href="/editpassword.html">Edit Password</a>
+							    </p>								
+							    </div>				
+						    </div>
+						    <div class="column">							
+							    <div class="panel_content" style="">
+                                    <p>
+                                        <span class="bold">Phone</span><br />
+                                        <span id="phones">
+                                            @if (ViewBag.Phones.Count == 0)
+                                            {
+                                                <br />
+                                            }
+                                            @foreach (EXP.Entity.Phone phone in ViewBag.Phones)
+                                            {
+                                                <span id=@String.Concat("phone", phone.PhoneID)>
+                                                    @String.Format("{0} ({1})", phone.PhoneNumber, phone.PhoneType.PhoneType1)</span>
+                                                if (ViewBag.Phones.IndexOf(phone) == 0)
+                                                {
+                                                    <br />
+                                                }
+                                            } 
+                                        </span>
+                                        <br />
+                                        <span id="spanManagePhones" style='@string.Concat("display: ", (ViewBag.Phones.Count == 0 ? "none" : ""))'><a id="editPhoneLink" href="/editphone.html">Edit</a>&nbsp; | &nbsp;<a id="removePhoneLink" href="/removephone.html">Remove</a>&nbsp; | &nbsp;</span><a id="newPhoneLink" href="/newphone.html">New</a>
+                                    </p>
+							    </div>				
+						    </div>
+						
+					    </div>
+				    </div>
+                }
+            </div>
+            <div class="right">
+                <div id="reports" class="panel">
+                    @if (ViewBag.UserProfile.UserProfileTypeID != (int)UserProfileTypeEnum.BuildingOwner)
+                    {
+                    <div id="reports_head"><img src="/images/reports.png" /></div>
+                    <div class="reports_bar_header">
+                        <h5>Reports From 2012</h5>
+                    </div>
+                    <div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="date_cell">
+                                        08/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        07/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        06/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        05/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        04/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        03/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        02/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        01/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="reports_bar">
+                        <h5>Reports From 2011</h5>
+                    </div>
+                    <div>
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td class="date_cell">
+                                        08/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        07/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        06/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        05/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="date_cell">
+                                        04/16/12
+                                    </td>
+                                    <td class="info_cell">
+                                        <a href="#">Download PDF</a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    }
+                    @if (ViewBag.UserProfile.UserProfileTypeID == (int)UserProfileTypeEnum.BuildingOwner)
+                    {
+					<div id="reports_head"><img style="margin-right:20px;float:left;" src="/images/reports.png" />
+						<select id="select-building" name="select-building" style="margin-top:60px !important; width:170px;float:right;">
+                            @foreach (Building building in ViewBag.Buildings)
+                            {
+                                <option value="@building.BuildingID">@building.BuildingName</option>
+                            }
+                            @*<option value="3">3</option>
+                            <option value="5">5</option>*@
+						</select>
+					</div>
+					<div class="reports_bar_header_owner"></div>
+					<div class="reports_bar_header2"><h5 id="reportsOwnerBuildingName">15350-15400 Sherman Way</h5></div>
+					<div id="reports_toolbar">
+						<select id="search-tenant" name="search-tenant" style="margin-top:0 !important; height: 24px;width:100px;float:left;">
+							<option value="">All Tenants</option>
+						</select>
+						<select id="search-days" name="search-days" style="margin-top:0 !important; height: 24px;width:100px;float:left;">
+							<option value="0">All</option>
+							<option value="365">Past 365 Days</option>
+							<option value="60">Past 60 Days</option>
+							<option value="30">Past 30 Days</option>
+							<option value="15">Past 15 Days</option>
+							<option value="5">Past 5 Days</option>
+							<option value="1">Past 1 Days</option>
+						</select>
+						<input class="filter-button" type="submit" value="Filter" name="Filter"/>
+					</div>
+					<div>
+						<table id="reports-table">
+						<thead>
+							<tr>
+								<th class="tenant-name">Tenant</th>
+								<th class="contact-name">Contact</th>
+								<th class="report">Report</th>
+							</tr>
+						</thead>
+                            <tbody>
+                                <tr name="tenantTemplate" style="display: none;">
+                                    <td class="tenant-name"><span name="tenant-name"></span></td>
+                                    <td class="contact-name"><span name="contact-name"></span></td>
+                                    <td class="report"><a href="#" title="Download Report">Download Report</a></td>
+                                </tr>
+                            </tbody>
+					</table>
+					</div>
+                    }
+                </div>
+            </div>
+        </div>
+        <!-- end content -->
+    </div>
+    <!-- pop-ups -->
+    <div id="overlay" style="display: none;">
+    </div>
+    <!-- begin footer -->
+    <div id="footer">
+        <div id="footer_content">
+            <ul>
+                <li><a href="help.html">Help</a></li>
+                <li><a class="contact_us" href="#">Contact Us</a></li>
+                <li><a href="terms.html">Terms of Use</a></li>
+                <li><a href="privacy.html">Privacy Policy</a></li>
+            </ul>
+            <div id="copyright">
+                &copy; 2012 Expresspark. All rights reserved.</div>
+        </div>
+    </div>
+    <!-- end footer -->
+</body>
+</html>
+

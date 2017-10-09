@@ -1,0 +1,5 @@
+﻿ALTER TABLE [dbo].[ValidationBooks]
+	ADD CONSTRAINT [FK_ValidationBook_Lot] FOREIGN KEY ([LotID]) REFERENCES [dbo].[Lot] ([LotID])	ON DELETE NO ACTION ON UPDATE NO ACTION;
+
+
+	

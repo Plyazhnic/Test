@@ -1,0 +1,392 @@
+﻿body {
+    padding-top: 60px;
+}
+.bBorder
+{
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+    border-color: #000000;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.align_center {
+    text-align: center !important;
+}
+
+.align_right {
+    text-align: right !important;
+}
+
+label.error, ul.left li label.error, ul.info li label.error
+{
+    margin: 0px 0px 0px 5px;
+    width: auto;
+    color: #FF0000;
+    position: absolute;
+    font-size: 16px;
+    padding-top: 3px;
+}
+
+ul.left
+{
+    margin: auto;
+    list-style-type: none;
+    width: 600px;
+}
+
+ul.left li
+{
+    width: 600px;
+    display: block;
+    height: 30px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+ul.left li label
+{
+    width: 250px;
+    float: left;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+ul.left li label.use_lbl
+{
+    width: 350px;
+    font-weight: bold;
+}
+
+ul.left li input
+{
+    width: 250px;
+    float: left;
+}
+
+ul.left li input[type="text"]
+{
+    background: -moz-linear-gradient(top, #fF9F9F9, #FFFFFF);/* Firefox 3.6+ */ 
+    /* Chrome 1-9, Safari 4-5 */
+    background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(0%,#F9F9F9), color-stop(100%,#FFFFFF));
+    /* Chrome 10+, Safari 5.1+ */
+    background: -webkit-linear-gradient(top, #F9F9F9, #FFFFFF);
+    background: -o-linear-gradient(top, #F9F9F9, #FFFFFF); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #F9F9F9, #FFFFFF); /* IE10 */
+    background: linear-gradient(top, #F9F9F9, #FFFFFF); /* CSS3 */ 
+    background: #F9F9F9; 
+}
+
+ul.left li select
+{
+    width: auto;
+}
+
+ul.left li.use_li
+{
+    padding: 15px 0px 0px 0px;
+    margin: 0px;
+}
+
+ul.left li.visitor {
+    display: none;
+}
+
+li.even
+{
+    background-color: #F9F9F9;
+}
+
+ul.left input[type="checkbox"]
+{
+    margin: 5px;
+    width: auto;
+}
+
+li.tborder
+{
+    border-top-style: solid;
+    border-top-width: 2px;
+    border-color: #D9D8D8;
+}
+
+ul.left li.bBorder {
+    border-bottom-style: solid;
+    border-color: #D9D8D8;
+    border-bottom-width: 1px;
+}
+
+ul.left li.comments, ul.info li.comments
+{
+    min-height: 120px;
+}
+
+div.save
+{
+    float: left;
+    clear: both;
+    margin-left: 840px;
+}
+
+div.edit
+{
+    float: left;
+    clear: both;
+    margin-left: 300px;
+}
+
+div.edit a {
+    margin-right: 10px;
+}
+
+textarea.comments
+{
+    width: 300px;
+    height: 100px;
+    clear: both;
+    background: -moz-linear-gradient(top, #fF9F9F9, #FFFFFF);/* Firefox 3.6+ */ 
+    /* Chrome 1-9, Safari 4-5 */
+    background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(0%,#F9F9F9), color-stop(100%,#FFFFFF));
+    /* Chrome 10+, Safari 5.1+ */
+    background: -webkit-linear-gradient(top, #F9F9F9, #FFFFFF);
+    background: -o-linear-gradient(top, #F9F9F9, #FFFFFF); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #F9F9F9, #FFFFFF); /* IE10 */
+    background: linear-gradient(top, #F9F9F9, #FFFFFF); /* CSS3 */ 
+    background: #F9F9F9; 
+}
+
+span.blue {
+    font-size: 16px;
+    font-weight: bold;
+    color: #32487C;
+}
+
+.table-stall td{
+    border: 1px solid #CCCCCC;
+}
+
+.row .table-stall th {
+    text-align: center;
+    border: 1px solid #CCCCCC !important;
+    background: -moz-linear-gradient(top, #DEEFF7, #F5FAFE); /* Firefox 3.6+ */ /* Chrome 1-9, Safari 4-5 */
+    background: -webkit-gradient(linear, left top, left bottom, 
+                color-stop(0%,#DEEFF7), color-stop(100%,#F5FAFE)); /* Chrome 10+, Safari 5.1+ */
+    background: -webkit-linear-gradient(top, #DEEFF7, #F5FAFE);
+    background: -o-linear-gradient(top, #DEEFF7, #F5FAFE); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top, #DEEFF7, #F5FAFE); /* IE10 */
+    background: linear-gradient(top, #DEEFF7, #F5FAFE); /* CSS3 */
+    background: #DEEFF7;
+}
+
+.row .left_span {
+    margin-left: 40px;
+    font-weight: bold;
+    float: left;
+    padding-bottom: 5px;
+}
+
+.row .right_span, .container .right_span{
+    float: right;
+    padding-bottom: 5px;
+}
+
+a.add {
+    text-decoration: underline;
+    color: #5F478C;
+}
+img.add {
+    padding-right: 5px;
+}
+
+ul.info {
+    margin: 0px;
+    list-style-type: none;
+}
+
+ul.info li {
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    height: 30px;
+}
+ul.info span {
+    display: inline-block;
+    line-height: 30px;
+}
+
+ul.info span.title {
+    width: 300px;
+}
+
+ul.info label {
+    display: inline-block;
+    width: 300px;
+    line-height: 30px;
+    margin-left: 15px;
+}
+
+ul.info span.edit_lease {
+    line-height: 30px;
+    margin:0 10px;
+}
+
+ul.info textarea.comments {
+    width:500px;
+}
+
+#isSupervisor_box {
+    margin-top: 0px;
+    margin-left: 35px;
+    height: 22px;
+}
+
+#isSupervisor_box label {
+    width: auto;
+    margin-top: -5px;
+}
+
+#User_HireDate-gldp, #TermStart-gldp, #TermEnd-gldp{
+	display: block;
+	z-index:10000;
+	width:210px;
+	border:solid 1px #cecece;
+	background-color:#cecece;
+	font-size:10px;
+}
+
+/* Table style */
+.gldp-default table
+{
+	border-spacing:1px;
+	border-collapse:inherit;
+}
+
+/* Default row height */
+.gldp-default tr
+{
+	line-height:28px;
+}
+
+/* Default style of cell */
+.gldp-default td
+{
+	margin:0;
+	padding:0;
+	width:33px;
+	text-align:center;
+}
+
+/* Previous and Next arrows */
+.gldp-default-prevnext
+{
+	font-family:"times new roman";
+	color:#222;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Month Year title */
+.gldp-default-monyear
+{
+	color:#222;
+	font-size:0.9em !important;
+	font-weight:bold;
+}
+
+/* Days of the week (Sun, Mon, ...) */
+.gldp-default-dow
+{
+	background-color:#5b97c8;
+	color:#eee;
+	font-size:0.8em !important;
+	font-weight:bold;
+}
+
+/* Selectable days */
+.gldp-default-day
+{
+	background-color:#fff;
+	color:#222;
+	border:solid 1px #fff;
+	font-weight:bold;
+}
+.gldp-default-day-hover
+{
+	background-color:#fff;
+	color:#5b97c8;
+	border:solid 1px #f82200;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Selected days */
+.gldp-default-selected
+{
+	background-color:#fee;
+	color:#222;
+	border:solid 1px #f82200;
+}
+
+/* Today */
+.gldp-default-today
+{
+	background-color:#5b97c8;
+	color:#fff;
+	border:solid 1px #5b97c8;
+	font-weight:bold;
+}
+.gldp-default-today-hover
+{
+	background-color:#fff;
+	color:#f82200;
+	border:solid 1px #5b97c8;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Weekends */
+.gldp-default-sat, .gldp-default-sun
+{
+	background-color:#fff;
+	color:#004f8f;
+	border:solid 1px #fff;
+	font-weight:bold;
+}
+.gldp-default-sat-hover, .gldp-default-sun-hover
+{
+	background-color:#fff;
+	color:#004f8f;
+	border:solid 1px #f82200;
+	cursor:pointer;
+	font-weight:bold;
+}
+
+/* Non-selectable day.  Includes:previous/next month days and days that fall in the allowOld and endDate conditions */
+.gldp-default-noday
+{
+	background-color:#fff;
+	border:solid 1px #fff;
+	color:#666;
+	cursor:wait;
+}
+
+#EditMontlyParkingTable .date {
+    width:80px;
+}
+
+#EditMontlyParkingTable .number {
+    width:45px;
+}
+
+#EditMontlyParkingTable select {
+    width:120px;
+}
+
+.btn-primary {
+    margin-left: 10px;
+    margin-bottom: 10px !important;
+}
